@@ -1,0 +1,54 @@
+/* Hallmark · macrostructure: Bento Grid · genre: atmospheric · theme: Midnight · enrichment: none · nav: N5 · footer: Ft5 */
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V4 */
+:root {
+  /* ── 色彩（OKLCH，暖色锚点 hue 60）── */
+  --color-paper:     oklch(13% 0.010 60);
+  --color-paper-2:   oklch(17% 0.012 60);
+  --color-paper-3:   oklch(21% 0.014 60);
+  --color-rule:      oklch(30% 0.010 60);
+  --color-neutral:   oklch(58% 0.010 60);
+  --color-muted:     oklch(72% 0.008 60);
+  --color-ink:       oklch(94% 0.006 80);
+  --color-accent:    oklch(74% 0.16 55);
+  --color-accent-2:  oklch(66% 0.15 25);
+  --color-focus:     oklch(72% 0.17 55);
+  --color-done:      oklch(72% 0.11 150);
+  --color-pending:   oklch(50% 0.02 60);
+
+  /* ── 字体 ── */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ── 间距（4pt 刻度）── */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* ── 字号（1.25 大三分比）── */
+  --text-xs: 0.7rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.9531rem;
+  --text-2xl: 2.4414rem;
+  --text-display: clamp(2.25rem, 5vw + 0.75rem, 3.75rem);
+
+  /* ── 缓动 & 时长 ── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.36, 0, 0.66, -0.28);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+
+  /* ── 圆角 ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
