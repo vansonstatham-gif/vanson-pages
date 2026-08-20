@@ -93,6 +93,11 @@ section.cat{margin-bottom:var(--space-2xl)}
 .card h3{font-family:var(--font-display);font-weight:700;font-size:var(--text-md);letter-spacing:-0.01em;margin:0;overflow-wrap:anywhere;min-width:0}
 .card p{margin:0;color:var(--color-muted);font-size:var(--text-sm);font-weight:350;line-height:1.55}
 .card .meta{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(--color-neutral);margin-top:auto}
+.agent-top{display:flex;align-items:center;justify-content:space-between;gap:var(--space-sm)}
+.avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;border:1px solid var(--color-rule)}
+.avatar-rei{background:oklch(28% 0.09 235)}
+.avatar-fitness{background:oklch(28% 0.09 150)}
+.avatar-finance{background:oklch(28% 0.09 85)}
 
 /* ── Footer ── */
 footer{margin-top:var(--space-3xl);padding:var(--space-2xl) 0 var(--space-3xl);text-align:center;border-top:1px solid var(--color-rule)}
@@ -191,16 +196,31 @@ footer .note{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(
   </section>
 
   <section class="cat" id="agents">
-    <div class="cat-head"><span class="ico">◆</span><h2>智能体</h2><span class="count">2 项</span></div>
+    <div class="cat-head"><span class="ico">◆</span><h2>智能体</h2><span class="count">3 项</span></div>
     <div class="grid">
       <div class="card">
-        <span class="tag done">已完成</span>
+        <div class="agent-top">
+          <div class="avatar avatar-rei">🌙</div>
+          <span class="tag active">主智能体</span>
+        </div>
+        <h3>绫波丽 Ayanami Rei</h3>
+        <p>你的主智能体——日常对话、语音陪伴、日语学习，一直都在你身边。</p>
+        <span class="meta">就是我 · DeepSeek V4</span>
+      </div>
+      <div class="card">
+        <div class="agent-top">
+          <div class="avatar avatar-fitness">💪</div>
+          <span class="tag done">已完成</span>
+        </div>
         <h3>健身教练</h3>
         <p>综合型教练人设 + 客户档案，解剖/营养/训练方法论，接管健康数据。</p>
         <span class="meta">DeepSeek Flash</span>
       </div>
       <div class="card">
-        <span class="tag done">已完成</span>
+        <div class="agent-top">
+          <div class="avatar avatar-finance">📈</div>
+          <span class="tag done">已完成</span>
+        </div>
         <h3>金融顾问分析师</h3>
         <p>投资、资产配置、风险管理视角的顾问角色。</p>
         <span class="meta">独立智能体</span>
