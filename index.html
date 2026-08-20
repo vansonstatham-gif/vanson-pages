@@ -94,10 +94,8 @@ section.cat{margin-bottom:var(--space-2xl)}
 .card p{margin:0;color:var(--color-muted);font-size:var(--text-sm);font-weight:350;line-height:1.55}
 .card .meta{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(--color-neutral);margin-top:auto}
 .agent-top{display:flex;align-items:center;justify-content:space-between;gap:var(--space-sm)}
-.avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;border:1px solid var(--color-rule)}
-.avatar-rei{background:oklch(28% 0.09 235)}
-.avatar-fitness{background:oklch(28% 0.09 150)}
-.avatar-finance{background:oklch(28% 0.09 85)}
+.avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--color-rule);background:var(--color-paper-3)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ── Footer ── */
 footer{margin-top:var(--space-3xl);padding:var(--space-2xl) 0 var(--space-3xl);text-align:center;border-top:1px solid var(--color-rule)}
@@ -200,7 +198,7 @@ footer .note{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(
     <div class="grid">
       <div class="card">
         <div class="agent-top">
-          <div class="avatar avatar-rei">🌙</div>
+          <div class="avatar"><img src="avatars/rei.png" alt="绫波丽"></div>
           <span class="tag active">主智能体</span>
         </div>
         <h3>绫波丽 Ayanami Rei</h3>
@@ -209,7 +207,7 @@ footer .note{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(
       </div>
       <div class="card">
         <div class="agent-top">
-          <div class="avatar avatar-fitness">💪</div>
+          <div class="avatar"><img src="avatars/fitness.png" alt="健身教练"></div>
           <span class="tag done">已完成</span>
         </div>
         <h3>健身教练</h3>
@@ -218,7 +216,7 @@ footer .note{font-family:var(--font-outlier);font-size:var(--text-xs);color:var(
       </div>
       <div class="card">
         <div class="agent-top">
-          <div class="avatar avatar-finance">📈</div>
+          <div class="avatar"><img src="avatars/finance.png" alt="金融顾问"></div>
           <span class="tag done">已完成</span>
         </div>
         <h3>金融顾问分析师</h3>
