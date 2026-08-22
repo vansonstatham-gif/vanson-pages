@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="深圳出发 · 九月三日游：珠海浪漫海岛、汕头南澳美食海岛、惠州双月湾躺平看海 —— 图文行程攻略。">
+<meta name="description" content="深圳出发 · 九月三日游：三套精选方案 + 广东吃喝玩乐地图（20 个目的地）——图文行程攻略，可筛选、可收藏、可随机翻牌。">
 <title>三天，和喜欢的人，去广东看海</title>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="guangdong-trip.css">
@@ -13,14 +13,16 @@
  * theme: custom (warm-cream paper · sea-teal accent · system CJK serif/sans — 大陆可直连)
  * nav: masthead · footer: statement · enrichment: photography (Unsplash, verified) */
 *,*::before,*::after{box-sizing:border-box}
-html{overflow-x:clip}
+html{overflow-x:clip;scroll-padding-top:5rem}
 body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
   font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;height:auto}
 a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:var(--color-accent-bright)}
-a:focus-visible,.pill:focus-visible{outline:2px solid var(--color-focus);outline-offset:3px}
+a:focus-visible,.pill:focus-visible,.chip:focus-visible,.btn:focus-visible,
+.mcard__fav:focus-visible,.mcard__toggle:focus-visible,.to-top:focus-visible{
+  outline:2px solid var(--color-focus);outline-offset:3px}
 ::selection{background:var(--color-accent-bright);color:var(--color-paper)}
 
 h1,h2,h3{font-family:var(--font-display);font-style:normal;font-weight:600;
@@ -29,6 +31,10 @@ p{margin:0}
 .mono{font-family:var(--font-outlier);font-size:var(--text-sm);
   letter-spacing:0.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 .num{font-variant-numeric:tabular-nums}
+
+/* ——— 阅读进度条 ——— */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;
+  background:var(--color-accent);transform:scaleX(0);transform-origin:0 0}
 
 /* ——— masthead ——— */
 .mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 88%,transparent);
@@ -152,6 +158,68 @@ p{margin:0}
 .bonus b{font-family:var(--font-display);font-weight:600;font-size:1.15rem}
 .bonus p{color:var(--color-muted);font-size:.95rem}
 
+/* ——— 加更篇 · 广东吃喝玩乐地图 ——— */
+.more{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.more__intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:var(--space-md);margin-bottom:var(--space-lg)}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem var(--space-md);margin-bottom:var(--space-xl)}
+.btn{font-family:var(--font-body);font-size:.88rem;font-weight:500;color:var(--color-paper);
+  background:var(--color-accent);border:1px solid var(--color-accent);border-radius:var(--radius-pill);
+  padding:.4rem .95rem;cursor:pointer;white-space:nowrap;
+  transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.btn:hover{background:var(--color-ink);border-color:var(--color-ink)}
+.btn:active{transform:translateY(1px)}
+.chip{font-family:var(--font-body);font-size:.86rem;color:var(--color-muted);
+  background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.35rem .85rem;cursor:pointer;white-space:nowrap;
+  transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+  background var(--dur-fast) var(--ease-out)}
+.chip:hover{color:var(--color-ink);border-color:var(--color-accent-bright)}
+.chip.is-on{color:var(--color-paper);background:var(--color-accent);border-color:var(--color-accent)}
+.chip[data-filter="fav"].is-on{background:var(--color-ink);border-color:var(--color-ink)}
+.more__empty{padding:var(--space-xl);border:1px dashed var(--color-rule);border-radius:var(--radius-md);
+  color:var(--color-muted);text-align:center}
+.moregrid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.moregrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:64rem){.moregrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
+.mcard.is-picked{outline:3px solid var(--color-accent-bright);outline-offset:2px}
+.mcard__fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--color-rule)}
+.mcard__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.mcard:hover .mcard__fig img{transform:scale(1.03)}
+.mcard__fav{position:absolute;top:.6rem;right:.6rem;width:2.2rem;height:2.2rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:color-mix(in oklch,var(--color-paper) 90%,transparent);
+  backdrop-filter:blur(4px);cursor:pointer;font-size:1rem;line-height:1;color:var(--color-neutral);
+  display:grid;place-items:center;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.mcard__fav:hover{color:var(--color-accent);transform:scale(1.08)}
+.mcard__fav.is-fav{color:var(--color-accent);border-color:var(--color-accent-bright)}
+.mcard__body{padding:var(--space-lg);display:flex;flex-direction:column;gap:.45rem;flex:1}
+.mcard__cat{font-family:var(--font-outlier);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  align-self:flex-start;border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.1rem .6rem}
+.cat-coast{color:var(--color-cat-coast)}
+.cat-food{color:var(--color-cat-food)}
+.cat-nature{color:var(--color-cat-nature)}
+.cat-out{color:var(--color-cat-out)}
+.mcard h3{font-size:1.35rem;padding-right:1.5rem}
+.mcard__sub{color:var(--color-muted);font-size:.95rem}
+.mcard__time{font-family:var(--font-outlier);font-size:.76rem;letter-spacing:.03em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.mcard__toggle{margin-top:auto;padding-top:.6rem;align-self:flex-start;background:none;border:none;
+  font-family:var(--font-body);font-size:.9rem;color:var(--color-accent);cursor:pointer;
+  display:inline-flex;align-items:center;gap:.3rem}
+.mcard__toggle:hover{color:var(--color-accent-bright)}
+.mcard__toggle .arr{display:inline-block;transition:transform var(--dur) var(--ease-out)}
+.mcard.is-open .mcard__toggle .arr{transform:rotate(180deg)}
+.mcard__detail{max-height:0;overflow:hidden;opacity:0;
+  transition:max-height var(--dur-slow) var(--ease-in-out),opacity var(--dur) var(--ease-out)}
+.mcard.is-open .mcard__detail{max-height:60rem;opacity:1}
+.mcard__detail-in{margin-top:.3rem;padding-top:.5rem;border-top:1px dashed var(--color-rule);
+  display:flex;flex-direction:column;gap:.4rem}
+.mcard__detail-in .meta__value{font-size:.92rem}
+
 /* ——— 锦囊 ——— */
 .tips{background:var(--color-ink);color:var(--color-paper);padding-block:var(--space-4xl);
   border-radius:var(--radius-lg) var(--radius-lg) 0 0}
@@ -172,6 +240,15 @@ p{margin:0}
   font-variant-numeric:tabular-nums;border:1px solid color-mix(in oklch,var(--color-paper) 25%,transparent);
   border-radius:var(--radius-pill);padding:.3rem .8rem;color:var(--color-paper)}
 .budget em{font-style:normal;color:var(--color-accent-bright)}
+
+/* ——— 回到顶部 ——— */
+.to-top{position:fixed;right:1rem;bottom:1rem;z-index:90;width:2.6rem;height:2.6rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:var(--color-paper);color:var(--color-ink);
+  box-shadow:0 8px 20px -10px color-mix(in oklch,var(--color-ink) 45%,transparent);
+  cursor:pointer;display:none;place-items:center;font-size:1.1rem;
+  transition:background var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.to-top.is-show{display:grid}
+.to-top:hover{background:var(--color-ink);color:var(--color-paper)}
 
 /* ——— footer ——— */
 .foot{background:var(--color-ink);color:var(--color-paper);padding:0 clamp(1rem,4vw,2.5rem) var(--space-3xl)}
@@ -198,6 +275,8 @@ p{margin:0}
 <body>
 <script>document.documentElement.classList.add('js')</script>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="mast">
   <div class="mast__in">
     <a class="wordmark" href="#top">周末出逃计划<small>Sept · 三日</small></a>
@@ -205,6 +284,7 @@ p{margin:0}
       <a href="#zhuhai">珠海</a>
       <a href="#shantou">汕头</a>
       <a href="#huizhou">惠州</a>
+      <a href="#more">地图</a>
       <a class="is-more" href="#tips">锦囊</a>
     </nav>
   </div>
@@ -218,7 +298,7 @@ p{margin:0}
       <p class="hero__lede">九月的海风还暖，太阳落得慢。挑一套合心意的方案，照着 <span class="num">Day 1 / 2 / 3</span> 走就行——车程都压在 3 小时以内，预算丰俭由人。</p>
       <div class="hero__meta">
         <span>高铁最快 30 分钟</span>
-        <span>三种玩法</span>
+        <span>三套方案 + 20 个目的地</span>
         <span>含吃住预算</span>
       </div>
     </div>
@@ -235,7 +315,7 @@ p{margin:0}
   <div class="sec__head reveal">
     <span class="mono sec__tag">先定调</span>
     <h2 class="sec__title">三选一，你想怎么过这三天</h2>
-    <p class="sec__lede">三种完全不同的节奏。选气质最对的那一个，不用纠结。</p>
+    <p class="sec__lede">三种完全不同的节奏。选气质最对的那一个，不用纠结。看完下面 20 个目的地，随时可以回头换。</p>
   </div>
   <div class="pick__grid">
     <article class="pcard pcard--rec reveal">
@@ -385,7 +465,456 @@ p{margin:0}
 
   <div class="bonus reveal">
     <b>备选 · 广州 1–2 日</b>
-    <p>如果那几天想躲开海边暴晒：高铁 30 分钟到广州，早茶（陶陶居、点都德）、永庆坊、沙面、珠江夜游、东山口咖啡。城市漫游线，下雨天也不扫兴。</p>
+    <p>如果那几天想躲开海边暴晒：高铁 30 分钟到广州，早茶（陶陶居、点都德）、永庆坊、沙面、珠江夜游、东山口咖啡。城市漫游线，下雨天也不扫兴。更详细的玩法在下面的地图里。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 加更篇 · 广东吃喝玩乐地图 ═════════════ -->
+<section class="more" id="more">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">加更篇 · 大满贯</span>
+    <h2 class="sec__title">广东吃喝玩乐地图</h2>
+    <p class="sec__lede">从近到远铺了 20 个目的地，覆盖海岛、美食、山水和出省周边。点卡片右上角 ♥ 收藏，点「展开」看吃喝玩乐详情。</p>
+  </div>
+
+  <div class="toolbar" role="group" aria-label="目的地筛选">
+    <button class="btn" id="shuffle" type="button" aria-label="随机翻一个目的地">🎲 帮我翻牌</button>
+    <button class="chip is-on" type="button" data-filter="all">全部</button>
+    <button class="chip" type="button" data-filter="coast">🌊 海岛海岸</button>
+    <button class="chip" type="button" data-filter="food">🍜 古城美食</button>
+    <button class="chip" type="button" data-filter="nature">⛰️ 山水休闲</button>
+    <button class="chip" type="button" data-filter="out">🚄 出省周边</button>
+    <button class="chip" type="button" data-filter="fav">♥ 只看收藏</button>
+  </div>
+
+  <p class="more__empty" id="moreEmpty" hidden>还没有收藏任何目的地——回到上面，点卡片右上角的 ♥ 试试。</p>
+
+  <div class="moregrid">
+    <!-- ── 海岛海岸 ── -->
+    <article class="mcard reveal" id="more-hailling" data-cat="coast">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏阳江海陵岛">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&h=450&q=65" alt="海陵岛沙滩" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-coast">海岛海岸</span>
+        <h3>阳江 · 海陵岛</h3>
+        <p class="mcard__sub">广东海岛天花板，闸坡海鲜大排档现捞现做</p>
+        <p class="mcard__time">高铁约 2 小时 · 预算 ¥2200–3800</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 阳江站 高铁约 <b>2 小时</b>；出站打车 / 转大巴约 1 小时到闸坡</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">闸坡海景酒店或民宿；想要安静，选十里银滩一线</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 闸坡大排档海鲜 + 大角湾沙滩下水；D2 十里银滩 / 马尾岛等日落；D3 睡到自然醒吃一顿返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>海胆饭</b>、泥焗鸡、现炒花蟹、白灼虾、清蒸野生鱼</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想吃生猛海鲜又想看海，9 月还能下水</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-zhanjiang" data-cat="coast">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏湛江硇洲岛">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&h=450&q=65" alt="湛江海岸" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-coast">海岛海岸</span>
+        <h3>湛江 · 硇洲岛 + 赤坎老街</h3>
+        <p class="mcard__sub">生蚝之城，《隐秘的角落》同款老街</p>
+        <p class="mcard__time">高铁约 3.5 小时 · 预算 ¥2000–3500</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 湛江西 高铁约 <b>3.5 小时</b>；市区打车逛赤坎，硇洲岛从码头坐船</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">赤坎老街附近老城区，或住市区看霞山海滨</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 赤坎老街（《隐秘的角落》取景地）+ 霞山观海长廊；D2 渡船上硇洲岛看火山岩海岸、那晏湾；D3 市区吃生蚝返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>烤生蚝</b>（性价比极高）、沙虫粥、白切鸡、肠粉、海鲜捞</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想躲开游客、吃最地道海鲜，愿意坐久一点高铁</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-shanwei" data-cat="coast">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏汕尾红海湾">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1471922694854-ff1b63b20054?auto=format&fit=crop&w=800&h=450&q=65" alt="红海湾海岸" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-coast">海岛海岸</span>
+        <h3>汕尾 · 红海湾风车岛</h3>
+        <p class="mcard__sub">离深圳最近的风车海，日落绝美</p>
+        <p class="mcard__time">高铁约 1 小时 · 预算 ¥1500–2800</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 汕尾站 高铁约 <b>1 小时</b>；打车 / 大巴去红海湾约 40 分钟</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">遮浪半岛海景酒店，或市区住一晚</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 遮浪半岛看「一边浪一边平」奇观 + 沙滩；D2 风车岛环岛拍风车与海，观音阁看日落；D3 市区二马路吃小吃返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>海胆炒饭</b>、薄饼、擂茶、菜茶、马鲛鱼丸、蚝仔煎</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">不想跑太远，要出片又好吃的短途</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-maoming" data-cat="coast">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏茂名浪漫海岸">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&h=450&q=65" alt="茂名海岸" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-coast">海岛海岸</span>
+        <h3>茂名 · 浪漫海岸 + 中国第一滩</h3>
+        <p class="mcard__sub">人少海阔，电白海鲜 + 日落</p>
+        <p class="mcard__time">高铁约 2.5 小时 · 预算 ¥2000–3300</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 茂名站 高铁约 <b>2.5 小时</b>；打车去电白浪漫海岸 / 中国第一滩约 40 分钟</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">浪漫海岸度假区酒店，或水东湾海景房</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 中国第一滩玩沙踏浪；D2 浪漫海岸躺一天看日落，晚上电白海鲜街；D3 睡醒返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">电白海鲜（濑尿虾、螃蟹）、<b>荔枝柴烧鸡</b>、水东芥菜、化州糖水</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想避开热门海岛，人少清净地看海</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 古城美食 ── -->
+    <article class="mcard reveal" id="more-shunde" data-cat="food">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏顺德">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&h=450&q=65" alt="顺德美食" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-food">古城美食</span>
+        <h3>佛山顺德 · 美食之都</h3>
+        <p class="mcard__sub">世界美食之都，三天吃 12 顿不重样</p>
+        <p class="mcard__time">高铁约 1.5 小时 · 预算 ¥1800–3200</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 广州南转 → 容桂 / 顺德站，全程约 <b>1.5 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">大良老城区，方便晚上出来吃</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 清晖园 + 大良金榜牛奶街；D2 容桂渔人码头看日落 + 顺德菜；D3 早茶后返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>双皮奶</b>、炸牛奶、鱼生、烧鹅、粥底火锅、桑拿鸡、陈村粉、伦教糕</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">纯吃货向，为一口好吃的就值回高铁票</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-chaozhou" data-cat="food">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏潮州">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&h=450&q=65" alt="潮州美食" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-food">古城美食</span>
+        <h3>潮州 · 古城工夫茶</h3>
+        <p class="mcard__sub">比汕头更原味的潮汕，古城慢生活</p>
+        <p class="mcard__time">高铁约 2.5 小时 · 预算 ¥2000–3600</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 潮汕站 高铁约 <b>2.5 小时</b>；转乘 / 打车约 40 分钟到古城</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">牌坊街附近的古城民宿</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 牌坊街逛吃 + 开元寺；D2 广济桥看「过河拆桥」+ 灯光秀，晚上工夫茶；D3 韩江边慢走返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>牛肉丸</b>、牛肉火锅、蚝烙、卤鹅、沙茶粿、鸭母捻、砂锅粥、工夫茶</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想要古风人文 + 潮汕美食双重满足</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-jieyang" data-cat="food">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏揭阳">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&h=450&q=65" alt="揭阳小吃" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-food">古城美食</span>
+        <h3>揭阳 · 榕城 + 惠来海岸</h3>
+        <p class="mcard__sub">潮汕三城里最「素」的古城，顺带看海</p>
+        <p class="mcard__time">高铁约 2.5 小时 · 预算 ¥1800–3000</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 揭阳站 高铁约 <b>2.5 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">榕城老城民宿</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 进贤门、城隍庙、老城区步行；D2 揭西大洋山，或惠来靖海海岸看海；D3 返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">揭阳肠粉、<b>普宁豆干</b>、猪脚圈、隆江猪脚饭（原产地）、蚝烙</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想走「非热门」潮汕，人少安静还便宜</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-meizhou" data-cat="food">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏梅州">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&h=450&q=65" alt="梅州客家菜" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-food">古城美食</span>
+        <h3>梅州 · 客家世界</h3>
+        <p class="mcard__sub">世界客都，围龙屋 + 客家美食</p>
+        <p class="mcard__time">高铁约 3 小时 · 预算 ¥1800–3000</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 梅州西 高铁约 <b>3 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">市区，或雁南飞茶田风景区度假酒店</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 客家围龙屋、客家博物馆；D2 雁南飞茶田风景区；D3 买客家特产返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>腌面 + 三及第汤</b>、盐焗鸡、酿豆腐、梅菜扣肉、客家娘酒、粄类小吃</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">对客家文化感兴趣，想吃清淡家常的客家菜</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-guangzhou" data-cat="food">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏广州">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&h=450&q=65" alt="广州夜景" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-food">古城美食</span>
+        <h3>广州 · 城市漫游</h3>
+        <p class="mcard__sub">早茶 + 骑楼 + 珠江夜游，下雨也不扫兴</p>
+        <p class="mcard__time">高铁 30 分钟 · 预算 ¥1500–2800</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 广州南 高铁约 <b>30–50 分钟</b>，地铁进城</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">越秀 / 荔湾老城，或珠江新城看夜景</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 沙面 + 永庆坊（西关）；D2 东山口咖啡 + 珠江夜游；D3 早茶后返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">早茶（虾饺、凤爪、肠粉）、<b>牛杂</b>、糖水、烧鹅、布拉肠；点都德 / 陶陶居等老字号</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想要城市漫游，或天气不好时的避雨线</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 山水休闲 ── -->
+    <article class="mcard reveal" id="more-qingyuan" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏清远英西峰林">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&h=450&q=65" alt="英西峰林晨雾" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>清远 · 英西峰林 + 古龙峡</h3>
+        <p class="mcard__sub">小桂林峰林 + 玻璃桥漂流，山水与刺激兼得</p>
+        <p class="mcard__time">高铁约 1 小时 · 预算 ¥1600–3000</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 清远站 高铁约 <b>1 小时</b>；转乘去英德 / 清新景区</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">英西峰林民宿，或清远市区</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 英西峰林骑电动车环线（洞天仙境、小赵州桥）；D2 古龙峡玻璃大峡谷 + 漂流；D3 市区吃清远鸡返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>清远鸡</b>（白切 / 桑拿）、竹筒饭、连州豆腐、走地鸡粥</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想要山水 + 一点刺激，年轻人偏好</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-shaoguan" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏韶关丹霞山">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&h=450&q=65" alt="丹霞山山体" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>韶关 · 丹霞山</h3>
+        <p class="mcard__sub">世界自然遗产，红色山体超出片</p>
+        <p class="mcard__time">高铁约 1.5 小时 · 预算 ¥1800–3200</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 韶关站 高铁约 <b>1.5 小时</b>；转乘约 1 小时到丹霞山</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">丹霞山景区门口客栈，或市区</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 长老峰看丹霞日落；D2 阳元石 + 翔龙湖；D3 南华寺（六祖）后返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">韶关酸笋焖鸭、<b>南雄板鸭</b>、浈江河鲜、山坑螺</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">喜欢爬山、地质地貌，秋天颜色最好</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-zhaoqing" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏肇庆七星岩">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=800&h=450&q=65" alt="肇庆山水" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>肇庆 · 七星岩 + 鼎湖山</h3>
+        <p class="mcard__sub">岭南山水代表，划船游岩洞</p>
+        <p class="mcard__time">高铁约 1.5 小时 · 预算 ¥1700–3000</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 肇庆东站 高铁约 <b>1.5 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">七星岩景区附近，或市区</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 七星岩（岩洞、划船）；D2 鼎湖山（庆云寺、飞水潭）；D3 买裹蒸粽返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>肇庆裹蒸粽</b>、文庆鲤、紫背天葵、高要河鲜、鼎湖上素</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想轻松游山玩水，节奏慢一点</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-heyuan" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏河源万绿湖">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&h=450&q=65" alt="万绿湖" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>河源 · 万绿湖 + 温泉</h3>
+        <p class="mcard__sub">广东最大水库 + 温泉度假，躺平首选</p>
+        <p class="mcard__time">高铁约 1.5 小时 · 预算 ¥2000–3500</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 河源东站 高铁约 <b>1.5 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">万绿湖码头附近，或巴伐利亚庄园温泉酒店</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 万绿湖游船登岛；D2 温泉度假村泡一天（巴伐利亚 / 客天下）；D3 吃客家菜返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">万绿湖鱼（清蒸 / 鱼头煲）、<b>客家酿豆腐</b>、盐焗鸡、五指毛桃汤、艾粄</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想纯放松泡温泉、不赶景点</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-jiangmen" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏江门开平台山">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&h=450&q=65" alt="那琴半岛日落" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>江门 · 开平碉楼 + 台山那琴半岛</h3>
+        <p class="mcard__sub">影视取景地 + 地质海岸，人文海景都有</p>
+        <p class="mcard__time">高铁约 1.5 小时 · 预算 ¥1800–3200</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 江门站 高铁约 <b>1.5 小时</b>；转乘去开平 / 台山</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">开平碉楼村落民宿，或台山海边</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 开平自力村 / 立园逛碉楼；D2 那琴半岛地质公园看礁石日落；D3 赤坎古镇返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>台山黄鳝饭</b>、台山蚝、马冈鹅、新会陈皮炖汤、开平豆腐角</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想看影视取景地又想要海边，人文 + 出片</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-luofushan" data-cat="nature">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏罗浮山">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&h=450&q=65" alt="罗浮山" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-nature">山水休闲</span>
+        <h3>惠州 · 罗浮山</h3>
+        <p class="mcard__sub">岭南第一山，道教名山，爬山祈福</p>
+        <p class="mcard__time">高铁约 1 小时 · 预算 ¥1500–2600</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 罗浮山站（广汕高铁）约 <b>1 小时</b>；或自驾约 1.5 小时</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">山脚酒店，或博罗县城</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 冲虚古观 + 爬山；D2 朱明洞、飞云顶看云海；D3 山下吃农家菜返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>罗浮山豆腐花</b>、客家菜、山坑鱼</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">喜欢道教文化、想爬山出汗，离深圳近</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 出省周边 ── -->
+    <article class="mcard reveal" id="more-chenzhou" data-cat="out">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏湖南郴州">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=800&h=450&q=65" alt="东江湖晨雾" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-out">出省周边</span>
+        <h3>湖南 · 郴州</h3>
+        <p class="mcard__sub">离广东最近的省外仙境，雾漫东江</p>
+        <p class="mcard__time">高铁约 2 小时 · 预算 ¥2000–3600</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 郴州西 高铁约 <b>2 小时</b></span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">资兴市东江湖边民宿，或市区</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 早起小东江看「雾漫东江」晨雾渔火；D2 高椅岭丹霞或莽山；D3 返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>东江三文鱼</b>（淡水）、烤东江鱼、栖凤渡鱼粉、临武鸭</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想出省又不想坐太久高铁，晨雾是真绝</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-guilin" data-cat="out">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏桂林阳朔">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&h=450&q=65" alt="漓江山水" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-out">出省周边</span>
+        <h3>广西 · 桂林阳朔</h3>
+        <p class="mcard__sub">漓江竹筏 + 遇龙河，中国山水名片</p>
+        <p class="mcard__time">高铁约 3 小时 · 预算 ¥2500–4200</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 桂林北 高铁约 <b>3 小时</b>；转乘或直达阳朔</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">阳朔西街附近，或遇龙河民宿</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 漓江精华段竹筏 / 游船；D2 遇龙河人工竹筏 + 十里画廊骑行；D3 银子岩或返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value"><b>啤酒鱼</b>、桂林米粉、桂林三花酒、本地螺蛳粉、恭城油茶</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">第一次出省游山水，经典不会错</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-xiamen" data-cat="out">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏厦门泉州">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=800&h=450&q=65" alt="厦门城市天际线" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-out">出省周边</span>
+        <h3>福建 · 厦门 + 泉州</h3>
+        <p class="mcard__sub">海 + 文艺 + 古早味，两城连玩</p>
+        <p class="mcard__time">高铁约 3 小时 · 预算 ¥2500–4000</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳北 → 厦门北 高铁约 <b>3 小时</b>；厦门 → 泉州 高铁约 40 分钟</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">厦门鼓浪屿 / 环岛路，或泉州西街</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 厦门鼓浪屿 + 环岛路骑行；D2 沙坡尾、猫街文艺逛吃；D3 泉州古城西街、开元寺，吃姜母鸭返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">厦门沙茶面、海蛎煎、花生汤；泉州<b>姜母鸭</b>、面线糊、土笋冻、润饼</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想海边 + 城市文艺 + 闽南小吃一次到位</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-sanya" data-cat="out">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏海南三亚">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&h=450&q=65" alt="三亚海岸" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-out">出省周边</span>
+        <h3>海南 · 三亚</h3>
+        <p class="mcard__sub">真正海岛度假，蜈支洲岛 + 海鲜放题</p>
+        <p class="mcard__time">飞机约 1.5 小时 · 预算 ¥4000+</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳宝安机场 → 三亚凤凰机场 约 <b>1.5 小时</b>，机票提前订更便宜</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">亚龙湾 / 海棠湾一线海景酒店</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 蜈支洲岛一日；D2 亚龙湾沙滩 + 酒店躺平；D3 免税店购物返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">海鲜市场加工、<b>椰子鸡</b>、清补凉、抱罗粉、东山羊</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">预算宽松，想要真·度假感</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="more-gangao" data-cat="out">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏香港澳门">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&h=450&q=65" alt="港澳城市" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-out">出省周边</span>
+        <h3>香港 · 澳门</h3>
+        <p class="mcard__sub">最近的大都会，吃喝玩乐购物一站</p>
+        <p class="mcard__time">口岸 / 高铁约 1 小时 · 预算 ¥3000+</p>
+        <button class="mcard__toggle" type="button" aria-expanded="false">吃喝玩乐详情 <span class="arr" aria-hidden="true">▾</span></button>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">交通</span><span class="meta__value">深圳 → 香港西九龙 高铁约 <b>20 分钟</b>，或福田 / 罗湖口岸过关；港澳间坐船约 1 小时</span></div>
+          <div class="meta"><span class="meta__label">住宿</span><span class="meta__value">香港市区（油尖旺 / 中环），或澳门氹仔</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">D1 香港维港 + 太平山顶夜景；D2 茶餐厅早茶 + 购物 + 天星小轮；D3 澳门大三巴、官也街返程</span></div>
+          <div class="meta"><span class="meta__label">吃喝</span><span class="meta__value">香港烧腊、点心、云吞面、菠萝油；澳门<b>葡国菜</b>、猪扒包、水蟹粥、蛋挞</span></div>
+          <div class="meta"><span class="meta__label">适合</span><span class="meta__value">想吃遍茶餐厅、逛街购物、看都市夜景</span></div>
+        </div></div>
+      </div>
+    </article>
+  </div>
   </div>
 </section>
 
@@ -407,7 +936,7 @@ p{margin:0}
     </div>
     <div class="tip reveal">
       <h3><span>03</span>交通方式</h3>
-      <p>高铁 app 提前买票；珠海、惠州景点分散，市内打车或租车更省心。</p>
+      <p>高铁 app 提前买票；珠海、惠州景点分散，市内打车或租车更省心；出省方向（郴州、阳朔、厦门）同样建议高铁直达。</p>
     </div>
     <div class="tip reveal">
       <h3><span>04</span>预算参考（两人 · 三天）</h3>
@@ -416,11 +945,11 @@ p{margin:0}
         <span>舒适 <em>¥2500–4000</em></span>
         <span>小奢 <em>¥4000+</em></span>
       </div>
-      <p style="margin-top:.6rem">丰俭由人，主要差在酒店和吃。</p>
+      <p style="margin-top:.6rem">丰俭由人，主要差在酒店和吃。三亚、港澳要再往上加。</p>
     </div>
     <div class="tip tip--wide reveal">
       <h3><span>05</span>出片点 &amp; 忌口</h3>
-      <p>情侣路黄昏、外伶仃岛沙滩、南澳环岛公路、双月湾观景台——上午 10 点前和下午 4 点后光线最好。第一次吃生腌、生蚝要少量尝试，肠胃敏感的避开；海鲜过敏提前说。</p>
+      <p>情侣路黄昏、外伶仃岛沙滩、南澳环岛公路、双月湾观景台、马尾岛日落、风车岛、那琴半岛——上午 10 点前和下午 4 点后光线最好。第一次吃生腌、生蚝要少量尝试，肠胃敏感的避开；海鲜过敏提前说。</p>
     </div>
   </div>
   </div>
@@ -428,8 +957,10 @@ p{margin:0}
 
 <footer class="foot">
   <p class="foot__close">九月，海风还暖。<br>挑个周末，把工作放下两天，出发。</p>
-  <p class="foot__small">图片来自 Unsplash，仅作氛围示意 · 本页为个人整理的旅行推荐，非官方攻略 · 票价、船班与营业时间以当日实际为准 · 用 GitHub Pages 托管</p>
+  <p class="foot__small">图片来自 Unsplash，仅作氛围示意 · 本页为个人整理的旅行推荐，非官方攻略 · 高铁时长、票价、船班与营业时间以当日实际为准 · 偏好收藏存在本机浏览器（localStorage），换设备不保留 · 用 GitHub Pages 托管</p>
 </footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
 
 <script>
 (function(){
@@ -439,6 +970,88 @@ p{margin:0}
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}});
   },{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* —— 阅读进度条 + 回到顶部 —— */
+  var bar=document.getElementById('progress');
+  var toTop=document.getElementById('toTop');
+  function onScroll(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?window.scrollY/max:0;
+    if(bar){bar.style.transform='scaleX('+p+')'}
+    if(toTop){toTop.classList.toggle('is-show',window.scrollY>700)}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(toTop){toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})})}
+
+  /* —— 收藏（localStorage）—— */
+  var KEY='gd-favs-v2';
+  var favs=[];
+  try{favs=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(favs))}catch(e){}}
+
+  /* —— 筛选 —— */
+  var activeFilter='all';
+  function applyFilter(f){
+    activeFilter=f;
+    document.querySelectorAll('.chip').forEach(function(ch){
+      ch.classList.toggle('is-on',ch.getAttribute('data-filter')===f);
+    });
+    var shown=0;
+    document.querySelectorAll('.mcard').forEach(function(card){
+      var cat=card.getAttribute('data-cat');
+      var ok=f==='all'||(f==='fav'?favs.indexOf(card.id)>-1:cat===f);
+      card.style.display=ok?'':'none';
+      if(ok)shown++;
+    });
+    var empty=document.getElementById('moreEmpty');
+    if(empty){empty.hidden=shown>0}
+  }
+  document.querySelectorAll('.chip').forEach(function(ch){
+    ch.addEventListener('click',function(){applyFilter(ch.getAttribute('data-filter'))});
+  });
+
+  /* —— 收藏按钮 —— */
+  document.querySelectorAll('.mcard__fav').forEach(function(btn){
+    var id=btn.closest('.mcard').id;
+    if(favs.indexOf(id)>-1){btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+    btn.addEventListener('click',function(){
+      var i=favs.indexOf(id);
+      if(i>-1){favs.splice(i,1);btn.classList.remove('is-fav');btn.setAttribute('aria-pressed','false')}
+      else{favs.push(id);btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+      save();
+      if(activeFilter==='fav'){applyFilter('fav')}
+    });
+  });
+
+  /* —— 展开 / 收起 —— */
+  document.querySelectorAll('.mcard__toggle').forEach(function(t){
+    t.addEventListener('click',function(){
+      var card=t.closest('.mcard');
+      var open=card.classList.toggle('is-open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
+
+  /* —— 随机翻牌 —— */
+  var shuffleBtn=document.getElementById('shuffle');
+  if(shuffleBtn){
+    shuffleBtn.addEventListener('click',function(){
+      var visible=[];
+      document.querySelectorAll('.mcard').forEach(function(c){if(c.style.display!=='none'){visible.push(c)}});
+      if(!visible.length){return}
+      document.querySelectorAll('.mcard.is-picked').forEach(function(c){c.classList.remove('is-picked')});
+      var pick=visible[Math.floor(Math.random()*visible.length)];
+      pick.classList.add('is-picked');
+      pick.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    });
+  }
 })();
 </script>
 </body>
