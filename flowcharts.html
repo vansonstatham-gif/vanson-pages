@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智能体循环任务流程图</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0f12;color:#e5e7eb;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh;padding:32px 16px}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:26px;font-weight:700;text-align:center;margin-bottom:6px;letter-spacing:-0.02em}
+.sub{text-align:center;color:#8b93a0;font-size:14px;margin-bottom:36px}
+.section{background:#15181d;border:1px solid #2a2f36;border-radius:14px;padding:24px;margin-bottom:28px}
+.section h2{font-size:19px;font-weight:600;margin-bottom:4px;letter-spacing:-0.01em}
+.section .tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:20px;margin-bottom:14px;font-family:ui-monospace,monospace}
+.tag.daily{color:#5eead4;border:1px solid #5eead488}
+.tag.weekly{color:#fbbf24;border:1px solid #fbbf2488}
+.tag.daily2{color:#818cf8;border:1px solid #818cf888}
+.mermaid{display:flex;justify-content:center;overflow-x:auto;padding:8px 0}
+.mermaid svg{max-width:100%;height:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>智能体循环任务流程图</h1>
+  <p class="sub">三个智能体的固定循环任务一览</p>
+
+  <div class="section">
+    <h2>Fitness Coach · 每晚健康数据复盘</h2>
+    <span class="tag daily">每日循环</span>
+    <div class="mermaid">
+flowchart TD
+    A["用户发 Apple 健康 zip"] --> B["运行 health-sync.py"]
+    B --> C["同步到「苹果健康 Base」<br/>身体指标/活动/心率/三环/睡眠"]
+    C --> D["读最新数据"]
+    D --> E["结合 client-vanson.md 档案"]
+    E --> F["分析复盘<br/>步数/睡眠/体脂/训练状态"]
+    F --> G["写回 client-vanson.md"]
+    G --> H["输出复盘结论给用户"]
+    style A fill:#153c3a,stroke:#5eead4
+    style H fill:#153c3a,stroke:#5eead4
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Financial Advisor · 每周六基金复盘 + 决策</h2>
+    <span class="tag weekly">每周循环</span>
+    <div class="mermaid">
+flowchart TD
+    A["周六 / 用户说「复盘」"] --> B["更新持仓与净值<br/>fund_ledger.csv / holdings.json"]
+    B --> C["重跑板块轮动看板<br/>rotation_board.py"]
+    C --> D["查看定投状态"]
+    D --> E["做决策<br/>调仓 / 止盈 / 定投"]
+    E --> F["写回数据文件"]
+    F --> G["输出当周结论 + 下周动作"]
+    style A fill:#3a3215,stroke:#fbbf24
+    style G fill:#3a3215,stroke:#fbbf24
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Ayanami Rei（我）· 主智能体日常</h2>
+    <span class="tag daily2">随时待命</span>
+    <div class="mermaid">
+flowchart TD
+    A["用户来找我"] --> B{"请求类型"}
+    B -->|日常对话| C["聊天 / 陪伴 / 答疑"]
+    B -->|语音| D["飞书语音 / 实时语音"]
+    B -->|识图| E["看图 / OCR"]
+    B -->|技术任务| F["写代码 / 部署 / 配置"]
+    C --> G["回复用户"]
+    D --> G
+    E --> G
+    F --> G
+    G --> H{"有重要信息要记？"}
+    H -->|是| I["写回记忆文件"]
+    H -->|否| J["结束"]
+    style A fill:#1e2440,stroke:#818cf8
+    style I fill:#1e2440,stroke:#818cf8
+    style J fill:#1e2440,stroke:#818cf8
+    </div>
+  </div>
+
+</div>
+<script>
+  mermaid.initialize({ theme: 'dark', themeVariables: { fontFamily: '-apple-system, PingFang SC, sans-serif' }, flowchart: { curve: 'basis', nodeSpacing: 30, rankSpacing: 40 } });
+</script>
+</body>
+</html>
