@@ -1,0 +1,450 @@
+<!doctype html>
+<!-- Hallmark · macrostructure: Narrative Workflow · tone: editorial (warm travel) · theme: custom (sea-teal on warm cream) · enrichment: photography · nav: masthead · footer: statement -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="深圳出发 · 九月三日游：珠海浪漫海岛、汕头南澳美食海岛、惠州双月湾躺平看海 —— 图文行程攻略。">
+<title>三天，和喜欢的人，去广东看海</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Noto+Serif+SC:wght@400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="guangdong-trip.css">
+<style>
+/* Hallmark · macrostructure: Narrative Workflow · genre: editorial
+ * theme: custom (warm-cream paper · sea-teal accent · Fraunces+NotoSerifSC display / Switzer body)
+ * nav: masthead · footer: statement · enrichment: photography (Unsplash, verified) */
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--color-accent-bright)}
+a:focus-visible,.pill:focus-visible{outline:2px solid var(--color-focus);outline-offset:3px}
+::selection{background:var(--color-accent-bright);color:var(--color-paper)}
+
+h1,h2,h3{font-family:var(--font-display);font-style:normal;font-weight:600;
+  line-height:1.18;letter-spacing:-0.015em;margin:0;overflow-wrap:anywhere;min-width:0}
+p{margin:0}
+.mono{font-family:var(--font-outlier);font-size:var(--text-sm);
+  letter-spacing:0.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+/* ——— masthead ——— */
+.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--color-rule)}
+.mast__in{max-width:80rem;margin-inline:auto;padding:.8rem clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:baseline;gap:var(--space-md);justify-content:space-between}
+.wordmark{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--color-ink);
+  letter-spacing:-0.02em;white-space:nowrap;text-decoration:none}
+.wordmark small{font-family:var(--font-outlier);font-weight:400;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin-left:.5rem}
+.mast__links{display:none;align-items:baseline;gap:var(--space-xl);white-space:nowrap}
+.mast__links a{font-size:.95rem;text-decoration:none;color:var(--color-muted)}
+.mast__links a:hover{color:var(--color-ink)}
+.mast__links a.is-more{color:var(--color-accent)}
+@media (min-width:40rem){.mast__links{display:flex}}
+
+/* ——— hero ——— */
+.hero{max-width:80rem;margin-inline:auto;padding:var(--space-3xl) clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.hero__grid{display:grid;gap:var(--space-2xl)}
+@media (min-width:60rem){.hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:var(--space-3xl);align-items:center}}
+.hero__kicker{color:var(--color-accent);margin-bottom:var(--space-md)}
+.hero__title{font-size:var(--text-hero);font-weight:600}
+.hero__title .sea{color:var(--color-accent)}
+.hero__lede{margin-top:var(--space-lg);font-size:1.05rem;color:var(--color-muted);
+  max-width:36ch}
+.hero__meta{margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:.5rem var(--space-md);
+  color:var(--color-neutral);font-size:.95rem}
+.hero__meta span{display:inline-flex;align-items:center;gap:.4rem}
+.hero__meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent-bright)}
+.hero__fig{margin:0;position:relative}
+.hero__fig img{width:100%;height:auto;border-radius:var(--radius-lg);
+  box-shadow:0 24px 48px -24px color-mix(in oklch,var(--color-ink) 35%,transparent)}
+.hero__fig figcaption{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--color-neutral);margin-top:.6rem}
+
+/* ——— section head ——— */
+.sec{max-width:80rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.sec__head{margin-bottom:var(--space-xl)}
+.sec__tag{color:var(--color-accent);display:block;margin-bottom:.6rem}
+.sec__title{font-size:clamp(1.6rem,3.4vw+0.5rem,2.6rem)}
+.sec__lede{margin-top:.8rem;color:var(--color-muted);max-width:52ch}
+
+/* ——— pick (三选一) ——— */
+.pick{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.pick__grid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.pick__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-lg)}}
+.pcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);padding:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-md)}
+.pcard--rec{border-color:var(--color-accent-bright);box-shadow:0 0 0 1px var(--color-accent-bright)}
+.pcard__flag{position:absolute;top:-0.7rem;right:var(--space-md);font-family:var(--font-outlier);
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-paper);
+  background:var(--color-accent);padding:.25rem .7rem;border-radius:var(--radius-pill)}
+.pcard__no{font-family:var(--font-outlier);font-size:.8rem;letter-spacing:.12em;
+  color:var(--color-neutral)}
+.pcard h3{font-size:1.45rem}
+.pcard__vibe{color:var(--color-accent);font-size:.95rem}
+.pcard__time{font-family:var(--font-outlier);font-size:.78rem;letter-spacing:.04em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.pcard p{color:var(--color-muted);font-size:.95rem}
+
+/* ——— itinerary stages ——— */
+.route{padding-block:var(--space-4xl) var(--space-3xl)}
+.day{display:grid;gap:var(--space-lg);padding-block:var(--space-xl);
+  border-top:1px solid var(--color-rule)}
+.day:first-of-type{border-top:2px solid var(--color-ink)}
+@media (min-width:60rem){
+  .day{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    gap:var(--space-2xl);align-items:center;padding-block:var(--space-2xl)}
+  .day:nth-of-type(even){grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  .day:nth-of-type(even) .day__head{grid-column:2;grid-row:1}
+  .day:nth-of-type(even) .day__body{grid-column:1;grid-row:1}
+}
+.day__head .day__no{font-family:var(--font-outlier);font-size:1rem;letter-spacing:.14em;
+  color:var(--color-accent)}
+.day__head h3{font-size:clamp(1.5rem,2.6vw+0.4rem,2.2rem);margin-top:.5rem}
+.day__head .day__sub{color:var(--color-muted);margin-top:.5rem}
+.day__body{display:flex;flex-direction:column;gap:var(--space-md)}
+.day__fig{margin:0;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--color-rule)}
+.day__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.day__fig:hover img{transform:scale(1.02)}
+.day__meta{display:grid;gap:.5rem;margin-top:.25rem}
+.meta{display:grid;grid-template-columns:4.2rem 1fr;gap:var(--space-md);font-size:.95rem;
+  align-items:baseline;border-bottom:1px dashed var(--color-rule);padding-block:.35rem}
+.meta:last-child{border-bottom:0}
+.meta__label{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--color-neutral)}
+.meta__value{color:var(--color-ink)}
+.meta__value b{font-weight:500;color:var(--color-accent)}
+
+/* ——— alternates ——— */
+.alt{padding-bottom:var(--space-4xl)}
+.alt__grid{display:grid;gap:var(--space-lg)}
+@media (min-width:48rem){.alt__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.acard{border:1px solid var(--color-rule);border-radius:var(--radius-md);overflow:hidden;
+  background:var(--color-paper)}
+.acard__fig{margin:0;aspect-ratio:4/3;overflow:hidden}
+.acard__fig img{width:100%;height:100%;object-fit:cover}
+.acard__body{padding:var(--space-xl)}
+.acard__kicker{color:var(--color-accent)}
+.acard h3{font-size:1.5rem;margin-top:.5rem}
+.acard__tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-block:var(--space-md)}
+.tag{font-size:.8rem;color:var(--color-muted);border:1px solid var(--color-rule);
+  border-radius:var(--radius-pill);padding:.15rem .7rem;white-space:nowrap}
+.acard ol{list-style:none;margin:.75rem 0 0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+.acard li{position:relative;padding-left:1.6rem;color:var(--color-muted);font-size:.95rem}
+.acard li::before{position:absolute;left:0;top:.05rem;font-family:var(--font-outlier);
+  font-size:.72rem;letter-spacing:.06em;color:var(--color-accent)}
+.acard li:nth-child(1)::before{content:"01"}
+.acard li:nth-child(2)::before{content:"02"}
+.acard li:nth-child(3)::before{content:"03"}
+.acard__fit{margin-top:var(--space-md);font-size:.9rem;color:var(--color-neutral);
+  border-top:1px dashed var(--color-rule);padding-top:var(--space-md)}
+
+/* ——— 备选 广州 ——— */
+.bonus{margin-top:var(--space-xl);border:1px dashed var(--color-accent-bright);
+  border-radius:var(--radius-md);padding:var(--space-lg) var(--space-xl);
+  display:grid;gap:var(--space-sm);background:color-mix(in oklch,var(--color-accent-bright) 6%,var(--color-paper))}
+.bonus b{font-family:var(--font-display);font-weight:600;font-size:1.15rem}
+.bonus p{color:var(--color-muted);font-size:.95rem}
+
+/* ——— 锦囊 ——— */
+.tips{background:var(--color-ink);color:var(--color-paper);padding-block:var(--space-4xl);
+  border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.tips .sec__tag{color:var(--color-accent-bright)}
+.tips .sec__title{color:var(--color-paper)}
+.tips .sec__lede{color:var(--color-paper-2)}
+.tips__grid{display:grid;gap:var(--space-lg);margin-top:var(--space-2xl)}
+@media (min-width:40rem){.tips__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tip{border-top:1px solid color-mix(in oklch,var(--color-paper) 22%,transparent);
+  padding-top:var(--space-md)}
+.tip h3{font-size:1.15rem;color:var(--color-paper);display:flex;gap:.5rem;align-items:baseline}
+.tip h3 span{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  color:var(--color-accent-bright)}
+.tip p{margin-top:.4rem;color:var(--color-paper-2);font-size:.95rem}
+.tip--wide{grid-column:1/-1}
+.budget{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-top:.75rem}
+.budget span{font-family:var(--font-outlier);font-size:.82rem;letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;border:1px solid color-mix(in oklch,var(--color-paper) 25%,transparent);
+  border-radius:var(--radius-pill);padding:.3rem .8rem;color:var(--color-paper)}
+.budget em{font-style:normal;color:var(--color-accent-bright)}
+
+/* ——— footer ——— */
+.foot{background:var(--color-ink);color:var(--color-paper);padding:0 clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.foot__close{font-family:var(--font-display);font-size:clamp(1.5rem,3vw+0.4rem,2.4rem);
+  font-weight:600;line-height:1.25;max-width:20ch}
+.foot__small{margin-top:var(--space-xl);font-size:.82rem;color:var(--color-paper-2);
+  max-width:70ch;border-top:1px solid color-mix(in oklch,var(--color-paper) 20%,transparent);padding-top:var(--space-md)}
+
+/* ——— reveal & motion ——— */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity var(--dur-slow) var(--ease-out),
+  transform var(--dur-slow) var(--ease-out)}
+.js .reveal.is-in{opacity:1;transform:none}
+@media (hover:hover) and (pointer:fine){
+  .pcard,.acard{transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
+  .pcard:hover,.acard:hover{transform:translateY(-3px);
+    box-shadow:0 14px 30px -18px color-mix(in oklch,var(--color-ink) 30%,transparent)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="wordmark" href="#top">周末出逃计划<small>Sept · 三日</small></a>
+    <nav class="mast__links" aria-label="方案导航">
+      <a href="#zhuhai">珠海</a>
+      <a href="#shantou">汕头</a>
+      <a href="#huizhou">惠州</a>
+      <a class="is-more" href="#tips">锦囊</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero__grid">
+    <div>
+      <p class="mono hero__kicker">深圳出发 · 九月 · 三天两晚</p>
+      <h1 class="hero__title">三天，和喜欢的人，<br>去广东<span class="sea">看海</span></h1>
+      <p class="hero__lede">九月的海风还暖，太阳落得慢。挑一套合心意的方案，照着 <span class="num">Day 1 / 2 / 3</span> 走就行——车程都压在 3 小时以内，预算丰俭由人。</p>
+      <div class="hero__meta">
+        <span>高铁最快 30 分钟</span>
+        <span>三种玩法</span>
+        <span>含吃住预算</span>
+      </div>
+    </div>
+    <figure class="hero__fig">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1440&h=900&q=70"
+           alt="九月的海边，金色的沙滩与落日" width="1440" height="900" fetchpriority="high">
+      <figcaption>Fig. 01 — 九月海边 · 图片来自 Unsplash（示意）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="pick" id="pick">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">先定调</span>
+    <h2 class="sec__title">三选一，你想怎么过这三天</h2>
+    <p class="sec__lede">三种完全不同的节奏。选气质最对的那一个，不用纠结。</p>
+  </div>
+  <div class="pick__grid">
+    <article class="pcard pcard--rec reveal">
+      <span class="pcard__flag">本轮首推</span>
+      <span class="pcard__no">方案 A</span>
+      <h3>珠海 · 浪漫海岛</h3>
+      <p class="pcard__vibe">浪漫出片 · 城市 + 海岛</p>
+      <p class="pcard__time">高铁 30 分钟 · 预算 ¥2500–4000</p>
+      <p>沿海公路骑车看日落，跳一个外伶仃岛把时间放慢。两个人轻装出发就能走，最不容易出错。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">方案 B</span>
+      <h3>汕头南澳 · 美食海岛</h3>
+      <p class="pcard__vibe">吃货天堂 · 渔村烟火</p>
+      <p class="pcard__time">高铁约 3 小时 + 登岛 · 预算 ¥2500–4500</p>
+      <p>牛肉火锅、生腌、蚝烙，再上南澳岛环海一圈。适合愿意为一顿饭专程赶路的两个人。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">方案 C</span>
+      <h3>惠州双月湾 · 躺平看海</h3>
+      <p class="pcard__vibe">纯度假 · 不赶景点</p>
+      <p class="pcard__time">自驾约 2 小时 · 预算 ¥2000–3500</p>
+      <p>把预算花在酒店和落日上。观景台、海龟湾、沙滩散步，三天不想动脑子。</p>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="sec route" id="zhuhai">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">主推 · 方案 A</span>
+    <h2 class="sec__title">珠海：把三天过成一部慢电影</h2>
+    <p class="sec__lede">从深圳出发高铁 30 分钟，节奏松、景好看、吃的实在。行程已经排好，照着走。</p>
+  </div>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 01 · 抵达 &amp; 海边黄昏</p>
+      <h3>先骑车，再等一场日落</h3>
+      <p class="day__sub">上午出发，中午入住，下午沿海岸慢慢逛，把最松弛的状态留到黄昏。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1000&h=750&q=70"
+             alt="果冻色的海边" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">深圳北 / 福田站高铁 → 珠海站，约 <b>30 分钟</b>，票价 <b>¥50–70</b></span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">租共享单车沿「情侣路」骑到珠海渔女、爱情邮局——海边这段很好出片</span></div>
+        <div class="meta"><span class="meta__label">傍晚</span><span class="meta__value">在香炉湾沙滩看日落，人不多，安静</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">找家海景大排档，白灼虾、清蒸鱼，胜在一个新鲜</span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">车费 <b>¥70</b> + 酒店 <b>¥300–600</b> + 晚餐 <b>¥200–300</b>（两人）</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value">情侣路 / 香洲一带，方便看海</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 02 · 跳岛</p>
+      <h3>上外伶仃岛，把时间放慢</h3>
+      <p class="day__sub">一早乘船离岸，岛上环行半天，赶末班船回市区——海的另一边更蓝。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://images.unsplash.com/photo-1471922694854-ff1b63b20054?auto=format&fit=crop&w=1000&h=750&q=70"
+             alt="海岛与椰影" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">香洲港 / 横琴码头乘船，单程约 <b>70 分钟</b>，船票 <b>¥140 上下</b>（提前 1–3 天订）</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">环岛步行或租小摩托，看伶仃峰海景；不想走就在沙滩躺一下午</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">岛上渔家菜，物价略高，可以自备点零食</span></div>
+        <div class="meta"><span class="meta__label">替代</span><span class="meta__value">不想出海，就在市区逛北山大院、会同古村，老建筑 + 咖啡，也舒服</span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">往返船票 <b>¥280</b> + 岛上小吃 <b>¥100</b></span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 03 · 慢下来 &amp; 返程</p>
+      <h3>睡到自然醒，吃完再走</h3>
+      <p class="day__sub">最后半天不安排景点，吃一顿像样的，再坐 30 分钟高铁回家。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&h=750&q=70"
+             alt="一间安静的咖啡馆" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">上午</span><span class="meta__value">湾仔海鲜街或本地茶餐厅，吃一顿早午餐</span></div>
+        <div class="meta"><span class="meta__label">中午</span><span class="meta__value">北山一带的小店、咖啡馆闲逛</span></div>
+        <div class="meta"><span class="meta__label">下午</span><span class="meta__value">高铁回深圳，约 <b>30 分钟</b></span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">半天 <b>¥100–200</b></span></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="sec alt">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">另外两种过法</span>
+    <h2 class="sec__title">也想带你看看的两条线</h2>
+  </div>
+  <div class="alt__grid">
+    <article class="acard reveal" id="shantou">
+      <figure class="acard__fig">
+        <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=900&h=675&q=70"
+             alt="从空中俯瞰海岸" width="900" height="675" loading="lazy">
+      </figure>
+      <div class="acard__body">
+        <span class="mono acard__kicker">方案 B · 美食为主</span>
+        <h3>汕头 · 南澳岛</h3>
+        <div class="acard__tags">
+          <span class="tag">牛肉火锅</span><span class="tag">生腌</span><span class="tag">蚝烙</span>
+          <span class="tag">环岛公路</span><span class="tag">青澳湾日出</span>
+        </div>
+        <ol>
+          <li>高铁到汕头（约 3 小时，<b>¥130–150</b>），下午逛小公园骑楼，晚上牛肉火锅</li>
+          <li>过南澳大桥上岛，环岛游：青澳湾、北回归线广场、海风公路，住岛上</li>
+          <li>看场日出，午前离岛，回汕头吃一顿再返程</li>
+        </ol>
+        <p class="acard__fit">适合：两个人都是吃货，愿意为一顿饭专门跑一趟。节奏略赶，但值得。</p>
+      </div>
+    </article>
+
+    <article class="acard reveal" id="huizhou">
+      <figure class="acard__fig">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&h=675&q=70"
+             alt="看得见海的房间" width="900" height="675" loading="lazy">
+      </figure>
+      <div class="acard__body">
+        <span class="mono acard__kicker">方案 C · 度假为主</span>
+        <h3>惠州 · 双月湾</h3>
+        <div class="acard__tags">
+          <span class="tag">双月湾观景台</span><span class="tag">海龟湾</span><span class="tag">礁石酒吧</span><span class="tag">落日</span>
+        </div>
+        <ol>
+          <li>自驾或高铁到惠东（约 <b>1.5–2 小时</b>），入住海景酒店，傍晚去观景台看落日</li>
+          <li>海龟湾栈道 + 沙滩，或出海浮潜、海钓，晚上沙滩散步</li>
+          <li>睡到自然醒，吃个海鲜，返程</li>
+        </ol>
+        <p class="acard__fit">适合：只想躺平看海，不赶景点。预算尽量给酒店和吃，值。</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="bonus reveal">
+    <b>备选 · 广州 1–2 日</b>
+    <p>如果那几天想躲开海边暴晒：高铁 30 分钟到广州，早茶（陶陶居、点都德）、永庆坊、沙面、珠江夜游、东山口咖啡。城市漫游线，下雨天也不扫兴。</p>
+  </div>
+</section>
+
+<section class="tips" id="tips">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">出发之前</span>
+    <h2 class="sec__title">实用锦囊</h2>
+    <p class="sec__lede">几条九月出行的正经提醒，来自本地人的经验。</p>
+  </div>
+  <div class="tips__grid">
+    <div class="tip reveal">
+      <h3><span>01</span>九月天气</h3>
+      <p>深圳及沿海约 30–33°C，闷热 + 午后阵雨，台风季尾巴。防晒 SPF50+、轻薄雨衣、透气衣物；海边风大，带件薄外套。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>02</span>提前订</h3>
+      <p>周末房价会涨，提前 1–2 周订酒店；外伶仃岛船票提前 1–3 天在官方渠道订；南澳大桥假期可能排队，错峰出发。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>03</span>交通方式</h3>
+      <p>高铁 app 提前买票；珠海、惠州景点分散，市内打车或租车更省心。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>04</span>预算参考（两人 · 三天）</h3>
+      <div class="budget">
+        <span>经济 <em>¥1500–2500</em></span>
+        <span>舒适 <em>¥2500–4000</em></span>
+        <span>小奢 <em>¥4000+</em></span>
+      </div>
+      <p style="margin-top:.6rem">丰俭由人，主要差在酒店和吃。</p>
+    </div>
+    <div class="tip tip--wide reveal">
+      <h3><span>05</span>出片点 &amp; 忌口</h3>
+      <p>情侣路黄昏、外伶仃岛沙滩、南澳环岛公路、双月湾观景台——上午 10 点前和下午 4 点后光线最好。第一次吃生腌、生蚝要少量尝试，肠胃敏感的避开；海鲜过敏提前说。</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="foot__close">九月，海风还暖。<br>挑个周末，把工作放下两天，出发。</p>
+  <p class="foot__small">图片来自 Unsplash，仅作氛围示意 · 本页为个人整理的旅行推荐，非官方攻略 · 票价、船班与营业时间以当日实际为准 · 用 GitHub Pages 托管</p>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

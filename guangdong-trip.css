@@ -1,0 +1,58 @@
+/* Hallmark · tokens — 广东三日游 · 海边旅行杂志风
+ * 主题自定义：暖奶油纸(锚定 75°) · 海蓝 accent(205°) · 中英混排
+ * 纸带 light · display 衬线 · accent cool(sea)
+ */
+:root {
+  /* ——— colour ——— */
+  --color-paper:       oklch(97%  0.012  75);
+  --color-paper-2:     oklch(93.5% 0.016  75);
+  --color-paper-3:     oklch(89%   0.02   75);
+  --color-rule:        oklch(83%   0.014  75);
+  --color-neutral:     oklch(46%   0.014  66);
+  --color-muted:       oklch(36%   0.015  60);
+  --color-ink:         oklch(19%   0.016  55);
+  --color-accent:      oklch(46%   0.10   205);
+  --color-accent-bright: oklch(58% 0.11   200);
+  --color-focus:       oklch(60%   0.12   200);
+
+  /* ——— fonts ——— */
+  --font-display:  "Fraunces", "Noto Serif SC", "Songti SC", serif;
+  --font-body:     "Switzer", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-outlier:  "Geist Mono", ui-monospace, monospace;
+
+  /* ——— space · 4pt scale ——— */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6.5rem;
+
+  /* ——— type scale · major third 1.25 ——— */
+  --text-xs:   0.72rem;
+  --text-sm:   0.85rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.5625rem;
+  --text-xl:   1.9531rem;
+  --text-2xl:  2.4414rem;
+  --text-3xl:  3.0518rem;
+  --text-hero: clamp(2.1rem, 6vw + 0.75rem, 3.9rem);
+
+  /* ——— motion ——— */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:     cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur:      260ms;
+  --dur-slow: 520ms;
+
+  /* ——— radius ——— */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-pill: 999px;
+}
