@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三个智能体主题头像</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0f12;color:#e5e7eb;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh;padding:32px 16px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:26px;font-weight:700;text-align:center;margin-bottom:6px;letter-spacing:-0.02em}
+.sub{text-align:center;color:#8b93a0;font-size:14px;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#15181d;border:1px solid #2a2f36;border-radius:14px;padding:16px;text-align:center}
+.card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block;margin-bottom:12px}
+.card h3{font-size:16px;font-weight:600;margin-bottom:2px}
+.card p{font-size:12px;color:#8b93a0}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>三个智能体 · 主题头像</h1>
+  <p class="sub">基于你的头像 + 角色特性生成</p>
+  <div class="grid">
+    <div class="card">
+      <img src="themed-avatars/fitness.png" alt="健身教练">
+      <h3>健身教练</h3>
+      <p>Fitness Coach · 力量感</p>
+    </div>
+    <div class="card">
+      <img src="themed-avatars/finance.png" alt="财经顾问">
+      <h3>财经顾问</h3>
+      <p>Financial Advisor · 专业沉稳</p>
+    </div>
+    <div class="card">
+      <img src="themed-avatars/entertainment.png" alt="娱乐助手">
+      <h3>娱乐助手</h3>
+      <p>Entertainment · 活泼潮流</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
