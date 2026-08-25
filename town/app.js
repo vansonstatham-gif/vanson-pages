@@ -61,10 +61,9 @@
   };
   const SITES = buildSites(manifest, fallbackSites);
 
-  /* 地图底图路径 */
-  const mapSrc = (manifest && manifest.asset_root && manifest.map && manifest.map.image)
-    ? manifest.asset_root + '/' + manifest.map.image
-    : 'art/bg/town_map.png';
+  /* 地图图层：分层渲染（ground/buildings/objects/canopy），canopy 在最前制造遮挡纵深 */
+  const MAP_LAYER_Z = { ground: 1, buildings: 2, objects: 3, canopy: 6 };
+  const mapLayers = (manifest && manifest.map && manifest.map.layers) ? manifest.map.layers : null;
 
   /* ---------- 顶栏 + 页脚 ---------- */
   dateEl.textContent = '◷ ' + ((snapshot && snapshot.world && snapshot.world.today) || '未知日期');
@@ -76,20 +75,37 @@
     : '⚠️ 未读到 snapshot.json。请先让引擎跑 one_tick 生成快照。')
     + ' · 美术 ' + (manifest ? 'manifest v' + (manifest.format_version || '?') : '缺失(用兜底表)');
 
-  /* ---------- 1) 底图 ---------- */
-  const bg = document.createElement('img');
-  bg.className = 'map-bg';
-  bg.alt = '俯视小镇地图';
-  bg.src = mapSrc;
-  bg.onerror = function () {
-    // 底图加载失败：退化为纯色占位，居民仍能叠上去
-    const placeholder = document.createElement('div');
-    placeholder.className = 'map-bg-missing';
-    placeholder.textContent = '🏘️ 小镇地图（图片缺失）';
-    mapEl.insertBefore(placeholder, mapEl.firstChild);
-    bg.remove();
-  };
-  mapEl.appendChild(bg);
+  /* ---------- 1) 底图（分层，或单张兜底） ---------- */
+  if (mapLayers && typeof mapLayers === 'object') {
+    const assetRoot = (manifest && manifest.asset_root) ? manifest.asset_root : 'art';
+    Object.keys(mapLayers).forEach(name => {
+      const path = mapLayers[name];
+      if (!path) return;
+      const img = document.createElement('img');
+      img.className = 'map-layer';
+      img.alt = '地图层 ' + name;
+      img.src = assetRoot + '/' + path;
+      img.style.zIndex = MAP_LAYER_Z[name] || 1;
+      mapEl.appendChild(img);
+    });
+  } else {
+    const mapSrc = (manifest && manifest.asset_root && manifest.map && manifest.map.image)
+      ? manifest.asset_root + '/' + manifest.map.image
+      : 'art/bg/town_map.png';
+    const bg = document.createElement('img');
+    bg.className = 'map-bg';
+    bg.alt = '俯视小镇地图';
+    bg.src = mapSrc;
+    bg.onerror = function () {
+      // 底图加载失败：退化为纯色占位，居民仍能叠上去
+      const placeholder = document.createElement('div');
+      placeholder.className = 'map-bg-missing';
+      placeholder.textContent = '🏘️ 小镇地图（图片缺失）';
+      mapEl.insertBefore(placeholder, mapEl.firstChild);
+      bg.remove();
+    };
+    mapEl.appendChild(bg);
+  }
 
   /* 没有快照也把居民画上（用 manifest 全量居民，站到各站点） */
   const world = (snapshot && snapshot.world) || {};
@@ -171,8 +187,9 @@
       : `${moodDot}`;
     const bubbleCls = title ? '' : ' no-title';
 
-    // sprite：manifest 给的相对 art 路径，失败则用 emoji 占位
-    // meta.sprite 已含 asset_root 前缀（buildResidents 里拼好），这里直接取，避免重复拼 art/
+    // 纸娃娃：meta.parts（四层路径，已含 asset_root 前缀）优先；否则退化单张 sprite；再不行 emoji 占位
+    const parts = (meta && meta.parts && typeof meta.parts === 'object') ? meta.parts : null;
+    const partKeys = parts ? Object.keys(parts) : [];
     const spritePath = (meta && meta.sprite) || '';
     const fallbackFace = FALLBACK_FACES[rk] || '🫥';
     resEl.innerHTML = `
@@ -182,18 +199,47 @@
       ${emotionSym ? `<div class="emote-ico" title="${escapeHtml(emotion)}">${emotionSym}</div>` : ''}
     `;
 
-    // 挂 spritesheet 到 .sprite；用 background，支持按方向切行
     const sprEl = resEl.querySelector('.sprite');
-    if (spritePath) {
+    if (partKeys.length) {
+      // 四层部件按 z 顺序叠在同一格，共享同一方向行 + 走路帧动画
+      const zOrder = (manifest && manifest.sprite_sheets && Array.isArray(manifest.sprite_sheets.part_z_order))
+        ? manifest.sprite_sheets.part_z_order.filter(p => parts[p])
+        : partKeys;
+      zOrder.forEach(partKey => {
+        const path = parts[partKey];
+        if (!path) return;
+        const p = document.createElement('div');
+        p.className = 'part';
+        p.dataset.part = partKey;
+        p.style.backgroundImage = `url('${path}')`;
+        sprEl.appendChild(p);
+      });
+      setDir(sprEl, dirRow, ROW_ORDER);
+      // 任一部件加载失败 → 自愈为 emoji 占位（不崩、不留隐形小人）
+      const probe = new Image();
+      let failed = false;
+      probe.onload = function () { /* 部件正常 */ };
+      probe.onerror = function () {
+        if (failed || !sprEl.parentNode) return;
+        failed = true;
+        sprEl.removeAttribute('style');
+        sprEl.innerHTML = '';
+        sprEl.classList.remove('sprite');
+        sprEl.classList.add('sprite-missing');
+        sprEl.textContent = fallbackFace;
+      };
+      probe.src = zOrder[0] ? parts[zOrder[0]] : (partKeys[0] ? parts[partKeys[0]] : '');
+    } else if (spritePath) {
+      // 旧单张 spritesheet
+      sprEl.classList.add('sprite-solo');
       sprEl.style.backgroundImage = `url('${spritePath}')`;
       setDir(sprEl, dirRow, ROW_ORDER);
-      // sprite 文件加载失败 → 自愈为表情占位（不崩、不留隐形小人）
       const probe = new Image();
-      probe.onload = function () { /* sheet 正常加载，无需处理 */ };
+      probe.onload = function () { /* sheet 正常加载 */ };
       probe.onerror = function () {
         if (!sprEl.parentNode) return;
         sprEl.removeAttribute('style');
-        sprEl.classList.remove('sprite');
+        sprEl.classList.remove('sprite', 'sprite-solo');
         sprEl.classList.add('sprite-missing');
         sprEl.textContent = fallbackFace;
       };
@@ -202,7 +248,6 @@
       sprEl.classList.remove('sprite');
       sprEl.classList.add('sprite-missing');
       sprEl.textContent = fallbackFace;
-      sprEl.style.backgroundImage = '';
     }
 
     applyPos(resEl);
@@ -255,7 +300,14 @@
         const v = src[k];
         if (!v) return;
         const sprite = (typeof v.sprite === 'string' && v.sprite) ? assetRoot + '/' + v.sprite : (out[k] ? out[k].sprite : '');
-        out[k] = { cn: (v.cn || (out[k] && out[k].cn) || k), sprite: sprite };
+        // 纸娃娃四层（hair/top/bottom/shoes），每层路径都拼上 asset_root
+        const parts = {};
+        if (v.parts && typeof v.parts === 'object') {
+          Object.keys(v.parts).forEach(p => {
+            if (typeof v.parts[p] === 'string' && v.parts[p]) parts[p] = assetRoot + '/' + v.parts[p];
+          });
+        }
+        out[k] = { cn: (v.cn || (out[k] && out[k].cn) || k), sprite: sprite, parts: parts };
       });
     }
     return out;
@@ -286,7 +338,13 @@
   // 按方向设置 sprite 的 background-position-y（行号）
   function setDir(sprEl, dirIndex, rowOrder) {
     const idx = typeof dirIndex === 'number' ? dirIndex : rowOrder.indexOf('down');
-    sprEl.style.backgroundPositionY = (-idx * 96) + 'px';
+    const y = (-idx * 96) + 'px';
+    const parts = sprEl.querySelectorAll('.part');
+    if (parts.length) {
+      parts.forEach(p => { p.style.backgroundPositionY = y; });
+    } else {
+      sprEl.style.backgroundPositionY = y;
+    }
   }
 
   // 用「脚底」位置更新元素 left/top（百分比），translate 负责底部锚点
