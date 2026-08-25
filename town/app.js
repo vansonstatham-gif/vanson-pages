@@ -286,7 +286,7 @@
   // 按方向设置 sprite 的 background-position-y（行号）
   function setDir(sprEl, dirIndex, rowOrder) {
     const idx = typeof dirIndex === 'number' ? dirIndex : rowOrder.indexOf('down');
-    sprEl.style.backgroundPositionY = (-idx * 64) + 'px';
+    sprEl.style.backgroundPositionY = (-idx * 96) + 'px';
   }
 
   // 用「脚底」位置更新元素 left/top（百分比），translate 负责底部锚点
