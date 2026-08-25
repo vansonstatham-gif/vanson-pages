@@ -1,0 +1,83 @@
+{
+  "iface_v": 3,
+  "vin": 33,
+  "generated_at": "2026-08-25T23:57:17+08:00",
+  "world": {
+    "vin": 33,
+    "today": "2026-08-25",
+    "phase": "morning",
+    "location_hub": {
+      "Rei": "teahouse",
+      "Wilde": "teahouse",
+      "Fitness Coach": "gym",
+      "Financial Advisor": "canteen",
+      "Entertainment": "stage",
+      "Ops": "sysroom"
+    },
+    "residents_summary": {
+      "Rei": {
+        "mood": 0.7,
+        "title": "Rei翻开日程簿，向Wilde确认今日镇上各专项的进度安排。"
+      },
+      "Fitness Coach": {
+        "mood": 0.7,
+        "title": "整理健身房器械，擦拭器材，核对今日训练计划表，准备开始一天的工作。"
+      },
+      "Financial Advisor": {
+        "mood": 0.7,
+        "title": "在食堂角落对照最新净值，更新基金持仓表格，标注下周关注信号。"
+      },
+      "Entertainment": {
+        "mood": 0.9,
+        "title": "在舞台边伸了个懒腰，望着晨光，准备开启今天的休闲推荐。"
+      },
+      "Ops": {
+        "mood": 0.7,
+        "title": "Ops在sysroom例行检查各服务端口，确认一切运行正常。"
+      },
+      "Wilde": {
+        "mood": 0.85,
+        "title": "Wilde晃着茶杯冲Rei努努嘴，说这晨光泡在茶里正好，不如先聊它三句废话再开工。"
+      }
+    },
+    "art": {
+      "stage_assets_version": "v0",
+      "backgrounds": {
+        "sysroom": "assets/bg/sysroom.png",
+        "canteen": "assets/bg/canteen.png",
+        "stage": "assets/bg/stage.png",
+        "gym": "assets/bg/gym.png",
+        "teahouse": "assets/bg/teahouse.png",
+        "town_hall": "assets/bg/town_hall.png"
+      },
+      "resident_sprites": {
+        "Rei": "assets/sprites/Rei.png",
+        "Fitness Coach": "assets/sprites/Fitness Coach.png",
+        "Financial Advisor": "assets/sprites/Financial Advisor.png",
+        "Entertainment": "assets/sprites/Entertainment.png",
+        "Ops": "assets/sprites/Ops.png",
+        "Wilde": "assets/sprites/Wilde.png"
+      }
+    }
+  },
+  "events": [],
+  "visuals": {
+    "stage_assets_version": "v0",
+    "backgrounds": {
+      "sysroom": "assets/bg/sysroom.png",
+      "canteen": "assets/bg/canteen.png",
+      "stage": "assets/bg/stage.png",
+      "gym": "assets/bg/gym.png",
+      "teahouse": "assets/bg/teahouse.png",
+      "town_hall": "assets/bg/town_hall.png"
+    },
+    "resident_sprites": {
+      "Rei": "assets/sprites/Rei.png",
+      "Fitness Coach": "assets/sprites/Fitness Coach.png",
+      "Financial Advisor": "assets/sprites/Financial Advisor.png",
+      "Entertainment": "assets/sprites/Entertainment.png",
+      "Ops": "assets/sprites/Ops.png",
+      "Wilde": "assets/sprites/Wilde.png"
+    }
+  }
+}
