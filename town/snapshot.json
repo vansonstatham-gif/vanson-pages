@@ -1,43 +1,43 @@
 {
   "iface_v": 3,
-  "vin": 33,
-  "generated_at": "2026-08-25T23:57:17+08:00",
+  "vin": 39,
+  "generated_at": "2026-08-26T00:04:18+08:00",
   "world": {
-    "vin": 33,
-    "today": "2026-08-25",
+    "vin": 39,
+    "today": "2026-08-26",
     "phase": "morning",
     "location_hub": {
       "Rei": "teahouse",
       "Wilde": "teahouse",
       "Fitness Coach": "gym",
       "Financial Advisor": "canteen",
-      "Entertainment": "stage",
+      "Entertainment": "teahouse",
       "Ops": "sysroom"
     },
     "residents_summary": {
       "Rei": {
         "mood": 0.7,
-        "title": "Rei翻开日程簿，向Wilde确认今日镇上各专项的进度安排。"
+        "title": "Rei在茶馆桌前将今日重点事项排好次序，请Wilde转达给各专项负责人。"
       },
       "Fitness Coach": {
         "mood": 0.7,
-        "title": "整理健身房器械，擦拭器材，核对今日训练计划表，准备开始一天的工作。"
+        "title": "在健身房前台检查今日预约名单，确认客户训练时段和设备占用情况。"
       },
       "Financial Advisor": {
         "mood": 0.7,
-        "title": "在食堂角落对照最新净值，更新基金持仓表格，标注下周关注信号。"
+        "title": "在食堂角落翻看最新基金净值，核对持仓盈亏与板块轮动信号。"
       },
       "Entertainment": {
         "mood": 0.9,
-        "title": "在舞台边伸了个懒腰，望着晨光，准备开启今天的休闲推荐。"
+        "title": "娱乐智能体带着今日观影美食清单到茶馆吆喝推荐"
       },
       "Ops": {
         "mood": 0.7,
-        "title": "Ops在sysroom例行检查各服务端口，确认一切运行正常。"
+        "title": "Ops在sysroom里继续监控各服务日志输出，确认无异常波动。"
       },
       "Wilde": {
         "mood": 0.85,
-        "title": "Wilde晃着茶杯冲Rei努努嘴，说这晨光泡在茶里正好，不如先聊它三句废话再开工。"
+        "title": "Wilde接下Rei的今日要点，准备转达给各专项负责人。"
       }
     },
     "art": {
@@ -60,7 +60,106 @@
       }
     }
   },
-  "events": [],
+  "events": [
+    {
+      "ts": 1787673825,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "teahouse",
+      "actor": "Rei",
+      "type": "interact",
+      "summary": "Rei在茶馆桌前将今日重点事项排好次序，请Wilde转达给各专项负责人。",
+      "involves": [
+        "Wilde"
+      ],
+      "tags": [
+        "Wilde",
+        "小镇日程"
+      ],
+      "event_id": 1787673825
+    },
+    {
+      "ts": 1787673828,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "gym",
+      "actor": "Fitness Coach",
+      "type": "act",
+      "summary": "在健身房前台检查今日预约名单，确认客户训练时段和设备占用情况。",
+      "involves": [],
+      "tags": [
+        "健身房",
+        "今日训练安排"
+      ],
+      "event_id": 1787673828
+    },
+    {
+      "ts": 1787673833,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "canteen",
+      "actor": "Financial Advisor",
+      "type": "act",
+      "summary": "在食堂角落翻看最新基金净值，核对持仓盈亏与板块轮动信号。",
+      "involves": [],
+      "tags": [
+        "基金持仓",
+        "净值核对",
+        "板块轮动"
+      ],
+      "event_id": 1787673833
+    },
+    {
+      "ts": 1787673843,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "teahouse",
+      "actor": "Entertainment",
+      "type": "interact",
+      "summary": "娱乐智能体带着今日观影美食清单到茶馆吆喝推荐",
+      "involves": [],
+      "tags": [
+        "Rei",
+        "Wilde",
+        "观影推荐",
+        "美食推荐"
+      ],
+      "event_id": 1787673843
+    },
+    {
+      "ts": 1787673847,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "sysroom",
+      "actor": "Ops",
+      "type": "act",
+      "summary": "Ops在sysroom里继续监控各服务日志输出，确认无异常波动。",
+      "involves": [],
+      "tags": [
+        "Ops",
+        "系统日志"
+      ],
+      "event_id": 1787673847
+    },
+    {
+      "ts": 1787673858,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "teahouse",
+      "actor": "Wilde",
+      "type": "speak",
+      "summary": "Wilde接下Rei的今日要点，准备转达给各专项负责人。",
+      "involves": [
+        "Rei"
+      ],
+      "tags": [
+        "Rei",
+        "今日重点事项",
+        "转达任务"
+      ],
+      "event_id": 1787673858
+    }
+  ],
   "visuals": {
     "stage_assets_version": "v0",
     "backgrounds": {
