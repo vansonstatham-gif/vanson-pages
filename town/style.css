@@ -98,17 +98,21 @@ body {
 }
 /* 踩地图时脚底要对齐：我们把 sprite 放在下方，气泡/名字在上方叠起来 */
 .resident .sprite {
-  width: 64px; height: 64px;
+  width: 96px; height: 96px;
   margin: 0 auto;
   position: relative;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   background-repeat: no-repeat;
-  background-size: 192px 256px;   /* 3 列 × 4 行整张 sheet */
+  background-size: 288px 384px;   /* 3 列 × 4 行整张 sheet（96px/帧） */
   filter: drop-shadow(0 3px 2px rgba(0,0,0,.45));
   /* 默认向下行走走路动画（由 JS 覆盖 background-position-y 选方向） */
   background-position-y: 0px;
   animation: walk-x 1.1s steps(3, end) infinite;
+}
+@keyframes walk-x {
+  0%   { background-position-x: 0px; }
+  100% { background-position-x: -288px; }
 }
 /* 原地待命：人物仿佛慢走，带轻微上下 bob */
 @keyframes bob {
@@ -204,11 +208,6 @@ body {
   .brand h1 { font-size: 20px; }
   .layout { padding: 0 10px 24px; gap: 16px; }
   .timeline { padding: 4px 12px; }
-  .resident .sprite { width: 37px; height: 37px; background-size: 111px 148px; }
   .resident .pname { font-size: 10px; }
   .resident .bubble { max-width: 120px; font-size: 10px; }
-  @keyframes walk-x {
-    0% { background-position-x: 0px; }
-    100% { background-position-x: -111px; }
-  }
 }
