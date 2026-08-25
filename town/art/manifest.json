@@ -1,0 +1,99 @@
+{
+  "format_version": 1,
+  "format": "pixel-town",
+  "asset_root": "art",
+  "generated_by": "万森小镇美术 · 程序化像素",
+  "sprite_sheets": {
+    "description": "每个居民 = 一张 spritesheet：4 行方向 × 3 列走路帧",
+    "frame_w": 64,
+    "frame_h": 64,
+    "frames_per_direction": 3,
+    "row_order": [
+      "down",
+      "left",
+      "up",
+      "right"
+    ],
+    "transparent": true
+  },
+  "residents": {
+    "Rei": {
+      "sprite": "sprites/Rei_walk.png",
+      "cn": "Rei"
+    },
+    "Fitness Coach": {
+      "sprite": "sprites/Fitness_walk.png",
+      "cn": "健身教练"
+    },
+    "Financial Advisor": {
+      "sprite": "sprites/Finance_walk.png",
+      "cn": "财经顾问"
+    },
+    "Entertainment": {
+      "sprite": "sprites/Entertainment_walk.png",
+      "cn": "娱乐助手"
+    },
+    "Ops": {
+      "sprite": "sprites/Ops_walk.png",
+      "cn": "运维"
+    },
+    "Wilde": {
+      "sprite": "sprites/Wilde_walk.png",
+      "cn": "骚客"
+    }
+  },
+  "map": {
+    "image": "bg/town_map.png",
+    "width": 1280,
+    "height": 720,
+    "pixel_scale": 4,
+    "design_size": [
+      320,
+      180
+    ]
+  },
+  "sites": {
+    "town_hall": {
+      "cn": "市政厅",
+      "stand": [
+        640,
+        312
+      ]
+    },
+    "teahouse": {
+      "cn": "茶馆",
+      "stand": [
+        252,
+        368
+      ]
+    },
+    "gym": {
+      "cn": "健身房",
+      "stand": [
+        1048,
+        288
+      ]
+    },
+    "canteen": {
+      "cn": "食堂",
+      "stand": [
+        1076,
+        640
+      ]
+    },
+    "stage": {
+      "cn": "舞台",
+      "stand": [
+        640,
+        616
+      ]
+    },
+    "sysroom": {
+      "cn": "机房",
+      "stand": [
+        300,
+        672
+      ]
+    }
+  }
+}
