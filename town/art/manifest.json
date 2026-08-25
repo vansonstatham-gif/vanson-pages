@@ -4,7 +4,7 @@
   "asset_root": "art",
   "generated_by": "万森小镇美术 · 程序化像素",
   "sprite_sheets": {
-    "description": "每个居民 = 一张 spritesheet：4 行方向 × 3 列走路帧",
+    "description": "纸娃娃四层：每位居民 = 头发/上衣/下装/鞋 四张 spritesheet，各 4 行方向 × 3 列走路帧",
     "frame_w": 64,
     "frame_h": 64,
     "frames_per_direction": 3,
@@ -14,43 +14,90 @@
       "up",
       "right"
     ],
-    "transparent": true
+    "transparent": true,
+    "paper_doll_parts": [
+      "hair",
+      "top",
+      "bottom",
+      "shoes"
+    ],
+    "part_z_order": [
+      "shoes",
+      "bottom",
+      "top",
+      "hair"
+    ]
   },
   "residents": {
     "Rei": {
-      "sprite": "sprites/Rei_walk.png",
-      "cn": "Rei"
+      "cn": "Rei",
+      "parts": {
+        "hair": "sprites/parts/Rei_hair.png",
+        "top": "sprites/parts/Rei_top.png",
+        "bottom": "sprites/parts/Rei_bottom.png",
+        "shoes": "sprites/parts/Rei_shoes.png"
+      }
     },
     "Fitness Coach": {
-      "sprite": "sprites/Fitness_walk.png",
-      "cn": "健身教练"
+      "cn": "健身教练",
+      "parts": {
+        "hair": "sprites/parts/Fitness_hair.png",
+        "top": "sprites/parts/Fitness_top.png",
+        "bottom": "sprites/parts/Fitness_bottom.png",
+        "shoes": "sprites/parts/Fitness_shoes.png"
+      }
     },
     "Financial Advisor": {
-      "sprite": "sprites/Finance_walk.png",
-      "cn": "财经顾问"
+      "cn": "财经顾问",
+      "parts": {
+        "hair": "sprites/parts/Finance_hair.png",
+        "top": "sprites/parts/Finance_top.png",
+        "bottom": "sprites/parts/Finance_bottom.png",
+        "shoes": "sprites/parts/Finance_shoes.png"
+      }
     },
     "Entertainment": {
-      "sprite": "sprites/Entertainment_walk.png",
-      "cn": "娱乐助手"
+      "cn": "娱乐助手",
+      "parts": {
+        "hair": "sprites/parts/Entertainment_hair.png",
+        "top": "sprites/parts/Entertainment_top.png",
+        "bottom": "sprites/parts/Entertainment_bottom.png",
+        "shoes": "sprites/parts/Entertainment_shoes.png"
+      }
     },
     "Ops": {
-      "sprite": "sprites/Ops_walk.png",
-      "cn": "运维"
+      "cn": "运维",
+      "parts": {
+        "hair": "sprites/parts/Ops_hair.png",
+        "top": "sprites/parts/Ops_top.png",
+        "bottom": "sprites/parts/Ops_bottom.png",
+        "shoes": "sprites/parts/Ops_shoes.png"
+      }
     },
     "Wilde": {
-      "sprite": "sprites/Wilde_walk.png",
-      "cn": "骚客"
+      "cn": "骚客",
+      "parts": {
+        "hair": "sprites/parts/Wilde_hair.png",
+        "top": "sprites/parts/Wilde_top.png",
+        "bottom": "sprites/parts/Wilde_bottom.png",
+        "shoes": "sprites/parts/Wilde_shoes.png"
+      }
     }
   },
   "map": {
-    "image": "bg/town_map.png",
     "width": 1280,
     "height": 720,
     "pixel_scale": 4,
     "design_size": [
       320,
       180
-    ]
+    ],
+    "layers": {
+      "ground": "bg/layers/ground.png",
+      "buildings": "bg/layers/buildings.png",
+      "objects": "bg/layers/objects.png",
+      "canopy": "bg/layers/canopy.png"
+    }
   },
   "sites": {
     "town_hall": {
