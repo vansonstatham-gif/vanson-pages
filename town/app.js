@@ -172,9 +172,8 @@
     const bubbleCls = title ? '' : ' no-title';
 
     // sprite：manifest 给的相对 art 路径，失败则用 emoji 占位
-    const spritePath = (manifest && manifest.asset_root && meta && meta.sprite)
-      ? manifest.asset_root + '/' + meta.sprite
-      : ((meta && meta.sprite) || '');
+    // meta.sprite 已含 asset_root 前缀（buildResidents 里拼好），这里直接取，避免重复拼 art/
+    const spritePath = (meta && meta.sprite) || '';
     const fallbackFace = FALLBACK_FACES[rk] || '🫥';
     resEl.innerHTML = `
       <div class="bubble${bubbleCls}${emotionSym ? '' : ''}">${bubbleBody}</div>
