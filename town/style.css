@@ -58,18 +58,21 @@ body {
 }
 
 /* ===== 中部：单张俯视地图 ===== */
-.map-section { width: 100%; }
-.map {
+.map-section {
   position: relative;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;           /* 与地图底图一致 1280×720 */
+  overflow: hidden;               /* 裁掉被等比缩小的 1280px 布局盒，避免手机横向滚动 */
+}
+.map {
+  position: absolute;
+  left: 0; top: 0;
+  width: 1280px; height: 720px;   /* 固定 1280×720 逻辑坐标系，整块由 JS 等比缩放适配视口 */
+  transform-origin: top left;
   border: 3px solid #6B3A21;
   border-radius: 8px;
   overflow: hidden;
   background: #3a2a18;
-  box-shadow: 0 10px 34px rgba(40,22,10,.6);
+  box-shadow: 0 6px 18px rgba(40,22,10,.5);
   image-rendering: pixelated;     /* 底图与居民都保持像素锐利 */
   image-rendering: -moz-crisp-edges;
 }
