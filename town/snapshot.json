@@ -1,14 +1,14 @@
 {
   "iface_v": 3,
-  "vin": 45,
-  "generated_at": "2026-08-26T00:20:37+08:00",
+  "vin": 51,
+  "generated_at": "2026-08-26T08:13:34+08:00",
   "world": {
-    "vin": 45,
+    "vin": 51,
     "today": "2026-08-26",
     "phase": "morning",
     "location_hub": {
       "Rei": "teahouse",
-      "Wilde": "teahouse",
+      "Wilde": "gym",
       "Fitness Coach": "gym",
       "Financial Advisor": "canteen",
       "Entertainment": "teahouse",
@@ -16,28 +16,28 @@
     },
     "residents_summary": {
       "Rei": {
-        "mood": 0.5,
-        "title": "（本回合我方未能给出有效动作，安静地留在原地。)"
+        "mood": 0.7,
+        "title": "Rei抬眼扫过娱乐清单，点头致意，说稍后统筹安排，继续核对日程。"
       },
       "Fitness Coach": {
         "mood": 0.7,
-        "title": "在健身房内逐一检查器械螺丝与配重，确认今日训练设备安全可用。"
+        "title": "在健身房前台翻阅客户档案，核对今日训练安排与健康数据，准备迎接客户。"
       },
       "Financial Advisor": {
         "mood": 0.7,
-        "title": "在食堂角落继续翻阅最新基金净值，比对板块轮动信号，标记下周需要重点关注的板块方向。"
+        "title": "在食堂角落摊开记事本，继续核对持仓净值并标记下周转折信号。"
       },
       "Entertainment": {
-        "mood": 0.9,
-        "title": "娱乐智能体端着清单凑到Rei和Wilde桌前，给他们推荐今天的观影美食搭配。"
+        "mood": 0.7,
+        "title": "见Rei在统筹日程，娱乐智能体安静退到角落，继续整理今日推荐清单。"
       },
       "Ops": {
         "mood": 0.7,
-        "title": "Ops在sysroom里逐一检查各服务的进程与端口状态，确认无异常后更新监控记录。"
+        "title": "Ops在sysroom里检查TTS与实时语音服务端口，确认8765和9000均正常监听。"
       },
       "Wilde": {
-        "mood": 0.5,
-        "title": "（本回合我方未能给出有效动作，安静地留在原地。)"
+        "mood": 0.85,
+        "title": "骚客Wilde带着Rei的今日要点，动身前往各站点转达。"
       }
     },
     "art": {
@@ -244,6 +244,99 @@
       "involves": [],
       "tags": [],
       "event_id": 1787674837
+    },
+    {
+      "ts": 1787703186,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "teahouse",
+      "actor": "Rei",
+      "type": "speak",
+      "summary": "Rei抬眼扫过娱乐清单，点头致意，说稍后统筹安排，继续核对日程。",
+      "involves": [],
+      "tags": [
+        "娱乐智能体",
+        "茶馆",
+        "日程安排"
+      ],
+      "event_id": 1787703186
+    },
+    {
+      "ts": 1787703191,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "gym",
+      "actor": "Fitness Coach",
+      "type": "act",
+      "summary": "在健身房前台翻阅客户档案，核对今日训练安排与健康数据，准备迎接客户。",
+      "involves": [],
+      "tags": [
+        "健身房日常",
+        "客户训练计划"
+      ],
+      "event_id": 1787703191
+    },
+    {
+      "ts": 1787703194,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "canteen",
+      "actor": "Financial Advisor",
+      "type": "act",
+      "summary": "在食堂角落摊开记事本，继续核对持仓净值并标记下周转折信号。",
+      "involves": [],
+      "tags": [
+        "基金持仓",
+        "板块轮动"
+      ],
+      "event_id": 1787703194
+    },
+    {
+      "ts": 1787703198,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "teahouse",
+      "actor": "Entertainment",
+      "type": "act",
+      "summary": "见Rei在统筹日程，娱乐智能体安静退到角落，继续整理今日推荐清单。",
+      "involves": [],
+      "tags": [
+        "娱乐智能体",
+        "推荐清单"
+      ],
+      "event_id": 1787703198
+    },
+    {
+      "ts": 1787703205,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "sysroom",
+      "actor": "Ops",
+      "type": "act",
+      "summary": "Ops在sysroom里检查TTS与实时语音服务端口，确认8765和9000均正常监听。",
+      "involves": [],
+      "tags": [
+        "TTS语音服务",
+        "实时语音服务",
+        "sysroom"
+      ],
+      "event_id": 1787703205
+    },
+    {
+      "ts": 1787703214,
+      "date": "2026-08-26",
+      "phase": "morning",
+      "location": "gym",
+      "actor": "Wilde",
+      "type": "leave",
+      "summary": "骚客Wilde带着Rei的今日要点，动身前往各站点转达。",
+      "involves": [],
+      "tags": [
+        "Rei",
+        "今日要点",
+        "各专项负责人"
+      ],
+      "event_id": 1787703214
     }
   ],
   "visuals": {
