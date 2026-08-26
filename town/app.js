@@ -454,7 +454,7 @@
   // 按方向设置 sprite 的 background-position-y（行号）
   function setDir(sprEl, dirIndex, rowOrder) {
     const idx = typeof dirIndex === 'number' ? dirIndex : rowOrder.indexOf('down');
-    const y = (-idx * 96) + 'px';
+    const y = (-idx * 64) + 'px';
     const parts = sprEl.querySelectorAll('.part');
     if (parts.length) {
       parts.forEach(p => { p.style.backgroundPositionY = y; });
