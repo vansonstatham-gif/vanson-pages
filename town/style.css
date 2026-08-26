@@ -231,6 +231,23 @@ body {
 .timeline-item .tl-summary { font-size: 14px; color: #5D4037; line-height: 1.5; }
 .timeline-empty { font-size: 14px; color: #8B5A2B; text-align: center; padding: 22px 0 !important; }
 
+/* ===== 手机端：居民此刻（文字动态，桌面隐藏） ===== */
+.mobile-now { display: none; }
+.now-list li {
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.now-list li:last-child { border-bottom: none; }
+.now-who {
+  flex: none; font-weight: 700; color: #3E2723; font-size: 13px;
+  padding: 1px 7px; background: #F5E1C0; border: 1px solid #8B5A2B; border-radius: 4px;
+  white-space: nowrap;
+}
+.now-list .mood-dot {
+  flex: none; width: 8px; height: 8px; border-radius: 50%;
+  margin-top: 6px; box-shadow: 0 0 0 2px rgba(60,32,15,.25);
+}
+.now-do { color: #5D4037; font-size: 14px; line-height: 1.5; }
+
 /* ===== 页脚 ===== */
 .foot { text-align: center; color: #8B5A2B; font-size: 12px; padding: 2px 12px 20px; }
 
@@ -273,4 +290,7 @@ body {
   .timeline { padding: 4px 12px; }
   .resident .pname { font-size: 10px; }
   .resident .bubble { max-width: 120px; font-size: 10px; }
+  /* 手机端：隐藏地图，改看文字动态 */
+  .map-section { display: none; }
+  .mobile-now { display: block; }
 }
