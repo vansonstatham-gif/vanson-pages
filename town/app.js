@@ -589,4 +589,18 @@
     return String(s).replace(/[&<>"']/g, c =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
+
+  /* ---------- 响应式：整块地图等比缩放，居民/气泡/遮挡片一起缩小，手机端不重叠 ---------- */
+  const mapSection = mapEl.parentElement;
+  function fitMap() {
+    if (!mapSection || !mapEl) return;
+    const avail = mapSection.clientWidth;
+    const s = Math.min(avail / MW, 1);   // 只缩小不放大；桌面端保持原生 1280
+    mapEl.style.transform = 'scale(' + s + ')';
+    mapEl.style.left = ((avail - MW * s) / 2) + 'px';
+    mapSection.style.height = (MH * s) + 'px';
+  }
+  window.addEventListener('resize', fitMap);
+  window.addEventListener('load', fitMap);
+  fitMap();
 })();
