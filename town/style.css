@@ -2,50 +2,50 @@
 
 /* =========================================================
    万森小镇 · 俯视像素地图 HUD
-   风格：像素/清新游戏界面（非暖色卡片）
+   风格：暖色田园像素 / 羊皮纸+木质 UI（对照 my_ai_town 视频）
    ========================================================= */
 
 html, body { height: 100%; }
 
 body {
   font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #10151c;
-  color: #d7e4ef;
+  background: #2a1a10;
+  color: #F5E1C0;
   min-height: 100vh;
   background-image:
-    radial-gradient(circle at 20% 12%, rgba(64,132,178,.22), transparent 42%),
-    radial-gradient(circle at 82% 20%, rgba(78,150,110,.18), transparent 40%),
-    linear-gradient(180deg, #0c1118 0%, #131b25 55%, #0f1620 100%);
+    radial-gradient(circle at 20% 12%, rgba(124,179,66,.20), transparent 42%),
+    radial-gradient(circle at 82% 20%, rgba(198,164,107,.24), transparent 40%),
+    linear-gradient(180deg, #2b1c12 0%, #382a1c 55%, #2b1c12 100%);
 }
 
 /* ===== 顶栏 ===== */
 .topbar {
-  background: #161d28;
-  border-bottom: 2px solid #2a3a4a;
+  background: #F8E7C8;
+  border-bottom: 2px solid #6B3A21;
   padding: 14px 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  box-shadow: 0 3px 14px rgba(0,0,0,.5);
+  box-shadow: 0 3px 14px rgba(60,32,15,.45);
 }
 .brand h1 {
   font-size: 26px;
-  color: #bfeaff;
+  color: #3E2723;
   letter-spacing: 3px;
-  text-shadow: 0 0 0 #000, 2px 2px 0 rgba(0,0,0,.6);
+  text-shadow: 2px 2px 0 rgba(107,58,33,.28);
   font-weight: 800;
 }
-.subtitle { font-size: 12px; color: #7f95ad; letter-spacing: 3px; margin-top: 3px; }
+.subtitle { font-size: 12px; color: #8B5A2B; letter-spacing: 3px; margin-top: 3px; }
 .meta { display: flex; align-items: center; gap: 10px; font-size: 13px; }
 .meta span {
-  background: #0e141d;
-  border: 1.5px solid #2a3a4c;
+  background: #F5E1C0;
+  border: 1.5px solid #8B5A2B;
   padding: 4px 12px; border-radius: 6px; font-weight: 600;
-  color: #9fc3e0;
+  color: #5D4037;
 }
-.meta .meta-vin { color: #ffd98a; border-color: #5a4a22; }
+.meta .meta-vin { color: #A63A2D; border-color: #6B3A21; }
 
 /* ===== 布局 ===== */
 .layout {
@@ -65,11 +65,11 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   aspect-ratio: 16 / 9;           /* 与地图底图一致 1280×720 */
-  border: 3px solid #2a3a4c;
+  border: 3px solid #6B3A21;
   border-radius: 8px;
   overflow: hidden;
-  background: #1b2733;
-  box-shadow: 0 10px 34px rgba(0,0,0,.55);
+  background: #3a2a18;
+  box-shadow: 0 10px 34px rgba(40,22,10,.6);
   image-rendering: pixelated;     /* 底图与居民都保持像素锐利 */
   image-rendering: -moz-crisp-edges;
 }
@@ -101,7 +101,7 @@ body {
 .map .map-bg-missing {
   position: absolute; inset: 0; z-index: 1;
   display: flex; align-items: center; justify-content: center;
-  font-size: 15px; letter-spacing: 2px; color: #5d748c;
+  font-size: 15px; letter-spacing: 2px; color: #8B5A2B;
 }
 
 /* ===== 居民图层 ===== */
@@ -122,7 +122,7 @@ body {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   cursor: pointer;
-  filter: drop-shadow(0 3px 2px rgba(0,0,0,.45));
+  filter: drop-shadow(0 3px 2px rgba(40,22,10,.45));
   animation: bob 1.6s ease-in-out infinite;
 }
 /* 纸娃娃部件：四层绝对定位叠在同一格，共享走路帧动画（background-position-y 由 JS 选方向） */
@@ -152,11 +152,11 @@ body {
 
 /* 角色名字（脚下方） */
 .resident .pname {
-  font-size: 12px; font-weight: 700; color: #e8f3ff;
-  background: rgba(10,16,24,.78);
+  font-size: 12px; font-weight: 700; color: #3E2723;
+  background: rgba(248,231,200,.92);
   display: inline-block;
   padding: 1px 8px; border-radius: 4px;
-  border: 1px solid #2a3a4c;
+  border: 1px solid #8B5A2B;
   margin: 1px auto 0;
   max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   image-rendering: auto;
@@ -167,34 +167,34 @@ body {
   position: relative;
   max-width: 140px;
   margin: 0 auto;
-  background: rgba(20,28,38,.9);
-  color: #cfe3f5;
+  background: rgba(248,231,200,.94);
+  color: #3E2723;
   font-size: 12px; line-height: 1.4;
   padding: 5px 9px; border-radius: 7px;
-  border: 1px solid #3a5066;
-  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  border: 1px solid #8B5A2B;
+  box-shadow: 0 2px 6px rgba(60,32,15,.35);
   white-space: normal; word-break: break-word;
   transform: translateY(-3px);
 }
 .resident .bubble::after {
   content: ""; position: absolute; left: 50%; bottom: -7px;
   transform: translateX(-50%);
-  border: 6px solid transparent; border-top-color: #2a3a4c;
+  border: 6px solid transparent; border-top-color: #8B5A2B;
 }
 .resident .bubble.no-title { opacity: .55; }
 .resident .bubble .mood-dot {
   display: inline-block; width: 8px; height: 8px; border-radius: 50%;
   margin-right: 5px; vertical-align: 1px;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.4);
+  box-shadow: 0 0 0 2px rgba(60,32,15,.4);
 }
 /* 情绪 emoji 角标（替代旧 48×48 emote PNG） */
 .resident .emote-ico {
   position: absolute; top: -10px; right: -10px; z-index: 7;
   width: 24px; height: 24px; border-radius: 50%;
-  border: 2px solid #0e141d; background: #233042;
+  border: 2px solid #3E2723; background: #F5E1C0;
   display: flex; align-items: center; justify-content: center;
   font-size: 14px; line-height: 1;
-  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+  box-shadow: 0 2px 4px rgba(60,32,15,.4);
 }
 
 /* sprite 加载失败时的占位 */
@@ -202,44 +202,44 @@ body {
   width: 48px; height: 48px; margin: 16px auto 0;
   font-size: 30px;
   display: flex; align-items: center; justify-content: center;
-  filter: drop-shadow(0 3px 2px rgba(0,0,0,.4));
+  filter: drop-shadow(0 3px 2px rgba(40,22,10,.4));
 }
 
 /* ===== 底部：小镇动态 ===== */
 .news-section { width: 100%; }
 .news-title {
-  font-size: 16px; color: #8fb8da; letter-spacing: 3px;
+  font-size: 16px; color: #607D3B; letter-spacing: 3px;
   margin-bottom: 10px; text-transform: uppercase;
 }
 .timeline {
-  background: #141b26;
+  background: #F8E7C8;
   border-radius: 8px;
-  border: 2px solid #2a3a4c;
+  border: 2px solid #6B3A21;
   padding: 6px 18px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  box-shadow: 0 8px 24px rgba(40,22,10,.4);
 }
-.timeline li { list-style: none; padding: 10px 0; border-bottom: 1px dashed #27384a; }
+.timeline li { list-style: none; padding: 10px 0; border-bottom: 1px dashed #D7A86E; }
 .timeline li:last-child { border-bottom: none; }
-.timeline-item .tl-meta { font-size: 12px; color: #7f95ad; margin-bottom: 3px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
-.tl-badge { font-size: 11px; background:#0e141d; color:#9fc3e0; padding:1px 8px; border-radius:4px; font-weight:600;}
-.tl-badge.tl-site { color:#8fe0b8; border:1px solid #2a4a3a; }
-.tl-badge.tl-phase { color:#e0c98f; border:1px solid #4a3a22; }
-.tl-who { font-weight: 700; color: #cfdeee; }
-.timeline-item .tl-summary { font-size: 14px; color: #b9c8d8; line-height: 1.5; }
-.timeline-empty { font-size: 14px; color: #6f869e; text-align: center; padding: 22px 0 !important; }
+.timeline-item .tl-meta { font-size: 12px; color: #8B5A2B; margin-bottom: 3px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+.tl-badge { font-size: 11px; background:#F5E1C0; color:#5D4037; padding:1px 8px; border-radius:4px; font-weight:600;}
+.tl-badge.tl-site { color:#3E8E41; border:1px solid #6B8E23; }
+.tl-badge.tl-phase { color:#A63A2D; border:1px solid #6B3A21; }
+.tl-who { font-weight: 700; color: #3E2723; }
+.timeline-item .tl-summary { font-size: 14px; color: #5D4037; line-height: 1.5; }
+.timeline-empty { font-size: 14px; color: #8B5A2B; text-align: center; padding: 22px 0 !important; }
 
 /* ===== 页脚 ===== */
-.foot { text-align: center; color: #5d748c; font-size: 12px; padding: 2px 12px 20px; }
+.foot { text-align: center; color: #8B5A2B; font-size: 12px; padding: 2px 12px 20px; }
 
 /* ===== 换装浮层 ===== */
 .wardrobe {
   position: fixed;
   right: 18px; top: 84px;
   width: 280px;
-  background: #141b26;
-  border: 2px solid #3a5066;
+  background: #F8E7C8;
+  border: 2px solid #6B3A21;
   border-radius: 10px;
-  box-shadow: 0 10px 34px rgba(0,0,0,.55);
+  box-shadow: 0 10px 34px rgba(40,22,10,.55);
   z-index: 999;
   padding: 12px 14px;
   transform: translateX(320px);
@@ -248,19 +248,19 @@ body {
 }
 .wardrobe.open { transform: translateX(0); opacity: 1; }
 .wd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
-.wd-title { font-size: 14px; color: #bfeaff; letter-spacing: 1px; }
-.wd-title b { color: #ffd98a; }
+.wd-title { font-size: 14px; color: #3E2723; letter-spacing: 1px; }
+.wd-title b { color: #A63A2D; }
 .wd-tools { display: flex; gap: 6px; }
-.wd-btn { background: #0e141d; color: #9fc3e0; border: 1.5px solid #2a3a4c; border-radius: 5px; font-size: 12px; padding: 3px 8px; cursor: pointer; }
-.wd-btn:hover { border-color: #4a6a8a; color: #d7e4ef; }
-.wd-close { background: none; border: none; color: #8fa8bf; font-size: 16px; cursor: pointer; line-height: 1; }
-.wd-close:hover { color: #fff; }
+.wd-btn { background: #F5E1C0; color: #5D4037; border: 1.5px solid #8B5A2B; border-radius: 5px; font-size: 12px; padding: 3px 8px; cursor: pointer; }
+.wd-btn:hover { border-color: #6B3A21; color: #3E2723; }
+.wd-close { background: none; border: none; color: #8B5A2B; font-size: 16px; cursor: pointer; line-height: 1; }
+.wd-close:hover { color: #3E2723; }
 .wd-body { display: flex; flex-direction: column; gap: 8px; }
 .wd-row { display: flex; align-items: center; gap: 8px; }
-.wd-label { width: 34px; font-size: 12px; color: #7f95ad; }
-.wd-row input[type=range] { flex: 1; accent-color: #5a9bd5; }
-.wd-val { width: 40px; text-align: right; font-size: 11px; color: #9fc3e0; font-variant-numeric: tabular-nums; }
-.wd-hint { margin-top: 8px; font-size: 11px; color: #5d748c; }
+.wd-label { width: 34px; font-size: 12px; color: #8B5A2B; }
+.wd-row input[type=range] { flex: 1; accent-color: #A63A2D; }
+.wd-val { width: 40px; text-align: right; font-size: 11px; color: #5D4037; font-variant-numeric: tabular-nums; }
+.wd-hint { margin-top: 8px; font-size: 11px; color: #8B5A2B; }
 
 /* ===== 小屏适配 ===== */
 @media (max-width: 640px) {
