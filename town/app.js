@@ -315,6 +315,22 @@
     }).join('');
   }
 
+  /* ---------- 4.5) 手机端文字动态：每位居民此刻在做什么（替代地图气泡） ---------- */
+  const nowUl = $('now-list');
+  if (nowUl) {
+    nowUl.innerHTML = Object.keys(RESIDENTS).map(rk => {
+      const cn = (RESIDENTS[rk] && RESIDENTS[rk].cn) || rk;
+      const s = summary[rk] || {};
+      const mood = typeof s.mood === 'number' ? s.mood : null;
+      let title = (typeof s.title === 'string' && s.title.trim()) ? s.title.trim() : '';
+      if (/^（本回合.*留在原地。\)?$/.test(title)) title = '';
+      const dot = mood != null
+        ? `<span class="mood-dot" style="background:${moodColor(mood)}" title="mood:${mood}"></span>`
+        : '';
+      return `<li><span class="now-who">${escapeHtml(cn)}</span>${dot}<span class="now-do">${escapeHtml(title || '🌿 安静地待着')}</span></li>`;
+    }).join('');
+  }
+
   /* ---------- 换装：点击居民，用 hue-rotate 实时换色四层纸娃娃 ---------- */
   const PART_ORDER = ['hair', 'top', 'bottom', 'shoes'];
   const PART_CN = { hair: '头发', top: '上衣', bottom: '下装', shoes: '鞋' };
