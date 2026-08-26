@@ -300,11 +300,15 @@
     eventsUl.innerHTML = '<li class="timeline-empty">📮 还没有大事发生，居民都在安静过自己的日子。</li>';
   } else {
     eventsUl.innerHTML = entries.map(e => {
-      const who = (e.actor && RESIDENTS[e.actor]) ? RESIDENTS[e.actor].cn : (e.actor || '某人');
-      const loc = e.location ? (SITES[e.location] ? SITES[e.location].cn : e.location) : '';
+      const isGod = e.actor === 'god';
+      const who = isGod ? '☁️ 天降事件' : ((e.actor && RESIDENTS[e.actor]) ? RESIDENTS[e.actor].cn : (e.actor || '某人'));
+      const loc = e.location
+        ? (e.location === 'town' ? '全镇' : (SITES[e.location] ? SITES[e.location].cn : e.location))
+        : '';
       const bits = [];
       if (e.date)  bits.push(`<span class="tl-badge">${escapeHtml(e.date)}</span>`);
       if (e.phase) bits.push(`<span class="tl-badge tl-phase">${escapeHtml(e.phase)}</span>`);
+      if (isGod)   bits.push(`<span class="tl-badge tl-god">神</span>`);
       if (loc)     bits.push(`<span class="tl-badge tl-site">📍${escapeHtml(loc)}</span>`);
       bits.push(`<span class="tl-who">${escapeHtml(who)}</span>`);
       return `
