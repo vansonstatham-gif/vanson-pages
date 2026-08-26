@@ -1,11 +1,11 @@
 {
   "iface_v": 3,
-  "vin": 51,
-  "generated_at": "2026-08-26T08:13:34+08:00",
+  "vin": 57,
+  "generated_at": "2026-08-26T13:07:29+08:00",
   "world": {
-    "vin": 51,
+    "vin": 57,
     "today": "2026-08-26",
-    "phase": "morning",
+    "phase": "noon",
     "location_hub": {
       "Rei": "teahouse",
       "Wilde": "gym",
@@ -17,27 +17,27 @@
     "residents_summary": {
       "Rei": {
         "mood": 0.7,
-        "title": "Rei抬眼扫过娱乐清单，点头致意，说稍后统筹安排，继续核对日程。"
+        "title": "Rei将娱乐清单勾入午后空档，轻叩桌面，表示稍后再细看。"
       },
       "Fitness Coach": {
         "mood": 0.7,
-        "title": "在健身房前台翻阅客户档案，核对今日训练安排与健康数据，准备迎接客户。"
+        "title": "趁午间人少，检查训练区通风与饮水补给，调整哑铃架摆放，为下午客户做好准备。"
       },
       "Financial Advisor": {
         "mood": 0.7,
-        "title": "在食堂角落摊开记事本，继续核对持仓净值并标记下周转折信号。"
+        "title": "在食堂角落继续翻看最新基金净值，核对持仓盈亏与板块轮动信号。"
       },
       "Entertainment": {
         "mood": 0.7,
-        "title": "见Rei在统筹日程，娱乐智能体安静退到角落，继续整理今日推荐清单。"
+        "title": "娱乐智能体继续低头打磨午后推荐清单，把观影和咖啡搭配又优化了一版。"
       },
       "Ops": {
         "mood": 0.7,
-        "title": "Ops在sysroom里检查TTS与实时语音服务端口，确认8765和9000均正常监听。"
+        "title": "Ops在sysroom里例行巡检各服务日志与端口，确认系统运行平稳。"
       },
       "Wilde": {
         "mood": 0.85,
-        "title": "骚客Wilde带着Rei的今日要点，动身前往各站点转达。"
+        "title": "Wilde靠在哑铃架旁，冲健身教练挑眉：这铁疙瘩比我还沉，不如咱们比比谁先喘。"
       }
     },
     "art": {
@@ -337,6 +337,99 @@
         "各专项负责人"
       ],
       "event_id": 1787703214
+    },
+    {
+      "ts": 1787720828,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "teahouse",
+      "actor": "Rei",
+      "type": "act",
+      "summary": "Rei将娱乐清单勾入午后空档，轻叩桌面，表示稍后再细看。",
+      "involves": [],
+      "tags": [
+        "Rei",
+        "娱乐清单",
+        "午后安排"
+      ],
+      "event_id": 1787720828
+    },
+    {
+      "ts": 1787720835,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "gym",
+      "actor": "Fitness Coach",
+      "type": "act",
+      "summary": "趁午间人少，检查训练区通风与饮水补给，调整哑铃架摆放，为下午客户做好准备。",
+      "involves": [],
+      "tags": [
+        "健身房",
+        "训练区准备"
+      ],
+      "event_id": 1787720835
+    },
+    {
+      "ts": 1787720838,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "canteen",
+      "actor": "Financial Advisor",
+      "type": "act",
+      "summary": "在食堂角落继续翻看最新基金净值，核对持仓盈亏与板块轮动信号。",
+      "involves": [],
+      "tags": [
+        "基金持仓",
+        "净值",
+        "板块轮动"
+      ],
+      "event_id": 1787720838
+    },
+    {
+      "ts": 1787720841,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "teahouse",
+      "actor": "Entertainment",
+      "type": "act",
+      "summary": "娱乐智能体继续低头打磨午后推荐清单，把观影和咖啡搭配又优化了一版。",
+      "involves": [],
+      "tags": [
+        "娱乐清单",
+        "午后推荐"
+      ],
+      "event_id": 1787720841
+    },
+    {
+      "ts": 1787720846,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "sysroom",
+      "actor": "Ops",
+      "type": "act",
+      "summary": "Ops在sysroom里例行巡检各服务日志与端口，确认系统运行平稳。",
+      "involves": [],
+      "tags": [
+        "系统巡检"
+      ],
+      "event_id": 1787720846
+    },
+    {
+      "ts": 1787720849,
+      "date": "2026-08-26",
+      "phase": "noon",
+      "location": "gym",
+      "actor": "Wilde",
+      "type": "speak",
+      "summary": "Wilde靠在哑铃架旁，冲健身教练挑眉：这铁疙瘩比我还沉，不如咱们比比谁先喘。",
+      "involves": [
+        "Fitness Coach"
+      ],
+      "tags": [
+        "Fitness Coach",
+        "gym"
+      ],
+      "event_id": 1787720849
     }
   ],
   "visuals": {
