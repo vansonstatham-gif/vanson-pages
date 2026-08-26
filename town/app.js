@@ -62,8 +62,9 @@
   const SITES = buildSites(manifest, fallbackSites);
 
   /* 地图图层：分层渲染（ground/buildings/objects/canopy），canopy 在最前制造遮挡纵深 */
-  const MAP_LAYER_Z = { ground: 1, buildings: 2, objects: 3, canopy: 6 };
+  const MAP_LAYER_Z = { ground: 1, buildings: 2, objects: 3, canopy: 100 };
   const mapLayers = (manifest && manifest.map && manifest.map.layers) ? manifest.map.layers : null;
+  const OCCLUDERS = (manifest && manifest.occluders) ? manifest.occluders : null;
 
   /* ---------- 顶栏 + 页脚 ---------- */
   dateEl.textContent = '◷ ' + ((snapshot && snapshot.world && snapshot.world.today) || '未知日期');
@@ -105,6 +106,35 @@
       bg.remove();
     };
     mapEl.appendChild(bg);
+  }
+
+  /* ---------- 1.5) 建筑主体遮挡片（盖住走到其身后的居民，参与 y 深度排序） ---------- */
+  const occluderEls = [];
+  if (OCCLUDERS && typeof OCCLUDERS === 'object') {
+    const assetRoot = (manifest && manifest.asset_root) ? manifest.asset_root : 'art';
+    Object.keys(OCCLUDERS).forEach(k => {
+      const o = OCCLUDERS[k];
+      if (!o || !o.img) return;
+      const div = document.createElement('div');
+      div.className = 'occluder';
+      div.style.left = (o.x / MW * 100) + '%';
+      div.style.top = (o.y / MH * 100) + '%';
+      div.style.width = (o.w / MW * 100) + '%';
+      div.style.height = (o.h / MH * 100) + '%';
+      div.style.backgroundImage = `url('${assetRoot}/${o.img}')`;
+      div.__anchorY = o.anchor_y || o.y;
+      mapEl.appendChild(div);
+      occluderEls.push(div);
+    });
+  }
+
+  // 按脚底 y 动态给「居民 + 建筑主体」排序：y 小（靠上/靠后）z 小，被 y 大的挡住
+  function applyDepthSort() {
+    const ents = [];
+    residents.forEach(r => ents.push({ el: r.el, y: r.el.__pos.y }));
+    occluderEls.forEach(o => ents.push({ el: o, y: o.__anchorY }));
+    ents.sort((a, b) => a.y - b.y);
+    ents.forEach((e, i) => { e.el.style.zIndex = 10 + i; });
   }
 
   /* 没有快照也把居民画上（用 manifest 全量居民，站到各站点） */
@@ -255,6 +285,7 @@
 
     residents.push({ el: resEl, rk: rk, cn: cn, mood: mood, emotionSym: emotionSym });
   });
+  applyDepthSort();   // 初始深度排序
 
   /* ---------- 3) 微散步：居民在站点附近小范围随机走动 ---------- */
   setupMicroWalk(residents, MW, MH, ROW_ORDER);
@@ -283,6 +314,91 @@
         </li>`;
     }).join('');
   }
+
+  /* ---------- 换装：点击居民，用 hue-rotate 实时换色四层纸娃娃 ---------- */
+  const PART_ORDER = ['hair', 'top', 'bottom', 'shoes'];
+  const PART_CN = { hair: '头发', top: '上衣', bottom: '下装', shoes: '鞋' };
+  let wardrobeTarget = null;
+
+  function buildWardrobe() {
+    const wd = document.createElement('div');
+    wd.className = 'wardrobe';
+    wd.id = 'wardrobe';
+    wd.innerHTML = `
+      <div class="wd-head">
+        <span class="wd-title">👗 换装 · <b id="wd-name">—</b></span>
+        <div class="wd-tools">
+          <button class="wd-btn" id="wd-random" title="随机配色">🎲 随机</button>
+          <button class="wd-btn" id="wd-reset" title="恢复原色">↺ 重置</button>
+          <button class="wd-close" id="wd-close" title="关闭">✕</button>
+        </div>
+      </div>
+      <div class="wd-body" id="wd-body"></div>
+      <div class="wd-hint">拖动滑杆实时换色（hue-rotate）</div>
+    `;
+    document.body.appendChild(wd);
+    $('wd-close').addEventListener('click', () => wd.classList.remove('open'));
+    $('wd-random').addEventListener('click', () => {
+      if (!wardrobeTarget) return;
+      PART_ORDER.forEach(pk => {
+        wardrobeTarget.__wardrobe = wardrobeTarget.__wardrobe || {};
+        wardrobeTarget.__wardrobe[pk] = (Math.random() * 360) | 0;
+      });
+      refreshWardrobe();
+      PART_ORDER.forEach(pk => applyWardrobe(wardrobeTarget, pk));
+    });
+    $('wd-reset').addEventListener('click', () => {
+      if (!wardrobeTarget) return;
+      wardrobeTarget.__wardrobe = {};
+      refreshWardrobe();
+      PART_ORDER.forEach(pk => applyWardrobe(wardrobeTarget, pk));
+    });
+  }
+
+  function refreshWardrobe() {
+    if (!wardrobeTarget) return;
+    $('wd-name').textContent = wardrobeTarget.cn;
+    const body = $('wd-body');
+    body.innerHTML = '';
+    PART_ORDER.forEach(pk => {
+      const cur = (wardrobeTarget.__wardrobe && wardrobeTarget.__wardrobe[pk]) || 0;
+      const row = document.createElement('div');
+      row.className = 'wd-row';
+      row.innerHTML = `
+        <span class="wd-label">${PART_CN[pk]}</span>
+        <input type="range" min="0" max="360" value="${cur}" data-part="${pk}">
+        <span class="wd-val">${cur}°</span>
+      `;
+      row.querySelector('input').addEventListener('input', e => {
+        const v = +e.target.value;
+        wardrobeTarget.__wardrobe = wardrobeTarget.__wardrobe || {};
+        wardrobeTarget.__wardrobe[pk] = v;
+        row.querySelector('.wd-val').textContent = v + '°';
+        applyWardrobe(wardrobeTarget, pk);
+      });
+      body.appendChild(row);
+    });
+  }
+
+  function applyWardrobe(rec, pk) {
+    const hue = (rec.__wardrobe && rec.__wardrobe[pk]) || 0;
+    const p = rec.el.querySelector('.part[data-part="' + pk + '"]');
+    if (p) p.style.filter = hue ? 'hue-rotate(' + hue + 'deg)' : 'none';
+  }
+
+  function openWardrobe(rec) {
+    wardrobeTarget = rec;
+    refreshWardrobe();
+    $('wardrobe').classList.add('open');
+  }
+
+  buildWardrobe();
+  mapEl.addEventListener('click', e => {
+    const resEl = e.target.closest('.resident');
+    if (!resEl) return;
+    const rec = residents.find(r => r.el === resEl);
+    if (rec) openWardrobe(rec);
+  });
 
   /* =========================================================
      工具函数
@@ -410,6 +526,7 @@
         el.el.__pos.x = nx;
         el.el.__pos.y = ny;
         applyPos(el.el);
+        applyDepthSort();   // 位置变了，重排遮挡
       }
 
       rec.x = nx;
@@ -430,6 +547,7 @@
       el.el.__pos.x = rec.baseX;
       el.el.__pos.y = rec.baseY;
       applyPos(el.el);
+      applyDepthSort();   // 归位也重排
       const spr = el.el.querySelector('.sprite');
       if (spr && !spr.classList.contains('sprite-missing')) {
         setDir(spr, rowOrder.indexOf('down'), rowOrder);
