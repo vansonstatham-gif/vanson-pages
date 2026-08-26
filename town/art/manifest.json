@@ -94,10 +94,18 @@
     ],
     "layers": {
       "ground": "bg/layers/ground.png",
-      "buildings": "bg/layers/buildings.png",
+      "buildings": "bg/layers/buildings_base.png",
       "objects": "bg/layers/objects.png",
       "canopy": "bg/layers/canopy.png"
     }
+  },
+  "occluders": {
+    "town_hall": { "img": "bg/occluders/town_hall_body.png", "x": 436, "y": 28, "w": 404, "h": 284, "anchor_y": 312 },
+    "teahouse":  { "img": "bg/occluders/teahouse_body.png",  "x": 124, "y": 148, "w": 252, "h": 220, "anchor_y": 368 },
+    "gym":       { "img": "bg/occluders/gym_body.png",       "x": 872, "y": 76,  "w": 344, "h": 212, "anchor_y": 288 },
+    "canteen":   { "img": "bg/occluders/canteen_body.png",   "x": 940, "y": 412, "w": 268, "h": 228, "anchor_y": 640 },
+    "stage":     { "img": "bg/occluders/stage_body.png",     "x": 500, "y": 516, "w": 280, "h": 100, "anchor_y": 616 },
+    "sysroom":   { "img": "bg/occluders/sysroom_body.png",   "x": 164, "y": 400, "w": 268, "h": 272, "anchor_y": 672 }
   },
   "sites": {
     "town_hall": {
