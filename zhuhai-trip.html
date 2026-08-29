@@ -1,1 +1,890 @@
-zhuhai-trip.html
+<!doctype html>
+<!-- Hallmark · macrostructure: Narrative Workflow · tone: editorial (warm travel) · theme: custom (field-green on warm cream) · enrichment: real photography (Trip.com / Klook, geotagged, China-reachable) · nav: masthead · footer: statement -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="深圳出发 · 珠海田园三日游：田园但不村——会同古村喝咖啡、淇澳岛骑湿地、十里莲江看稻田，最后御温泉泡真温泉。图文行程，可筛选可收藏可翻牌。">
+<title>珠海，把三天过成田园牧歌</title>
+<style>
+/* Hallmark · macrostructure: Narrative Workflow · genre: editorial
+ * theme: custom (warm-cream paper · field-green accent · system CJK serif/sans — 大陆可直连)
+ * nav: masthead · footer: statement · enrichment: real photography (Trip.com/Klook 实拍, 国内 CDN) */
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-padding-top:5rem}
+body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--color-accent-bright)}
+a:focus-visible,.pill:focus-visible,.chip:focus-visible,.btn:focus-visible,
+.mcard__fav:focus-visible,.mcard:focus-visible,.to-top:focus-visible{
+  outline:2px solid var(--color-focus);outline-offset:3px}
+::selection{background:var(--color-accent-bright);color:var(--color-paper)}
+
+h1,h2,h3{font-family:var(--font-display);font-style:normal;font-weight:600;
+  line-height:1.18;letter-spacing:-0.015em;margin:0;overflow-wrap:anywhere;min-width:0}
+p{margin:0}
+.mono{font-family:var(--font-outlier);font-size:var(--text-sm);
+  letter-spacing:0.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+:root{
+  /* 田园牧歌 · 暖奶油纸 + 田野绿 */
+  --color-paper:       oklch(97%  0.012  85);
+  --color-paper-2:     oklch(93.5% 0.018  85);
+  --color-paper-3:     oklch(89%   0.024  85);
+  --color-rule:        oklch(83%   0.016  80);
+  --color-neutral:     oklch(46%   0.018  70);
+  --color-muted:       oklch(36%   0.02   65);
+  --color-ink:         oklch(19%   0.02   60);
+  --color-accent:      oklch(46%   0.09  150);
+  --color-accent-bright: oklch(58% 0.10  150);
+  --color-focus:       oklch(60%   0.11  150);
+  /* 分类色 */
+  --color-cat-village: oklch(48% 0.09  60);   /* 古村 */
+  --color-cat-isle:    oklch(46% 0.09  240);  /* 海岛湿地 */
+  --color-cat-field:   oklch(52% 0.10  130);  /* 荷塘稻田 */
+  --color-cat-spring:  oklch(44% 0.10  300);  /* 温泉 */
+  /* 字体 · 系统栈（大陆可直连） */
+  --font-display:  "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  --font-body:     "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-outlier:  ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  --space-2xs:0.25rem; --space-xs:0.5rem; --space-sm:0.75rem; --space-md:1rem;
+  --space-lg:1.5rem; --space-xl:2rem; --space-2xl:3rem; --space-3xl:4.5rem; --space-4xl:6.5rem;
+  --text-xs:0.72rem; --text-sm:0.85rem; --text-base:1rem; --text-md:1.25rem;
+  --text-lg:1.5625rem; --text-xl:1.9531rem; --text-2xl:2.4414rem; --text-3xl:3.0518rem;
+  --text-hero:clamp(2.1rem,6vw+0.75rem,3.9rem);
+  --ease-out:cubic-bezier(0.22,1,0.36,1); --ease-in:cubic-bezier(0.55,0.06,0.68,0.19);
+  --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+  --dur-fast:120ms; --dur:260ms; --dur-slow:520ms;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+}
+
+/* ——— 阅读进度条 ——— */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;
+  background:var(--color-accent);transform:scaleX(0);transform-origin:0 0}
+
+/* ——— masthead ——— */
+.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--color-rule)}
+.mast__in{max-width:80rem;margin-inline:auto;padding:.8rem clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:baseline;gap:var(--space-md);justify-content:space-between}
+.wordmark{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--color-ink);
+  letter-spacing:-0.02em;white-space:nowrap;text-decoration:none}
+.wordmark small{font-family:var(--font-outlier);font-weight:400;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin-left:.5rem}
+.mast__links{display:none;align-items:baseline;gap:var(--space-xl);white-space:nowrap}
+.mast__links a{font-size:.95rem;text-decoration:none;color:var(--color-muted)}
+.mast__links a:hover{color:var(--color-ink)}
+.mast__links a.is-more{color:var(--color-accent)}
+@media (min-width:40rem){.mast__links{display:flex}}
+
+/* ——— hero ——— */
+.hero{max-width:80rem;margin-inline:auto;padding:var(--space-3xl) clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.hero__grid{display:grid;gap:var(--space-2xl)}
+@media (min-width:60rem){.hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:var(--space-3xl);align-items:center}}
+.hero__kicker{color:var(--color-accent);margin-bottom:var(--space-md)}
+.hero__title{font-size:var(--text-hero);font-weight:600}
+.hero__title .field{color:var(--color-accent)}
+.hero__lede{margin-top:var(--space-lg);font-size:1.05rem;color:var(--color-muted);
+  max-width:38ch}
+.hero__meta{margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:.5rem var(--space-md);
+  color:var(--color-neutral);font-size:.95rem}
+.hero__meta span{display:inline-flex;align-items:center;gap:.4rem}
+.hero__meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent-bright)}
+.hero__fig{margin:0;position:relative}
+.hero__fig img{width:100%;height:auto;border-radius:var(--radius-lg);
+  box-shadow:0 24px 48px -24px color-mix(in oklch,var(--color-ink) 35%,transparent)}
+.hero__fig figcaption{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--color-neutral);margin-top:.6rem}
+
+/* ——— section head ——— */
+.sec{max-width:80rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.sec__head{margin-bottom:var(--space-xl)}
+.sec__tag{color:var(--color-accent);display:block;margin-bottom:.6rem}
+.sec__title{font-size:clamp(1.6rem,3.4vw+0.5rem,2.6rem)}
+.sec__lede{margin-top:.8rem;color:var(--color-muted);max-width:54ch}
+
+/* ——— pick（田园浓度三选）—— */
+.pick{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.pick__grid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.pick__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-lg)}}
+.pcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);padding:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-md)}
+.pcard--rec{border-color:var(--color-accent-bright);box-shadow:0 0 0 1px var(--color-accent-bright)}
+.pcard__flag{position:absolute;top:-0.7rem;right:var(--space-md);font-family:var(--font-outlier);
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-paper);
+  background:var(--color-accent);padding:.25rem .7rem;border-radius:var(--radius-pill)}
+.pcard__no{font-family:var(--font-outlier);font-size:.8rem;letter-spacing:.12em;
+  color:var(--color-neutral)}
+.pcard h3{font-size:1.45rem}
+.pcard__vibe{color:var(--color-accent);font-size:.95rem}
+.pcard__time{font-family:var(--font-outlier);font-size:.78rem;letter-spacing:.04em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.pcard p{color:var(--color-muted);font-size:.95rem}
+
+/* ——— itinerary stages ——— */
+.route{padding-block:var(--space-4xl) var(--space-3xl)}
+.day{display:grid;gap:var(--space-lg);padding-block:var(--space-xl);
+  border-top:1px solid var(--color-rule)}
+.day:first-of-type{border-top:2px solid var(--color-ink)}
+@media (min-width:60rem){
+  .day{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    gap:var(--space-2xl);align-items:center;padding-block:var(--space-2xl)}
+  .day:nth-of-type(even){grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  .day:nth-of-type(even) .day__head{grid-column:2;grid-row:1}
+  .day:nth-of-type(even) .day__body{grid-column:1;grid-row:1}
+}
+.day__head .day__no{font-family:var(--font-outlier);font-size:1rem;letter-spacing:.14em;
+  color:var(--color-accent)}
+.day__head h3{font-size:clamp(1.5rem,2.6vw+0.4rem,2.2rem);margin-top:.5rem}
+.day__head .day__sub{color:var(--color-muted);margin-top:.5rem}
+.day__body{display:flex;flex-direction:column;gap:var(--space-md)}
+.day__fig{margin:0;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--color-rule)}
+.day__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.day__fig:hover img{transform:scale(1.02)}
+.day__meta{display:grid;gap:.5rem;margin-top:.25rem}
+.meta{display:grid;grid-template-columns:4.2rem 1fr;gap:var(--space-md);font-size:.95rem;
+  align-items:baseline;border-bottom:1px dashed var(--color-rule);padding-block:.35rem}
+.meta:last-child{border-bottom:0}
+.meta__label{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--color-neutral)}
+.meta__value{color:var(--color-ink)}
+.meta__value b{font-weight:500;color:var(--color-accent)}
+
+/* ——— 加更 · 珠海田园卡点 ——— */
+.more{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.more__intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:var(--space-md);margin-bottom:var(--space-lg)}
+.toolbar{position:sticky;top:3.5rem;z-index:40;display:flex;flex-wrap:wrap;align-items:center;
+  gap:.5rem var(--space-md);margin:0 0 var(--space-xl);padding:.7rem 0;background:var(--color-paper-2);
+  border-bottom:1px solid var(--color-rule);
+  box-shadow:0 8px 16px -14px color-mix(in oklch,var(--color-ink) 40%,transparent)}
+.btn{font-family:var(--font-body);font-size:.88rem;font-weight:500;color:var(--color-paper);
+  background:var(--color-accent);border:1px solid var(--color-accent);border-radius:var(--radius-pill);
+  padding:.4rem .95rem;cursor:pointer;white-space:nowrap;
+  transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.btn:hover{background:var(--color-ink);border-color:var(--color-ink)}
+.btn:active{transform:translateY(1px)}
+.chip{font-family:var(--font-body);font-size:.86rem;color:var(--color-muted);
+  background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.35rem .85rem;cursor:pointer;white-space:nowrap;
+  transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+  background var(--dur-fast) var(--ease-out)}
+.chip:hover{color:var(--color-ink);border-color:var(--color-accent-bright)}
+.chip.is-on{color:var(--color-paper);background:var(--color-accent);border-color:var(--color-accent)}
+.chip[data-filter="fav"].is-on{background:var(--color-ink);border-color:var(--color-ink)}
+.more__empty{padding:var(--space-xl);border:1px dashed var(--color-rule);border-radius:var(--radius-md);
+  color:var(--color-muted);text-align:center}
+.moregrid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.moregrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:64rem){.moregrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+.mcard.is-picked{outline:3px solid var(--color-accent-bright);outline-offset:2px}
+.mcard__fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--color-rule)}
+.mcard__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.mcard:hover .mcard__fig img{transform:scale(1.03)}
+.mcard__fav{position:absolute;top:.6rem;right:.6rem;width:2.2rem;height:2.2rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:color-mix(in oklch,var(--color-paper) 90%,transparent);
+  backdrop-filter:blur(4px);cursor:pointer;font-size:1rem;line-height:1;color:var(--color-neutral);
+  display:grid;place-items:center;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.mcard__fav:hover{color:var(--color-accent);transform:scale(1.08)}
+.mcard__fav.is-fav{color:var(--color-accent);border-color:var(--color-accent-bright)}
+.mcard__body{padding:var(--space-lg);display:flex;flex-direction:column;gap:.45rem;flex:1}
+.mcard__cat{font-family:var(--font-outlier);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  align-self:flex-start;border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.1rem .6rem}
+.cat-village{color:var(--color-cat-village)}
+.cat-isle{color:var(--color-cat-isle)}
+.cat-field{color:var(--color-cat-field)}
+.cat-spring{color:var(--color-cat-spring)}
+.mcard h3{font-size:1.35rem;padding-right:1.5rem}
+.mcard__sub{color:var(--color-muted);font-size:.95rem}
+.mcard__time{font-family:var(--font-outlier);font-size:.76rem;letter-spacing:.03em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.mcard__detail{max-height:0;overflow:hidden;opacity:0}
+.mcard__detail-in{margin-top:.3rem;padding-top:.5rem;border-top:1px dashed var(--color-rule);
+  display:flex;flex-direction:column;gap:.4rem}
+.mcard__detail-in .meta__value{font-size:.92rem}
+
+/* ——— 详情弹窗 ——— */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;
+  background:color-mix(in oklch,var(--color-ink) 48%,transparent);
+  opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease-out)}
+.modal.is-open{opacity:1;pointer-events:auto}
+.modal__panel{position:relative;background:var(--color-paper);border-radius:var(--radius-lg);
+  max-width:34rem;width:100%;max-height:88vh;overflow:auto;transform:translateY(14px);
+  transition:transform var(--dur) var(--ease-out)}
+.modal.is-open .modal__panel{transform:none}
+.modal__head{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;
+  padding:.6rem .75rem;background:var(--color-paper)}
+.modal__close{width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--color-rule);
+  background:var(--color-paper);color:var(--color-ink);cursor:pointer;font-size:1.05rem;line-height:1}
+.modal__close:hover{background:var(--color-ink);color:var(--color-paper)}
+.modal__fig{margin:0;aspect-ratio:16/9;overflow:hidden}
+.modal__fig img{width:100%;height:100%;object-fit:cover}
+.modal__body{padding:var(--space-md) var(--space-xl) var(--space-xl)}
+.modal__body .mcard__cat{display:inline-block;margin-bottom:.6rem}
+.modal__body h3{font-size:1.6rem}
+.modal__body .mcard__sub{margin-top:.3rem}
+.modal__body .mcard__time{margin-top:.5rem}
+.modal__detail{margin-top:var(--space-md);display:flex;flex-direction:column;gap:.4rem;
+  border-top:1px dashed var(--color-rule);padding-top:var(--space-md)}
+
+/* ——— 锦囊 ——— */
+.tips{background:var(--color-ink);color:var(--color-paper);padding-block:var(--space-4xl);
+  border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.tips .sec__tag{color:var(--color-accent-bright)}
+.tips .sec__title{color:var(--color-paper)}
+.tips .sec__lede{color:var(--color-paper-2)}
+.tips__grid{display:grid;gap:var(--space-lg);margin-top:var(--space-2xl)}
+@media (min-width:40rem){.tips__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tip{border-top:1px solid color-mix(in oklch,var(--color-paper) 22%,transparent);
+  padding-top:var(--space-md)}
+.tip h3{font-size:1.15rem;color:var(--color-paper);display:flex;gap:.5rem;align-items:baseline}
+.tip h3 span{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  color:var(--color-accent-bright)}
+.tip p{margin-top:.4rem;color:var(--color-paper-2);font-size:.95rem}
+.tip--wide{grid-column:1/-1}
+.budget{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-top:.75rem}
+.budget span{font-family:var(--font-outlier);font-size:.82rem;letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;border:1px solid color-mix(in oklch,var(--color-paper) 25%,transparent);
+  border-radius:var(--radius-pill);padding:.3rem .8rem;color:var(--color-paper)}
+.budget em{font-style:normal;color:var(--color-accent-bright)}
+
+/* ——— 回到顶部 ——— */
+.to-top{position:fixed;right:1rem;bottom:1rem;z-index:90;width:2.6rem;height:2.6rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:var(--color-paper);color:var(--color-ink);
+  box-shadow:0 8px 20px -10px color-mix(in oklch,var(--color-ink) 45%,transparent);
+  cursor:pointer;display:none;place-items:center;font-size:1.1rem;
+  transition:background var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.to-top.is-show{display:grid}
+.to-top:hover{background:var(--color-ink);color:var(--color-paper)}
+
+/* ——— footer ——— */
+.foot{background:var(--color-ink);color:var(--color-paper);padding:0 clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.foot__close{font-family:var(--font-display);font-size:clamp(1.5rem,3vw+0.4rem,2.4rem);
+  font-weight:600;line-height:1.25;max-width:22ch}
+.foot__small{margin-top:var(--space-xl);font-size:.82rem;color:var(--color-paper-2);
+  max-width:74ch;border-top:1px solid color-mix(in oklch,var(--color-paper) 20%,transparent);padding-top:var(--space-md)}
+
+/* ——— reveal & motion ——— */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity var(--dur-slow) var(--ease-out),
+  transform var(--dur-slow) var(--ease-out)}
+.js .reveal.is-in{opacity:1;transform:none}
+@media (hover:hover) and (pointer:fine){
+  .pcard{transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
+  .pcard:hover{transform:translateY(-3px);
+    box-shadow:0 14px 30px -18px color-mix(in oklch,var(--color-ink) 30%,transparent)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="wordmark" href="#top">珠海田园慢游<small>Sept · 三日</small></a>
+    <nav class="mast__links" aria-label="方案导航">
+      <a href="#vibe">定位</a>
+      <a href="#route">三日</a>
+      <a href="#more">卡点</a>
+      <a class="is-more" href="#tips">锦囊</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero__grid">
+    <div>
+      <p class="mono hero__kicker">深圳出发 · 九月 · 三天两晚</p>
+      <h1 class="hero__title">田园牧歌，<br>又不离开城市太远——<span class="field">珠海正好</span></h1>
+      <p class="hero__lede">古村、稻田、湿地、真温泉，四个词拼出一套「田园但不村」的三日游：有青瓦碉楼也有咖啡馆，有荷塘稻田也有银宿级民宿。车程最远一小时，配套全程在线。</p>
+      <div class="hero__meta">
+        <span>高铁最快 30 分钟</span>
+        <span>三个田园片区</span>
+        <span>真温泉 · 未加温</span>
+      </div>
+    </div>
+    <figure class="hero__fig">
+      <img src="https://ak-d.tripcdn.com/images/0103u1200090ozy7i911E.jpg"
+           alt="十里莲江的荷塘与稻田" width="1440" height="900" fetchpriority="high">
+      <figcaption>Fig. 01 — 斗门 · 十里莲江荷塘稻田（Trip.com 实拍）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="pick" id="vibe">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">先定调</span>
+    <h2 class="sec__title">田园的浓度，你可以自己挑</h2>
+    <p class="sec__lede">「田园但不村」的关键，是田园当壳、配套当里子。珠海刚好有从近到远三个档位，按你们想要的多野来选。</p>
+  </div>
+  <div class="pick__grid">
+    <article class="pcard pcard--rec reveal">
+      <span class="pcard__flag">离市区最近</span>
+      <span class="pcard__no">档位 ①</span>
+      <h3>会同古村 · 古村咖啡</h3>
+      <p class="pcard__vibe">田园浓度 ★★ · 最「不村」</p>
+      <p class="pcard__time">距市区约 20–30 分钟 · 门票免费</p>
+      <p>近 300 年岭南古村，青瓦碉楼配咖啡馆。三街八巷随便逛，祠堂里喝冰美式——田园的壳，城市的里。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">档位 ②</span>
+      <h3>淇澳岛 · 海岛湿地</h3>
+      <p class="pcard__vibe">田园浓度 ★★ · 海岛混搭</p>
+      <p class="pcard__time">距市区约 30 分钟 · 过桥即达</p>
+      <p>红树林湿地观鸟、白石街拍照、租电鸡环岛兜风。田园里掺了一勺海，日落时分很出片。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">档位 ③</span>
+      <h3>十里莲江 · 荷塘稻田</h3>
+      <p class="pcard__vibe">田园浓度 ★★★ · 最彻底</p>
+      <p class="pcard__time">距市区约 50–60 分钟 · 配温泉</p>
+      <p>千亩荷塘稻田，木栈道走进田中央；边上就是银宿级民宿和御温泉真温泉——最「田园」，也一点不土。</p>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="sec route" id="route">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">三日行程 · 田园浓度递增</span>
+    <h2 class="sec__title">三天，从古村一路走进稻田</h2>
+    <p class="sec__lede">行程已经排好：第一天古村，第二天上岛，第三天走进田野泡个温泉。节奏松，每天一件大事。</p>
+  </div>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 01 · 古村 &amp; 咖啡</p>
+      <h3>先在青瓦巷里喝杯咖啡</h3>
+      <p class="day__sub">高铁到珠海，午后直奔会同古村——近 300 年历史，青瓦、碉楼、祠堂，配咖啡馆和泥煨鸡。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me3012000lsz0czrC8A2.jpg"
+             alt="会同古村的青瓦屋顶" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">深圳北 / 福田高铁 → 珠海站，约 <b>30 分钟</b> ¥50–70；打车去唐家湾会同古村约 30 分钟</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">三街八巷散步 → 云飞碉楼俯拍青瓦屋顶 → 莫氏大宗祠喝咖啡 → 栖霞仙馆拍民国风</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">村口泥煨鸡（荷叶裹鸡炭火烤，人称"被餐饮耽误的非遗"）、老屋咖啡下午茶（人均 28–48）</span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">高铁 <b>¥70</b> + 村内吃喝 <b>¥150–250</b>（两人）</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value"><b>花筑·隐庐</b>（清末老宅活化，广东金宿级）或回市区</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 02 · 上岛 &amp; 湿地</p>
+      <h3>骑过红树林，等一场大桥日落</h3>
+      <p class="day__sub">过淇澳大桥上岛：红树林湿地看招潮蟹，白石街拍照，租电鸡环岛兜风。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/01037120008a2xpga474A.jpg"
+             alt="淇澳岛红树林湿地栈道" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">市区过 <b>淇澳大桥</b>，约 30 分钟；岛内租自行车 / 电动车（电鸡）环岛</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">红树林湿地公园观鸟看招潮蟹（提前一天预约）→ 白石街 + 苏兆征故居 → 淇澳大桥看日落</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">岛上海鲜：同乐海鲜 / 琪沙湾，或在民宿自炊（有公共厨房）</span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">打车 <b>¥60</b> + 海鲜 <b>¥200–300</b>（湿地免门票）</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value"><b>巷裡民宿</b>（4.6 分，可租电鸡）或荔枝舒院（步行白石街）</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 03 · 田野 &amp; 温泉</p>
+      <h3>走进稻田，再泡一次真温泉</h3>
+      <p class="day__sub">往斗门走一小时，荷塘稻田木栈道走半天，下午御温泉泡汤，晚上大餐庙会收尾。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/0101o1200090mrk33BD47.jpg"
+             alt="十里莲江的稻田" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">市区到斗门莲洲镇约 <b>50–60 分钟</b>，自驾 / 打车最方便</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">十里莲江荷塘稻田木栈道（门票以当日为准，稻田生活季约 <b>¥78/人</b>）→ 下午御温泉泡汤</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">顺水居 / 春野民宿农家菜，晚上 <b>御温泉大餐庙会</b></span></div>
+        <div class="meta"><span class="meta__label">花费</span><span class="meta__value">门票 <b>¥160</b> + 温泉 <b>¥400–600</b>（两人，以当日为准）</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value"><b>荷院民宿</b>（岭南庭院，广东省银宿，带汤泉）或春野民宿（4.9 分，可自炊）</span></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ═════════════ 珠海田园卡点地图 ═════════════ -->
+<section class="more" id="more">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">加更 · 卡点地图</span>
+    <h2 class="sec__title">珠海田园卡点，一共 12 个</h2>
+    <p class="sec__lede">古村、海岛、稻田、温泉四个方向铺开。点卡片看详情，右上角 ♥ 收藏，🎲 帮你翻一个。</p>
+  </div>
+
+  <div class="toolbar" role="group" aria-label="卡点筛选">
+    <button class="btn" id="shuffle" type="button" aria-label="随机翻一个卡点">🎲 帮我翻牌</button>
+    <button class="chip is-on" type="button" data-filter="all">全部</button>
+    <button class="chip" type="button" data-filter="village">🏡 田园古村</button>
+    <button class="chip" type="button" data-filter="isle">🏝️ 海岛湿地</button>
+    <button class="chip" type="button" data-filter="field">🌾 荷塘稻田</button>
+    <button class="chip" type="button" data-filter="spring">♨️ 温泉民宿</button>
+    <button class="chip" type="button" data-filter="fav">♥ 只看收藏</button>
+  </div>
+
+  <p class="more__empty" id="moreEmpty" hidden>还没有收藏任何卡点——回到上面，点卡片右上角的 ♥ 试试。</p>
+
+  <div class="moregrid">
+    <!-- ── 田园古村 ── -->
+    <article class="mcard reveal" id="hit-huitong" data-cat="village">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏会同古村">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me3012000lsz0czrC8A2.jpg" alt="会同古村旅游区" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-village">田园古村</span>
+        <h3>会同古村</h3>
+        <p class="mcard__sub">近 300 年岭南古村，青瓦碉楼 + 咖啡馆</p>
+        <p class="mcard__time">距市区 20–30 分钟 · 门票免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">香洲区唐家湾镇金鼎片区，凤凰山北麓</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">三街八巷棋盘式布局、莫氏大宗祠、云飞碉楼、栖霞仙馆民国园林</span></div>
+          <div class="meta"><span class="meta__label">咖啡</span><span class="meta__value">老屋咖啡、观溯·Ganso、阅潮书店（会同祠改）、莫氏大宗祠咖啡</span></div>
+          <div class="meta"><span class="meta__label">吃</span><span class="meta__value"><b>泥煨鸡</b>（荷叶裹鸡炭火烤）、豆腐花、煎饼、时令荔枝</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">门票免费，午后到日落光线最好，穿浅色更好出片</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-huazhu" data-cat="village">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏老屋咖啡">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0105d12000f6qxij3C600.jpg" alt="会同村巷弄" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-village">田园古村</span>
+        <h3>老屋咖啡 · 村内咖啡巡礼</h3>
+        <p class="mcard__sub">废弃老屋改的咖啡馆，岭南味十足，还有猫</p>
+        <p class="mcard__time">人均 ¥28–48 · 09:30–19:00</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">会同村 4 巷 10 号，珠海"十大创美庭院"之一</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">粤式祠堂大屋改建，保留岭南建筑韵味，院内养猫</span></div>
+          <div class="meta"><span class="meta__label">同类</span><span class="meta__value">观溯·Ganso（院子咖啡）、二月咖啡（两只布偶猫）、阅潮书店（会同祠）</span></div>
+          <div class="meta"><span class="meta__label">吃</span><span class="meta__value">咖啡、茶饮、简餐、糕点、下午茶</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">村里还有"猪圈咖啡"——竹林里的废弃猪圈改造玻璃房</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-jiexia" data-cat="village">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏接霞庄">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0101w120009dlvad073CB.jpg" alt="接霞庄古村" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-village">田园古村</span>
+        <h3>接霞庄 · 斗门清代古村</h3>
+        <p class="mcard__sub">塘基、竹林、祠堂，比会同更安静</p>
+        <p class="mcard__time">距市区约 40 分钟 · 门票免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区，清朝古村落，离十里莲江 / 御温泉不远</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">石板路、池塘、古祠堂，游客少，适合慢慢走</span></div>
+          <div class="meta"><span class="meta__label">组合</span><span class="meta__value">和斗门旧街、御温泉同一条线，可安排在同一天</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">拍照建议穿素色，古村石墙做背景很干净</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-doumen" data-cat="village">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏斗门旧街">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0102c12000rrmsbm0FAC2.jpg" alt="斗门旧街骑楼" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-village">田园古村</span>
+        <h3>斗门旧街 · 骑楼老街</h3>
+        <p class="mcard__sub">南洋骑楼老街，老铺烟火气</p>
+        <p class="mcard__time">距市区约 40 分钟 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区井岸镇，清代起的老街</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">岭南骑楼、老字号小吃店，逛吃一体</span></div>
+          <div class="meta"><span class="meta__label">吃</span><span class="meta__value">斗门传统小吃：濑粉、糖水、咸茶果</span></div>
+          <div class="meta"><span class="meta__label">组合</span><span class="meta__value">和接霞庄、十里莲江、御温泉一条线串玩</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 海岛湿地 ── -->
+    <article class="mcard reveal" id="hit-hongshulin" data-cat="isle">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏淇澳红树林">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/01037120008a2xpga474A.jpg" alt="淇澳岛红树林湿地" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-isle">海岛湿地</span>
+        <h3>淇澳岛 · 红树林湿地公园</h3>
+        <p class="mcard__sub">栈道穿行红树林，看招潮蟹和候鸟</p>
+        <p class="mcard__time">距市区约 30 分钟 · 需提前一天预约</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">淇澳岛，香洲区隔桥相望</span></div>
+          <div class="meta"><span class="meta__label">预约</span><span class="meta__value">⚠️ 提前一天在公众号「珠海淇澳担杆岛省级自然保护区」预约</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">木栈道穿行红树林，潮间带招潮蟹、弹涂鱼，冬候鸟过境季</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">停车后步行约 1 公里到入口，或租四人单车省力</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">穿长袖防蚊，下午 4 点后光线适合拍照</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-baishi" data-cat="isle">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏白石街">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0105h120009dgmj6s0D18.jpg" alt="淇澳岛白石街" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-isle">海岛湿地</span>
+        <h3>淇澳岛 · 白石街</h3>
+        <p class="mcard__sub">老街、祖庙、古炮台，渔村烟火气</p>
+        <p class="mcard__time">环岛骑行必经 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">白石街老街、淇澳祖庙、天后宫、苏兆征故居、古炮台遗址</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">步行 1 小时逛完，之后租车环岛</span></div>
+          <div class="meta"><span class="meta__label">吃</span><span class="meta__value">岛上海鲜店、市外 café，或去淇澳市场买食材自炊</span></div>
+          <div class="meta"><span class="meta__label">组合</span><span class="meta__value">白石街 → 红树林 → 淇澳大桥日落，一条线</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-qidao" data-cat="isle">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏淇澳环岛骑行">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0100312000j6y8g2g5554.jpg" alt="淇澳岛海岸线" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-isle">海岛湿地</span>
+        <h3>淇澳岛 · 环岛骑行</h3>
+        <p class="mcard__sub">租电鸡兜一圈，海风 + 田园交织</p>
+        <p class="mcard__time">半天 · 民宿可租</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">租自行车 / 四人电鸡环岛，到淇沙湾、淇澳大桥方向</span></div>
+          <div class="meta"><span class="meta__label">日落</span><span class="meta__value">淇澳大桥方向看日落尤其漂亮</span></div>
+          <div class="meta"><span class="meta__label">民宿</span><span class="meta__value">巷裡民宿可租电鸡；荔枝舒院步行白石街 3 分钟</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">岛上风大，骑行带件薄外套</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 荷塘稻田 ── -->
+    <article class="mcard reveal" id="hit-lianjiang" data-cat="field">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏十里莲江">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0104q1200090ma5mh2D90.jpg" alt="十里莲江荷塘" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-field">荷塘稻田</span>
+        <h3>十里莲江 · 荷塘稻田</h3>
+        <p class="mcard__sub">千亩荷塘 + 稻田，木栈道走进田中央</p>
+        <p class="mcard__time">距市区 50–60 分钟 · 门票以当日为准</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区莲洲镇莲江村，大宗堂十里莲江，1200 余亩</span></div>
+          <div class="meta"><span class="meta__label">门票</span><span class="meta__value">日常免费时段 / 活动期另计，稻田生活季单人约 <b>¥78</b>、双人 <b>¥120</b></span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">夏季荷花连片，秋来稻田金黄；亲水木栈道、皮划艇、房车营地</span></div>
+          <div class="meta"><span class="meta__label">活动</span><span class="meta__value">节假日有稻田音乐季、长桌宴、乐野市集、篝火晚会</span></div>
+          <div class="meta"><span class="meta__label">组合</span><span class="meta__value">接霞庄、斗门旧街、御温泉都在莲洲方向，可串一天</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-shanhe" data-cat="field">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏莲江山禾">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me0r12000rirgaru7DC1.jpg" alt="莲江山禾文旅休闲田园" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-field">荷塘稻田</span>
+        <h3>莲江 · 山禾田园</h3>
+        <p class="mcard__sub">稻田露营、割稻谷、摘时令瓜果</p>
+        <p class="mcard__time">距市区约 1 小时 · 按项目收费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区莲洲镇，返乡青年盘活的 80 余亩农文旅田园</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">稻田露营、割稻谷、捡土鸡蛋、摘瓜果、手作窑鸡、绿道骑行</span></div>
+          <div class="meta"><span class="meta__label">民宿</span><span class="meta__value">23 套闲置农房改造成特色民宿和文创空间</span></div>
+          <div class="meta"><span class="meta__label">组合</span><span class="meta__value">和十里莲江相邻，可合并一个下午</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 温泉民宿 ── -->
+    <article class="mcard reveal" id="hit-heyuan" data-cat="spring">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏荷院民宿">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0201l120008qpnmsi7099.jpg" alt="乐领十里莲江荷院民宿" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-spring">温泉民宿</span>
+        <h3>乐领十里莲江 · 荷院民宿</h3>
+        <p class="mcard__sub">岭南庭院改造，广东银宿级，带汤泉</p>
+        <p class="mcard__time">评分 4.6/5 · 2025 广东省银宿</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区莲洲镇莲江村沙湾 64 号</span></div>
+          <div class="meta"><span class="meta__label">房型</span><span class="meta__value">5 栋岭南独立庭院 + 稻田里的房车，另有汤池（中药 / 花香主题）</span></div>
+          <div class="meta"><span class="meta__label">体验</span><span class="meta__value">农耕度假、下午茶、户外婚礼场地，港澳住客很多</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">节假日房源紧，提前订；离御温泉约 10 分钟车程</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-yuquan" data-cat="spring">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏御温泉">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://res.klook.com/image/upload/w_1265,h_791,c_fill,q_85/activities/rsqp6dkqoopikdk5dr0p.jpg" alt="珠海御温泉" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-spring">温泉民宿</span>
+        <h3>御温泉 · 真温泉</h3>
+        <p class="mcard__sub">68–72°C 天然地热水，绝不加温回收</p>
+        <p class="mcard__time">斗门老牌 · 大餐庙会</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">水源</span><span class="meta__value">黄杨山断裂带交汇处地热田，两处天然泉眼井深约 150 米</span></div>
+          <div class="meta"><span class="meta__label">水质</span><span class="meta__value">高温氟化物-偏硅酸型医疗矿泉水，含氟、锂、锶、硒、铁等</span></div>
+          <div class="meta"><span class="meta__label">原则</span><span class="meta__value">官方承诺纯天然温泉水，<b>绝不加温、绝不回收再用</b>，流动活水</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">泡汤 + 出名的大餐庙会（自助 + 游戏），泡完吃顿热闹的</span></div>
+          <div class="meta"><span class="meta__label">监管</span><span class="meta__value">开采须持采矿 + 取水许可证，取水井在线监测水位水温</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-chunye" data-cat="spring">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏春野民宿">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0105l1200090maci668C8.jpg" alt="莲洲乡野田园" width="800" height="450" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-spring">温泉民宿</span>
+        <h3>春野民宿 · 田园院子</h3>
+        <p class="mcard__sub">独立屋大花园，评分 4.9，可自炊</p>
+        <p class="mcard__time">评分 4.9/5 · 石龙村</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">斗门区莲洲镇石龙村，步行可达岭南大地百草园、十里莲江</span></div>
+          <div class="meta"><span class="meta__label">体验</span><span class="meta__value">独立屋独享大花园，田园风格；可自己煮饭，老板备食材扫码结账</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">宠物需提前申请；自驾最方便</span></div>
+        </div></div>
+      </div>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="tips" id="tips">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">出发之前</span>
+    <h2 class="sec__title">实用锦囊</h2>
+    <p class="sec__lede">四条出发前要记住的正经事，来自本地人经验。</p>
+  </div>
+  <div class="tips__grid">
+    <div class="tip reveal">
+      <h3><span>01</span>红树林要预约</h3>
+      <p>淇澳红树林湿地公园需提前一天在公众号「珠海淇澳担杆岛省级自然保护区」预约，带好预约码和证件，别跑空。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>02</span>御温泉是真温泉</h3>
+      <p>水源来自黄杨山断裂带地热田，井口 68–72°C，1988 年勘探确认的天然医疗矿泉水。御温泉官方承诺不加热、不回收再用，放心泡。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>03</span>九月天气 &amp; 交通</h3>
+      <p>深圳 / 珠海约 30–33°C，闷热加午后阵雨，防晒 + 薄雨衣备着。高铁提前买票；十里莲江、接霞庄在斗门，自驾 / 打车最省心。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>04</span>预算参考（两人 · 三天）</h3>
+      <div class="budget">
+        <span>舒适 <em>¥2500–3500</em></span>
+        <span>温泉版 <em>¥3500+</em></span>
+      </div>
+      <p style="margin-top:.6rem">主要差在民宿（花筑·隐庐 / 荷院）和温泉，吃的丰俭由人。</p>
+    </div>
+    <div class="tip tip--wide reveal">
+      <h3><span>05</span>出片点 &amp; 忌口</h3>
+      <p>会同青瓦屋顶俯拍、十里莲江稻田黄昏、红树林栈道、白石街骑楼、御温泉汤池——上午 10 点前和下午 4 点后光线最好。广东吃海鲜、生腌要少量试，肠胃敏感或海鲜过敏提前避。</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="foot__close">田园不必远走。<br>古村喝杯咖啡，岛上追场日落，稻田里泡个温泉——三天，正好够慢下来。</p>
+  <p class="foot__small">图片来自 Trip.com / Klook 用户实拍（国内 CDN，可直连），仅作行程示意 · 本页为个人整理的旅行推荐，非官方攻略 · 高铁时长、票价、门票与温泉价格以当日实际为准 · 预约 / 订房请走官方渠道 · 偏好收藏存在本机浏览器（localStorage），换设备不保留 · 用 GitHub Pages 托管</p>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="卡点详情">
+  <div class="modal__panel">
+    <div class="modal__head">
+      <button class="modal__close" id="modalClose" type="button" aria-label="关闭详情">✕</button>
+    </div>
+    <figure class="modal__fig">
+      <img id="modalImg" src="" alt="" width="800" height="450">
+    </figure>
+    <div class="modal__body">
+      <span class="mcard__cat cat-village" id="modalCat"></span>
+      <h3 id="modalTitle"></h3>
+      <p class="mcard__sub" id="modalSub"></p>
+      <p class="mcard__time" id="modalTime"></p>
+      <div class="modal__detail" id="modalDetail"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* —— 阅读进度条 + 回到顶部 —— */
+  var bar=document.getElementById('progress');
+  var toTop=document.getElementById('toTop');
+  function onScroll(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?window.scrollY/max:0;
+    if(bar){bar.style.transform='scaleX('+p+')'}
+    if(toTop){toTop.classList.toggle('is-show',window.scrollY>700)}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(toTop){toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})})}
+
+  /* —— 收藏（localStorage）—— */
+  var KEY='zht-favs-v1';
+  var favs=[];
+  try{favs=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(favs))}catch(e){}}
+
+  /* —— 筛选 —— */
+  var activeFilter='all';
+  function applyFilter(f){
+    activeFilter=f;
+    document.querySelectorAll('.chip').forEach(function(ch){
+      ch.classList.toggle('is-on',ch.getAttribute('data-filter')===f);
+    });
+    var shown=0;
+    document.querySelectorAll('.mcard').forEach(function(card){
+      var cat=card.getAttribute('data-cat');
+      var ok=f==='all'||(f==='fav'?favs.indexOf(card.id)>-1:cat===f);
+      card.style.display=ok?'':'none';
+      if(ok)shown++;
+    });
+    var empty=document.getElementById('moreEmpty');
+    if(empty){empty.hidden=shown>0}
+  }
+  document.querySelectorAll('.chip').forEach(function(ch){
+    ch.addEventListener('click',function(){applyFilter(ch.getAttribute('data-filter'))});
+  });
+
+  /* —— 收藏按钮 —— */
+  document.querySelectorAll('.mcard__fav').forEach(function(btn){
+    var id=btn.closest('.mcard').id;
+    if(favs.indexOf(id)>-1){btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+    btn.addEventListener('click',function(){
+      var i=favs.indexOf(id);
+      if(i>-1){favs.splice(i,1);btn.classList.remove('is-fav');btn.setAttribute('aria-pressed','false')}
+      else{favs.push(id);btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+      save();
+      if(activeFilter==='fav'){applyFilter('fav')}
+    });
+  });
+
+  /* —— 详情弹窗（点卡片查看）—— */
+  var modal=document.getElementById('modal');
+  var modalImg=document.getElementById('modalImg');
+  var modalCat=document.getElementById('modalCat');
+  var modalTitle=document.getElementById('modalTitle');
+  var modalSub=document.getElementById('modalSub');
+  var modalTime=document.getElementById('modalTime');
+  var modalDetail=document.getElementById('modalDetail');
+  var modalClose=document.getElementById('modalClose');
+  var lastCard=null;
+  function openModal(card){
+    lastCard=card;
+    var img=card.querySelector('.mcard__fig img');
+    modalImg.src=img.src; modalImg.alt=img.alt;
+    modalCat.textContent=card.querySelector('.mcard__cat').textContent;
+    modalCat.className=card.querySelector('.mcard__cat').className;
+    modalTitle.textContent=card.querySelector('h3').textContent;
+    modalSub.textContent=card.querySelector('.mcard__sub').textContent;
+    modalTime.textContent=card.querySelector('.mcard__time').textContent;
+    modalDetail.innerHTML='';
+    card.querySelectorAll('.mcard__detail-in .meta').forEach(function(m){
+      modalDetail.appendChild(m.cloneNode(true));
+    });
+    modal.classList.add('is-open');
+    document.body.style.overflow='hidden';
+    if(modalClose){modalClose.focus()}
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow='';
+    if(lastCard){lastCard.focus()}
+  }
+  document.querySelectorAll('.mcard').forEach(function(card){
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.addEventListener('click',function(e){
+      if(e.target.closest('.mcard__fav')){return}
+      openModal(card);
+    });
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(card)}
+    });
+  });
+  if(modalClose){modalClose.addEventListener('click',closeModal)}
+  if(modal){modal.addEventListener('click',function(e){if(e.target===modal){closeModal()}})}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&modal&&modal.classList.contains('is-open')){closeModal()}
+  });
+
+  /* —— 随机翻牌 —— */
+  var shuffleBtn=document.getElementById('shuffle');
+  if(shuffleBtn){
+    shuffleBtn.addEventListener('click',function(){
+      var visible=[];
+      document.querySelectorAll('.mcard').forEach(function(c){if(c.style.display!=='none'){visible.push(c)}});
+      if(!visible.length){return}
+      document.querySelectorAll('.mcard.is-picked').forEach(function(c){c.classList.remove('is-picked')});
+      var pick=visible[Math.floor(Math.random()*visible.length)];
+      pick.classList.add('is-picked');
+      pick.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
