@@ -1,0 +1,1121 @@
+<!doctype html>
+<!-- Hallmark · macrostructure: Narrative Workflow · tone: editorial (quiet travel) · theme: custom (moonlit blue-grey on cool paper) · enrichment: real photography (Trip.com, geotagged, China-reachable) · nav: masthead · footer: statement -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="深圳出发 · 中秋国庆避开人潮的三日游：惠东盐洲岛、汕尾红海湾、清远英西峰林——三条没人的线路，最远三小时车程。含逐日行程与 15 个卡点地图。">
+<title>中秋，去没人的那三天</title>
+<style>
+/* Hallmark · macrostructure: Narrative Workflow · genre: editorial
+ * theme: custom (月白冷纸 · 远山青 accent · 系统 CJK 字体 — 大陆可直连)
+ * nav: masthead · footer: statement · enrichment: real photography (Trip.com 实拍, 国内 CDN) */
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-padding-top:5rem}
+body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--color-accent-bright)}
+a:focus-visible,.pill:focus-visible,.chip:focus-visible,.btn:focus-visible,.tab:focus-visible,
+.mcard__fav:focus-visible,.mcard:focus-visible,.to-top:focus-visible{
+  outline:2px solid var(--color-focus);outline-offset:3px}
+::selection{background:var(--color-accent-bright);color:var(--color-paper)}
+
+h1,h2,h3{font-family:var(--font-display);font-style:normal;font-weight:600;
+  line-height:1.18;letter-spacing:-0.015em;margin:0;overflow-wrap:anywhere;min-width:0}
+p{margin:0}
+.mono{font-family:var(--font-outlier);font-size:var(--text-sm);
+  letter-spacing:0.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+:root{
+  /* 中秋 · 月白冷纸 + 远山青 + 月金 */
+  --color-paper:       oklch(97.6% 0.007 235);
+  --color-paper-2:     oklch(94.2% 0.012 235);
+  --color-paper-3:     oklch(90%   0.016 235);
+  --color-rule:        oklch(83.5% 0.014 235);
+  --color-neutral:     oklch(48%   0.02  235);
+  --color-muted:       oklch(37%   0.024 240);
+  --color-ink:         oklch(21%   0.028 245);
+  --color-accent:      oklch(46%   0.085 218);   /* 远山青 */
+  --color-accent-bright: oklch(58% 0.09  212);
+  --color-moon:        oklch(62%   0.105 82);    /* 月金（点缀） */
+  --color-focus:       oklch(58%   0.095 214);
+  /* 分类色 */
+  --color-cat-island: oklch(47% 0.09  225);  /* 海岛海岸 */
+  --color-cat-harbor: oklch(50% 0.095 55);   /* 渔港海湾 */
+  --color-cat-peak:   oklch(46% 0.085 155);  /* 峰林溶洞 */
+  /* 字体 · 系统栈（大陆可直连，不引外部字体） */
+  --font-display:  "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  --font-body:     "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-outlier:  ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  --space-2xs:0.25rem; --space-xs:0.5rem; --space-sm:0.75rem; --space-md:1rem;
+  --space-lg:1.5rem; --space-xl:2rem; --space-2xl:3rem; --space-3xl:4.5rem; --space-4xl:6.5rem;
+  --text-xs:0.72rem; --text-sm:0.85rem; --text-base:1rem; --text-md:1.25rem;
+  --text-lg:1.5625rem; --text-xl:1.9531rem; --text-2xl:2.4414rem; --text-3xl:3.0518rem;
+  --text-hero:clamp(2.1rem,6vw+0.75rem,3.9rem);
+  --ease-out:cubic-bezier(0.22,1,0.36,1); --ease-in:cubic-bezier(0.55,0.06,0.68,0.19);
+  --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+  --dur-fast:120ms; --dur:260ms; --dur-slow:520ms;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+}
+
+/* ——— 阅读进度条 ——— */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;
+  background:var(--color-accent);transform:scaleX(0);transform-origin:0 0}
+
+/* ——— masthead ——— */
+.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--color-rule)}
+.mast__in{max-width:80rem;margin-inline:auto;padding:.8rem clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:baseline;gap:var(--space-md);justify-content:space-between}
+.wordmark{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--color-ink);
+  letter-spacing:-0.02em;white-space:nowrap;text-decoration:none}
+.wordmark small{font-family:var(--font-outlier);font-weight:400;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin-left:.5rem}
+.mast__links{display:none;align-items:baseline;gap:var(--space-xl);white-space:nowrap}
+.mast__links a{font-size:.95rem;text-decoration:none;color:var(--color-muted)}
+.mast__links a:hover{color:var(--color-ink)}
+.mast__links a.is-more{color:var(--color-accent)}
+@media (min-width:40rem){.mast__links{display:flex}}
+
+/* ——— 档期条 ——— */
+.banner{background:var(--color-ink);color:var(--color-paper)}
+.banner__in{max-width:80rem;margin-inline:auto;padding:.6rem clamp(1rem,4vw,2.5rem);
+  display:flex;flex-wrap:wrap;gap:.4rem var(--space-lg);align-items:baseline;font-size:.86rem}
+.banner b{font-weight:600;color:var(--color-moon)}
+.banner span{color:color-mix(in oklch,var(--color-paper) 80%,transparent)}
+
+/* ——— hero ——— */
+.hero{max-width:80rem;margin-inline:auto;padding:var(--space-3xl) clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.hero__grid{display:grid;gap:var(--space-2xl)}
+@media (min-width:60rem){.hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:var(--space-3xl);align-items:center}}
+.hero__kicker{color:var(--color-accent);margin-bottom:var(--space-md)}
+.hero__title{font-size:var(--text-hero);font-weight:600}
+.hero__title .field{color:var(--color-accent)}
+.hero__lede{margin-top:var(--space-lg);font-size:1.05rem;color:var(--color-muted);
+  max-width:40ch}
+.hero__meta{margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:.5rem var(--space-md);
+  color:var(--color-neutral);font-size:.95rem}
+.hero__meta span{display:inline-flex;align-items:center;gap:.4rem}
+.hero__meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent-bright)}
+.hero__fig{margin:0;position:relative}
+.hero__fig img{width:100%;height:auto;border-radius:var(--radius-lg);
+  box-shadow:0 24px 48px -24px color-mix(in oklch,var(--color-ink) 35%,transparent)}
+.hero__fig figcaption{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--color-neutral);margin-top:.6rem}
+
+/* ——— section head ——— */
+.sec{max-width:80rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.sec__head{margin-bottom:var(--space-xl)}
+.sec__tag{color:var(--color-accent);display:block;margin-bottom:.6rem}
+.sec__title{font-size:clamp(1.6rem,3.4vw+0.5rem,2.6rem)}
+.sec__lede{margin-top:.8rem;color:var(--color-muted);max-width:56ch}
+
+/* ——— pick（三个方向）——— */
+.pick{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.pick__grid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.pick__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-lg)}}
+.pcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);padding:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-md)}
+.pcard--rec{border-color:var(--color-accent-bright);box-shadow:0 0 0 1px var(--color-accent-bright)}
+.pcard__flag{position:absolute;top:-0.7rem;right:var(--space-md);font-family:var(--font-outlier);
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-paper);
+  background:var(--color-accent);padding:.25rem .7rem;border-radius:var(--radius-pill)}
+.pcard__no{font-family:var(--font-outlier);font-size:.8rem;letter-spacing:.12em;
+  color:var(--color-neutral)}
+.pcard h3{font-size:1.45rem}
+.pcard__vibe{color:var(--color-accent);font-size:.95rem}
+.pcard__time{font-family:var(--font-outlier);font-size:.78rem;letter-spacing:.04em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.pcard p{color:var(--color-muted);font-size:.95rem}
+
+/* ——— 线路切换 tab ——— */
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:var(--space-2xl);
+  border-bottom:1px solid var(--color-rule);padding-bottom:var(--space-md)}
+.tab{font-family:var(--font-body);font-size:.92rem;color:var(--color-muted);
+  background:var(--color-paper-2);border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.45rem 1.05rem;cursor:pointer;white-space:nowrap;
+  transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),
+  border-color var(--dur-fast) var(--ease-out)}
+.tab:hover{color:var(--color-ink);border-color:var(--color-accent-bright)}
+.tab.is-on{color:var(--color-paper);background:var(--color-accent);border-color:var(--color-accent)}
+.tab small{font-family:var(--font-outlier);font-size:.68rem;letter-spacing:.1em;
+  opacity:.7;margin-left:.4rem}
+
+/* ——— itinerary stages ——— */
+.route{padding-block:var(--space-4xl) var(--space-3xl)}
+.day{display:grid;gap:var(--space-lg);padding-block:var(--space-xl);
+  border-top:1px solid var(--color-rule)}
+.day:first-of-type{border-top:2px solid var(--color-ink)}
+@media (min-width:60rem){
+  .day{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    gap:var(--space-2xl);align-items:center;padding-block:var(--space-2xl)}
+  .day:nth-of-type(even){grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  .day:nth-of-type(even) .day__head{grid-column:2;grid-row:1}
+  .day:nth-of-type(even) .day__body{grid-column:1;grid-row:1}
+}
+.day__head .day__no{font-family:var(--font-outlier);font-size:1rem;letter-spacing:.14em;
+  color:var(--color-accent)}
+.day__head h3{font-size:clamp(1.5rem,2.6vw+0.4rem,2.2rem);margin-top:.5rem}
+.day__head .day__sub{color:var(--color-muted);margin-top:.5rem}
+.day__body{display:flex;flex-direction:column;gap:var(--space-md)}
+.day__fig{margin:0;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--color-rule)}
+.day__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.day__fig:hover img{transform:scale(1.02)}
+.day__meta{display:grid;gap:.5rem;margin-top:.25rem}
+.meta{display:grid;grid-template-columns:4.2rem 1fr;gap:var(--space-md);font-size:.95rem;
+  align-items:baseline;border-bottom:1px dashed var(--color-rule);padding-block:.35rem}
+.meta:last-child{border-bottom:0}
+.meta__label{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--color-neutral)}
+.meta__value{color:var(--color-ink)}
+.meta__value b{font-weight:500;color:var(--color-accent)}
+
+/* ——— 卡点地图 ——— */
+.more{background:var(--color-paper-2);border-top:1px solid var(--color-rule);
+  border-bottom:1px solid var(--color-rule);padding-block:var(--space-3xl)}
+.more__intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:var(--space-md);margin-bottom:var(--space-lg)}
+.toolbar{position:sticky;top:3.5rem;z-index:40;display:flex;flex-wrap:wrap;align-items:center;
+  gap:.5rem var(--space-md);margin:0 0 var(--space-xl);padding:.7rem 0;background:var(--color-paper-2);
+  border-bottom:1px solid var(--color-rule);
+  box-shadow:0 8px 16px -14px color-mix(in oklch,var(--color-ink) 40%,transparent)}
+.btn{font-family:var(--font-body);font-size:.88rem;font-weight:500;color:var(--color-paper);
+  background:var(--color-accent);border:1px solid var(--color-accent);border-radius:var(--radius-pill);
+  padding:.4rem .95rem;cursor:pointer;white-space:nowrap;
+  transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.btn:hover{background:var(--color-ink);border-color:var(--color-ink)}
+.btn:active{transform:translateY(1px)}
+.chip{font-family:var(--font-body);font-size:.86rem;color:var(--color-muted);
+  background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.35rem .85rem;cursor:pointer;white-space:nowrap;
+  transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+  background var(--dur-fast) var(--ease-out)}
+.chip:hover{color:var(--color-ink);border-color:var(--color-accent-bright)}
+.chip.is-on{color:var(--color-paper);background:var(--color-accent);border-color:var(--color-accent)}
+.chip[data-filter="fav"].is-on{background:var(--color-ink);border-color:var(--color-ink)}
+.more__empty{padding:var(--space-xl);border:1px dashed var(--color-rule);border-radius:var(--radius-md);
+  color:var(--color-muted);text-align:center}
+.moregrid{display:grid;gap:var(--space-lg)}
+@media (min-width:40rem){.moregrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:64rem){.moregrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mcard{position:relative;background:var(--color-paper);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+.mcard.is-picked{outline:3px solid var(--color-accent-bright);outline-offset:2px}
+.mcard__fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--color-rule);
+  background:var(--color-paper-3)}
+.mcard__fig img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.mcard:hover .mcard__fig img{transform:scale(1.03)}
+.mcard__fav{position:absolute;top:.6rem;right:.6rem;width:2.2rem;height:2.2rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:color-mix(in oklch,var(--color-paper) 90%,transparent);
+  backdrop-filter:blur(4px);cursor:pointer;font-size:1rem;line-height:1;color:var(--color-neutral);
+  display:grid;place-items:center;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.mcard__fav:hover{color:var(--color-accent);transform:scale(1.08)}
+.mcard__fav.is-fav{color:var(--color-accent);border-color:var(--color-accent-bright)}
+.mcard__body{padding:var(--space-lg);display:flex;flex-direction:column;gap:.45rem;flex:1}
+.mcard__cat{font-family:var(--font-outlier);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  align-self:flex-start;border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.1rem .6rem}
+.cat-island{color:var(--color-cat-island)}
+.cat-harbor{color:var(--color-cat-harbor)}
+.cat-peak{color:var(--color-cat-peak)}
+.mcard h3{font-size:1.35rem;padding-right:1.5rem}
+.mcard__sub{color:var(--color-muted);font-size:.95rem}
+.mcard__time{font-family:var(--font-outlier);font-size:.76rem;letter-spacing:.03em;
+  color:var(--color-neutral);font-variant-numeric:tabular-nums}
+.mcard__detail{max-height:0;overflow:hidden;opacity:0}
+.mcard__detail-in{margin-top:.3rem;padding-top:.5rem;border-top:1px dashed var(--color-rule);
+  display:flex;flex-direction:column;gap:.4rem}
+.mcard__detail-in .meta__value{font-size:.92rem}
+
+/* ——— 详情弹窗 ——— */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;
+  background:color-mix(in oklch,var(--color-ink) 48%,transparent);
+  opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease-out)}
+.modal.is-open{opacity:1;pointer-events:auto}
+.modal__panel{position:relative;background:var(--color-paper);border-radius:var(--radius-lg);
+  max-width:34rem;width:100%;max-height:88vh;overflow:auto;transform:translateY(14px);
+  transition:transform var(--dur) var(--ease-out)}
+.modal.is-open .modal__panel{transform:none}
+.modal__head{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;
+  padding:.6rem .75rem;background:var(--color-paper)}
+.modal__close{width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--color-rule);
+  background:var(--color-paper);color:var(--color-ink);cursor:pointer;font-size:1.05rem;line-height:1}
+.modal__close:hover{background:var(--color-ink);color:var(--color-paper)}
+.modal__fig{margin:0;aspect-ratio:16/9;overflow:hidden;background:var(--color-paper-3)}
+.modal__fig img{width:100%;height:100%;object-fit:cover}
+.modal__body{padding:var(--space-md) var(--space-xl) var(--space-xl)}
+.modal__body .mcard__cat{display:inline-block;margin-bottom:.6rem}
+.modal__body h3{font-size:1.6rem}
+.modal__body .mcard__sub{margin-top:.3rem}
+.modal__body .mcard__time{margin-top:.5rem}
+.modal__detail{margin-top:var(--space-md);display:flex;flex-direction:column;gap:.4rem;
+  border-top:1px dashed var(--color-rule);padding-top:var(--space-md)}
+
+/* ——— 锦囊 ——— */
+.tips{background:var(--color-ink);color:var(--color-paper);padding-block:var(--space-4xl);
+  border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.tips .sec__tag{color:var(--color-moon)}
+.tips .sec__title{color:var(--color-paper)}
+.tips .sec__lede{color:var(--color-paper-2)}
+.tips__grid{display:grid;gap:var(--space-lg);margin-top:var(--space-2xl)}
+@media (min-width:40rem){.tips__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tip{border-top:1px solid color-mix(in oklch,var(--color-paper) 22%,transparent);
+  padding-top:var(--space-md)}
+.tip h3{font-size:1.15rem;color:var(--color-paper);display:flex;gap:.5rem;align-items:baseline}
+.tip h3 span{font-family:var(--font-outlier);font-size:.72rem;letter-spacing:.1em;
+  color:var(--color-moon)}
+.tip p{margin-top:.4rem;color:var(--color-paper-2);font-size:.95rem}
+.tip--wide{grid-column:1/-1}
+.budget{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-top:.75rem}
+.budget span{font-family:var(--font-outlier);font-size:.82rem;letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;border:1px solid color-mix(in oklch,var(--color-paper) 25%,transparent);
+  border-radius:var(--radius-pill);padding:.3rem .8rem;color:var(--color-paper)}
+.budget em{font-style:normal;color:var(--color-moon)}
+
+/* ——— 回到顶部 ——— */
+.to-top{position:fixed;right:1rem;bottom:1rem;z-index:90;width:2.6rem;height:2.6rem;border-radius:50%;
+  border:1px solid var(--color-rule);background:var(--color-paper);color:var(--color-ink);
+  box-shadow:0 8px 20px -10px color-mix(in oklch,var(--color-ink) 45%,transparent);
+  cursor:pointer;display:none;place-items:center;font-size:1.1rem;
+  transition:background var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.to-top.is-show{display:grid}
+.to-top:hover{background:var(--color-ink);color:var(--color-paper)}
+
+/* ——— footer ——— */
+.foot{background:var(--color-ink);color:var(--color-paper);padding:0 clamp(1rem,4vw,2.5rem) var(--space-3xl)}
+.foot__close{font-family:var(--font-display);font-size:clamp(1.5rem,3vw+0.4rem,2.4rem);
+  font-weight:600;line-height:1.25;max-width:22ch}
+.foot__small{margin-top:var(--space-xl);font-size:.82rem;color:var(--color-paper-2);
+  max-width:74ch;border-top:1px solid color-mix(in oklch,var(--color-paper) 20%,transparent);padding-top:var(--space-md)}
+
+/* ——— reveal & motion ——— */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity var(--dur-slow) var(--ease-out),
+  transform var(--dur-slow) var(--ease-out)}
+.js .reveal.is-in{opacity:1;transform:none}
+@media (hover:hover) and (pointer:fine){
+  .pcard{transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
+  .pcard:hover{transform:translateY(-3px);
+    box-shadow:0 14px 30px -18px color-mix(in oklch,var(--color-ink) 30%,transparent)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="wordmark" href="#top">中秋去没人的地方<small>Sept · 三日</small></a>
+    <nav class="mast__links" aria-label="页面导航">
+      <a href="#vibe">选线</a>
+      <a href="#route">三日</a>
+      <a href="#more">卡点</a>
+      <a class="is-more" href="#tips">锦囊</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banner">
+  <div class="banner__in">
+    <span>📅 <b>中秋</b> 9月25日（周五）–9月27日（周日）· 3 天</span>
+    <span>📅 <b>国庆</b> 10月1日（周四）–10月7日（周三）· 7 天</span>
+    <span>🛣️ 中秋高速<b>不免费</b>，国庆免费（免费 = 更堵）→ 建议走中秋</span>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero__grid">
+    <div>
+      <p class="mono hero__kicker">深圳出发 · 中秋 9.25–9.27 · 三天两晚</p>
+      <h1 class="hero__title">把假期，<br>还给人少的<span class="field">那三天</span></h1>
+      <p class="hero__lede">你住大梅沙，沙滩其实已经不缺了。所以这三条都往「没人」上使劲：一个还没开发的岛、一段渔港海岸、一片喀斯特峰林。最远三小时车程，中秋三天正好够。</p>
+      <div class="hero__meta">
+        <span>最远车程 3 小时</span>
+        <span>三条线路 · 15 个卡点</span>
+        <span>全程避开门票大景区</span>
+      </div>
+    </div>
+    <figure class="hero__fig">
+      <img src="https://ak-d.tripcdn.com/images/0102h120005x7w8gq29A9_W_1600_0_R5_Q80.jpg"
+           alt="惠东盐洲岛航拍，蓝绿分层的海水与覆盖绿植的岛屿" width="1600" height="1066" fetchpriority="high">
+      <figcaption>Fig. 01 — 惠东 · 盐洲岛航拍（Trip.com 实拍）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="pick" id="vibe">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">先选线</span>
+    <h2 class="sec__title">三个方向，先挑一个</h2>
+    <p class="sec__lede">三条线路互不重叠：一条看海、一条吃渔港、一条钻峰林。差别不在远近，在你想用什么方式把三天「浪费」掉。</p>
+  </div>
+  <div class="pick__grid">
+    <article class="pcard pcard--rec reveal">
+      <span class="pcard__flag">人最少</span>
+      <span class="pcard__no">线路 ① · 海</span>
+      <h3>惠东 · 盐洲岛</h3>
+      <p class="pcard__vibe">人流指数 ★☆☆ · 一个还没被开发的岛</p>
+      <p class="pcard__time">大梅沙出发约 1.5–2 小时 · 自驾</p>
+      <p>岛上就几个渔村，没有商业街、没有门票。傍晚去白沙村红树林看成群白鹭归巢；黑排角那片礁石海岸，得算着潮汐才走得进去。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">线路 ② · 渔港</span>
+      <h3>汕尾 · 红海湾</h3>
+      <p class="pcard__vibe">人流指数 ★★☆ · 热的是城区，不是这里</p>
+      <p class="pcard__time">自驾 1.5–2 小时 / 高铁 40–50 分钟</p>
+      <p>遮浪半岛一边惊涛一边平静，风车岛是海上风机配小众沙滩。晚上回城区吃菜茶、薄饼、马鲛鱼丸——海陆丰小吃跟潮汕根本不是一个味。</p>
+    </article>
+    <article class="pcard reveal">
+      <span class="pcard__no">线路 ③ · 山</span>
+      <h3>清远 · 英西峰林</h3>
+      <p class="pcard__vibe">人流指数 ★★☆ · 散客与摄影团为主</p>
+      <p class="pcard__time">大梅沙出发约 2.5–3 小时 · 自驾</p>
+      <p>广东人自己的「小桂林」。喀斯特峰林里藏着溶洞、暗河和清代古堡；不赶景点，骑车穿过峰林才是正经事。</p>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="sec route" id="route">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">逐日行程 · 三条线任选一条</span>
+    <h2 class="sec__title">三天，每天只安排一件大事</h2>
+    <p class="sec__lede">节奏是松的：上午出发，下午一件事，傍晚找个地方坐着看天黑。切下面的标签换线路。</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="线路切换">
+    <button class="tab is-on" type="button" role="tab" aria-selected="true" data-panel="r1" id="tab-r1">① 惠东 · 盐洲岛<small>海</small></button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-panel="r2" id="tab-r2">② 汕尾 · 红海湾<small>渔港</small></button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-panel="r3" id="tab-r3">③ 清远 · 英西峰林<small>山</small></button>
+  </div>
+
+  <!-- ══ 线路 ① 盐洲岛 ══ -->
+  <div class="panel" id="r1" role="tabpanel" aria-labelledby="tab-r1">
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 01 · 所城 &amp; 红树林</p>
+      <h3>先去一座六百年的古城，再看白鹭回家</h3>
+      <p class="day__sub">上午从大梅沙出发，中午到平海——明代的海防所城，然后去盐洲岛白沙村等日落。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/1mh4i12000mvzttnw3DDF_W_1200_0_R5_Q80.jpg"
+             alt="盐洲岛白沙村红树林湿地，滩涂上的小木船与远处的风力发电机" width="1200" height="900" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">大梅沙 → 沈海 / 广惠高速 → 惠东平海，约 <b>1.5–2 小时</b>；过盐洲大桥上岛（免费）</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">平海古城墙与老街散步 → 白沙村红树林湿地，傍晚看成群白鹭归巢（一片滩涂、几只旧船，安静得不像景点）</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">渔村海鲜：生蚝、虾蟹、窑鸡；岛上吃的选择不多，别太晚到</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value">盐洲岛上的<b>渔村民宿</b>——数量很少，中秋务必提前订</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 02 · 观音山 &amp; 黑排角</p>
+      <h3>爬上去看全岛，再钻进礁石海岸</h3>
+      <p class="day__sub">上午上观音山俯瞰整座岛，下午去黑排角——广东少见的礁石海岸，走得进去要靠潮汐配合。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/10050z000000nz148666B_W_1200_0_R5_Q80.jpg"
+             alt="黑排角礁石海岸，翠绿海藻覆盖的礁石与碧蓝海浪" width="1200" height="798" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">岛上开车 / 骑电动车，观音山与黑排角同一侧，一天能串完</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">观音山制高点俯瞰全岛与外海 → 黑排角礁石海岸徒步（<b>务必先查潮汐表</b>，涨潮时进不去也出不来）→ 杨屋沙滩或日出情人湾看晚霞</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">中午回渔村吃渔排海鲜；晚上可以在民宿让老板做一桌家常菜</span></div>
+        <div class="meta"><span class="meta__label">提示</span><span class="meta__value">礁石湿滑，穿防滑鞋；这段没遮阴，带水带防晒</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 03 · 出海 &amp; 回程</p>
+      <h3>早起看一次日出，然后慢慢往回走</h3>
+      <p class="day__sub">最后一天不赶。看日出、吃顿海鲜，下午才动身，避开返程高峰。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me0j12000s9slj2l17A7.jpg"
+             alt="杨屋沙滩黄昏，粉紫色的晚霞与长曝光柔化的海浪" width="600" height="900" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">岛上码头出海（跟民宿老板打听，或提前订渔家小船）</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">清晨出海或海边看日出 → 回来退房 → 渔排吃最后一顿海鲜 → 下午返程</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">渔排现捞：清蒸鱼、白灼虾、生蚝；返程前买两罐本地蚝油当手信</span></div>
+        <div class="meta"><span class="meta__label">提示</span><span class="meta__value">中秋最后一天下午返程，沈海高速会堵，<b>建议 14:00 前上高速</b></span></div>
+      </div>
+    </div>
+  </article>
+  </div>
+
+  <!-- ══ 线路 ② 汕尾红海湾 ══ -->
+  <div class="panel" id="r2" role="tabpanel" aria-labelledby="tab-r2" hidden>
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 01 · 直奔遮浪半岛</p>
+      <h3>同一片海，一边巨浪一边平静</h3>
+      <p class="day__sub">到了先去红海湾。遮浪半岛的奇怪之处：半岛两侧，一侧浪高得站不住，一侧静得像湖。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/100e1f000001gt1o71865_W_1200_0_R5_Q80.jpg"
+             alt="汕尾红海湾渔港日落，弧形海湾里停泊的渔船与连片渔村民居" width="1200" height="801" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">自驾大梅沙 → 深汕 / 沈海高速 → 汕尾约 <b>1.5–2 小时</b>；也可深圳北 / 坪山坐高铁到汕尾站（<b>40–50 分钟</b>）再打车</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">遮浪半岛两侧走一圈（惊涛侧看浪，平静侧踩水）→ 红海湾看日落，渔船回港的时候</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">红海湾一带海鲜大排档：马鲛鱼丸、白灼虾、生蚝、鱼饭</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value">红海湾的<b>海边民宿 / 渔家乐</b>，晚上能听见浪声</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 02 · 风车岛 &amp; 玻璃海</p>
+      <h3>风机、玻璃海，然后回城区吃小吃</h3>
+      <p class="day__sub">上午去风车岛和后澳一带的原生态海岸，下午回汕尾城区——海陆丰小吃的主场。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/0106512000rgkyiy754A5_W_1200_0_R5_Q80.jpg"
+             alt="汕尾后澳原生态海滨沙滩，海浪拍打礁石，远处可见风力发电机组" width="1200" height="798" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">红海湾 → 风车岛 → 后澳，沿海边一路开；下午回汕尾城区约 40 分钟</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">风车岛看海上风机与山丘海岸 → 后澳玻璃海踩水、浮日湾打卡 → 傍晚品清湖夜景</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value"><b>海陆丰小吃巡礼</b>：菜茶、薄饼、马鲛鱼丸、卤鹅、牛肉丸、咸茶——和潮汕不是一个配方，值得专门吃一轮</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value">汕尾城区酒店，方便第二天逛老街</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 03 · 老街 &amp; 回程</p>
+      <h3>睡到自然醒，再去老街吃顿早茶</h3>
+      <p class="day__sub">最后一天在城区逛吃，中午动身回深圳，两个小时内到家。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/1mi4z12000sicsxct5E1B_W_1200_0_R5_Q80.jpg"
+             alt="汕尾海岸的黄昏沙滩，海浪漫上沙滩，海面浮着粉色警戒浮球" width="1200" height="900" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">城区内步行 / 打车；返程走深汕高速或直接高铁回深圳</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">城区老街早茶 → 凤山祖庙一带走走 → 买点虾干、鱼丸带走 → 返程</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">广式早茶 + 本地粿条汤、猪脚饭，本地人排队的店比网红店靠谱</span></div>
+        <div class="meta"><span class="meta__label">提示</span><span class="meta__value">汕尾站高铁回深圳很快，<b>不想开车就全程高铁 + 打车</b>，反而更省心</span></div>
+      </div>
+    </div>
+  </article>
+  </div>
+
+  <!-- ══ 线路 ③ 英西峰林 ══ -->
+  <div class="panel" id="r3" role="tabpanel" aria-labelledby="tab-r3" hidden>
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 01 · 进山</p>
+      <h3>开出城市，直到两边全是石头山</h3>
+      <p class="day__sub">两三个小时高速之后，地貌突然换掉——平地上冒出一座座馒头形状的石灰岩峰。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/0104d12000oj17zkb6179_W_1200_0_R5_Q80.jpg"
+             alt="英西峰林走廊黄昏航拍，喀斯特峰林环绕的乡村田园" width="1200" height="898" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">大梅沙 → 广深 / 广乐高速 → 英德九龙镇，约 <b>2.5–3 小时</b>；九龙镇是英西峰林的门户</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">午后到九龙，沿峰林间的乡道随便开一段 → 找一处田埂等日落，峰林被夕阳打成金红色</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">九龙豆腐（当地用山泉水做，比普通豆腐嫩）、走地鸡、笋、山坑鱼</span></div>
+        <div class="meta"><span class="meta__label">住哪</span><span class="meta__value"><b>峰林里的民宿</b>——英西一带民宿近年很多，挑带院子、能看峰林的</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 02 · 溶洞 &amp; 骑行</p>
+      <h3>上午钻洞，下午骑车穿过峰林</h3>
+      <p class="day__sub">英德的地下是空的——溶洞、地下河、天坑连成片。下午回到地面，骑车才是看峰林的正确方式。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/1lo2c12000qna4pnaD5A0_W_1200_0_R5_Q80.jpg"
+             alt="英德洞天仙境溶洞，载着游客的游船在洞内河道航行，洞内有飞瀑与观景栈道" width="1200" height="675" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">九龙镇出发，洞天仙境与彭家祠都在英西峰林走廊这条线上，车程都在半小时内</span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">洞天仙境（溶洞 + 地下河 + 天坑，坐船进洞）→ 租自行车沿峰林乡道骑一段 → 彭家祠，一座藏在峰林山谷里的清代古堡</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">农家乐：土窑鸡、腊味、腐竹；下午在茶园喝一杯英红九号</span></div>
+        <div class="meta"><span class="meta__label">提示</span><span class="meta__value">溶洞里恒温偏凉、地面湿滑，带件薄外套；骑行选上午或傍晚，正午晒</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day reveal">
+    <div class="day__head">
+      <p class="mono day__no">Day 03 · 暗河 &amp; 回程</p>
+      <h3>钻一次暗河，带两罐红茶回家</h3>
+      <p class="day__sub">最后半天玩水——老虎谷的溶洞漂流，或者观音谷的峰林水乡骑行，然后不慌不忙回深圳。</p>
+    </div>
+    <div class="day__body">
+      <figure class="day__fig">
+        <img src="https://ak-d.tripcdn.com/images/0104w120009e3xmzgDE9A_W_1200_0_R5_Q80.jpg"
+             alt="英德观音谷，喀斯特峰林环绕的水乡绿道与骑行的人" width="1200" height="800" loading="lazy">
+      </figure>
+      <div class="day__meta">
+        <div class="meta"><span class="meta__label">怎么去</span><span class="meta__value">九龙镇周边；返程英德 → 深圳约 2.5–3 小时，<b>建议 15:00 前出发</b></span></div>
+        <div class="meta"><span class="meta__label">做什么</span><span class="meta__value">老虎谷溶洞漂流（地下暗河，穿救生衣，会湿）→ 或观音谷走水乡绿道 → 买英红九号红茶当手信</span></div>
+        <div class="meta"><span class="meta__label">吃什么</span><span class="meta__value">返程前在九龙镇吃一顿农家菜，豆腐和走地鸡是必点</span></div>
+        <div class="meta"><span class="meta__label">提示</span><span class="meta__value">漂流会全身湿，带一套换洗衣物和拖鞋；怕水就换成观音谷骑行</span></div>
+      </div>
+    </div>
+  </article>
+  </div>
+</section>
+
+<!-- ═════════════ 卡点地图 ═════════════ -->
+<section class="more" id="more">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">加更 · 卡点地图</span>
+    <h2 class="sec__title">这三条线上，一共 15 个卡点</h2>
+    <p class="sec__lede">点卡片看详情，右上角 ♥ 收藏，🎲 帮你随机翻一个。全都不是要排队的门票大景区。</p>
+  </div>
+
+  <div class="toolbar" role="group" aria-label="卡点筛选">
+    <button class="btn" id="shuffle" type="button" aria-label="随机翻一个卡点">🎲 帮我翻牌</button>
+    <button class="chip is-on" type="button" data-filter="all">全部</button>
+    <button class="chip" type="button" data-filter="island">🏝️ 海岛海岸</button>
+    <button class="chip" type="button" data-filter="harbor">⚓ 渔港海湾</button>
+    <button class="chip" type="button" data-filter="peak">⛰️ 峰林溶洞</button>
+    <button class="chip" type="button" data-filter="fav">♥ 只看收藏</button>
+  </div>
+
+  <p class="more__empty" id="moreEmpty" hidden>还没有收藏任何卡点——回到上面，点卡片右上角的 ♥ 试试。</p>
+
+  <div class="moregrid">
+    <!-- ── 海岛海岸 ── -->
+    <article class="mcard reveal" id="hit-yanzhou" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏盐洲岛">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0102h120005x7w8gq29A9_W_800_0_R5_Q80.jpg" alt="盐洲岛航拍" width="1000" height="666" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>盐洲岛</h3>
+        <p class="mcard__sub">广东少见「玻璃海」，岛上就几个渔村</p>
+        <p class="mcard__time">大梅沙出发 1.5–2 小时 · 无门票</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">惠州市惠东县，盐洲大桥直接开上岛（免费）</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">海水蓝绿分层、潮汐沙滩、成片红树林与白鹭；岛上没有商业街，安静是本地的默认状态</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">开车环岛 + 骑行；最适合傍晚在海边坐着发呆</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">岛上民宿少、餐馆少，<b>中秋务必提前订房</b>；旺季不要指望随到随住</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-baisha" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏白沙村红树林">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1mh4i12000mvzttnw3DDF_W_800_0_R5_Q80.jpg" alt="白沙村红树林湿地" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>白沙村 · 红树林湿地</h3>
+        <p class="mcard__sub">傍晚看成群白鹭归巢，一张滩涂几只旧船</p>
+        <p class="mcard__time">日落前一小时到最合适 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">盐洲岛白沙村，岛上一处滩涂湿地</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">连片红树林 + 搁浅木船 + 滩涂倒影；黄昏时成群白鹭从海上飞回林子</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">沿岸堤走，找一处开阔机位等日落；摄影的人多在这个点位</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">滩涂泥滑别乱下；夏季蚊虫多，长裤 + 驱蚊水</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-heipai" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏黑排角">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/10050z000000nz148666B_W_800_0_R5_Q80.jpg" alt="黑排角礁石海岸" width="1000" height="665" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>黑排角 · 礁石海岸</h3>
+        <p class="mcard__sub">翠绿海藻趴在黑色礁石上，广东少有</p>
+        <p class="mcard__time">免费 · 必须看潮汐</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">惠东盐洲岛一带海岸，与盐洲岛同片区</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">黑色火山质礁石上覆着翠绿海藻，配上碧蓝海水，颜色很特别</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">沿岸礁石徒步一段，走到开阔处折返；不追求走完全程</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">⚠️ <b>必须查潮汐表，退潮时才进得去</b>；礁石湿滑穿防滑鞋，涨潮前务必退出</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-guanyinshan" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏观音山">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/01003120009dzgf745A46_W_800_0_R5_Q80.jpg" alt="盐洲岛观音山俯瞰" width="1000" height="562" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>观音山 · 俯瞰全岛</h3>
+        <p class="mcard__sub">爬到制高点，整座岛和外面的海都在脚下</p>
+        <p class="mcard__time">上山约半小时 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">盐洲岛上，岛内最高的观景位置</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">连绵青绿山峦、山间水库，远处能同时看到滨海城镇与海面</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">开车或骑电动车上山，走一段看全景；上午能见度最好</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">山上风大，带件外套；和黑排角排同一天最顺路</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-qingrenwan" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏日出情人湾">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1lo2p12000g9phbjc38B9_W_800_0_R5_Q80.jpg" alt="日出情人湾航拍" width="1000" height="749" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>日出情人湾</h3>
+        <p class="mcard__sub">海湾、步道、观景台，看日出的一处点位</p>
+        <p class="mcard__time">清晨或傍晚 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">惠东沿海，盐洲岛同片区</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">海湾被绿植包围，有观景建筑与步道，航拍出来的弧度很好看</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">看日出要早，前一晚住附近；如果是休闲游，傍晚来散步更轻松</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">带三脚架拍长曝；正午光线硬，别把拍照安排在这个时间</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-yangwu" data-cat="island">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏杨屋沙滩">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me0j12000s9slj2l17A7.jpg" alt="杨屋沙滩黄昏" width="600" height="900" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-island">海岛海岸</span>
+        <h3>杨屋沙滩 · 晚霞</h3>
+        <p class="mcard__sub">岩质海岸配粉紫晚霞，收尾一天的地方</p>
+        <p class="mcard__time">日落后半小时最美 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">惠东盐洲岛同片区海岸</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">黄昏时天空偏粉紫，海浪打在礁石上被长曝光拉成雾状</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">下午在礁石边找机位，等到蓝调时刻收工；回民宿吃饭刚好</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">礁石区走动注意脚下；天黑得快，带手电</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 渔港海湾 ── -->
+    <article class="mcard reveal" id="hit-zhelang" data-cat="harbor">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏遮浪半岛">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/100e1f000001gt1o71865_W_800_0_R5_Q80.jpg" alt="遮浪半岛红海湾日落渔港" width="1000" height="667" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-harbor">渔港海湾</span>
+        <h3>遮浪半岛 · 红海湾</h3>
+        <p class="mcard__sub">同一片海，一边巨浪一边平静</p>
+        <p class="mcard__time">汕尾城区出发约 40 分钟 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">汕尾市红海湾经济开发区，一条半岛伸进海里</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">半岛两侧海况截然不同：一侧浪大得站不住，一侧平缓可以下水，是它出名的原因</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">两侧各走一次感受差别 → 傍晚看渔船回港、海湾日落</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">浪大那侧不要下礁石；台风前后禁止靠近海边</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-houao" data-cat="harbor">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏后澳玻璃海">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0106512000rgkyiy754A5_W_800_0_R5_Q80.jpg" alt="后澳玻璃海" width="1000" height="665" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-harbor">渔港海湾</span>
+        <h3>后澳 · 玻璃海</h3>
+        <p class="mcard__sub">原生态沙滩，人少到只剩海浪声</p>
+        <p class="mcard__time">免费 · 半天</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">汕尾沿海，红海湾同片区</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">水清、沙白、礁石多，属于没怎么开发的那种海岸；远处可见风机</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">踩水、捡贝壳、坐着看海；这里没什么商业设施，自己带水</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">无救生员，不熟水性别远游；垃圾请带走</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-fuli" data-cat="harbor">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏浮日湾">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1me2812000pvl3eok3192.jpg" alt="浮日湾景区入口" width="902" height="1202" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-harbor">渔港海湾</span>
+        <h3>浮日湾</h3>
+        <p class="mcard__sub">小海湾，有礁石有树荫，适合坐一下午</p>
+        <p class="mcard__time">免费 · 适合下午</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">汕尾沿海，红海湾片区</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">弯曲的小海湾，礁石与山体树林相接，视野开阔</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">下午来，找个树荫坐着；和风车岛、后澳串在半天里</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">景区设施简单，吃饭回城区解决</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-haixian" data-cat="harbor">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏红海湾黄昏沙滩">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1mi4z12000sicsxct5E1B_W_800_0_R5_Q80.jpg" alt="汕尾黄昏沙滩" width="1000" height="750" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-harbor">渔港海湾</span>
+        <h3>红海湾 · 黄昏沙滩</h3>
+        <p class="mcard__sub">傍晚的海漫上沙滩，一天里最好看的时候</p>
+        <p class="mcard__time">日落前 1 小时到 · 免费</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">汕尾红海湾一带沙滩</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">黄昏光线最柔，海浪一层层漫上来；夏天过后人少很多</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">光脚走一段沙滩，等太阳落到海平面以下再走</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">带条毛巾擦脚；沙滩不设冲洗点的地段自己备水</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- ── 峰林溶洞 ── -->
+    <article class="mcard reveal" id="hit-yingxi" data-cat="peak">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏英西峰林走廊">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0104d12000oj17zkb6179_W_800_0_R5_Q80.jpg" alt="英西峰林走廊" width="1000" height="749" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-peak">峰林溶洞</span>
+        <h3>英西峰林走廊</h3>
+        <p class="mcard__sub">广东人的「小桂林」，峰林间全是田和村</p>
+        <p class="mcard__time">大梅沙出发 2.5–3 小时 · 不必买票</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">清远英德市九龙镇一带，峰林沿乡道连成一条走廊</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">石灰岩峰丛 + 稻田 + 村子，日落时峰林被染成金红色</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value"><b>自驾或骑自行车沿乡道穿行</b>才是正确玩法，比进任何单一景区都好</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">走廊很长，别想着走完；挑一段喜欢的停下就好</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-dongtian" data-cat="peak">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏洞天仙境">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/1lo2c12000qna4pnaD5A0_W_800_0_R5_Q80.jpg" alt="洞天仙境溶洞" width="1000" height="562" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-peak">峰林溶洞</span>
+        <h3>洞天仙境</h3>
+        <p class="mcard__sub">坐船钻进地下河，洞里有瀑布和天坑</p>
+        <p class="mcard__time">九龙镇 · 需门票（以当日为准）</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">清远英德市九龙镇，英西峰林走廊线上</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">喀斯特溶洞 + 地下河，乘船进洞；洞内有飞瀑、钟乳石与观景栈道</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">买票进，坐船 + 步行栈道，约 1.5–2 小时；人不多，不用抢时间</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">洞内恒温偏凉、地面湿滑，带薄外套、穿防滑鞋；节假日票价与开放时间以官方为准</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-pengjia" data-cat="peak">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏彭家祠">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0106312000f6pxqo36EF1.jpg" alt="彭家祠" width="999" height="560" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-peak">峰林溶洞</span>
+        <h3>彭家祠 · 峰林古堡</h3>
+        <p class="mcard__sub">藏在峰林山谷里的清代古民居，人称小布达拉</p>
+        <p class="mcard__time">黄昏光线最好 · 免费或低价</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">清远英德，英西峰林走廊一带的山谷中</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">依山而建的岭南古堡式民居，层层叠叠贴在山壁上，黄昏时非常安静古朴</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">下午晚点来，顺着石阶走到高处，回头看整片峰林</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">是老建筑，别攀爬墙体；和洞天仙境排同一天顺路</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-guanyingu" data-cat="peak">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏观音谷">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/0104w120009e3xmzgDE9A_W_800_0_R5_Q80.jpg" alt="观音谷" width="1000" height="667" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-peak">峰林溶洞</span>
+        <h3>观音谷 · 峰林水乡</h3>
+        <p class="mcard__sub">峰林围着一片水，绿道骑车绕一圈</p>
+        <p class="mcard__time">适合上午 · 需门票（以当日为准）</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">清远英德，英西峰林走廊片区</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">喀斯特峰林环抱着水面与田园，沿水有绿道，可以骑车穿行</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">骑行或步行沿水一圈；上午人更少、光线也柔</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">怕水、不想漂流的，把它当成替代老虎谷的选项</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="mcard reveal" id="hit-laohu" data-cat="peak">
+      <button class="mcard__fav" type="button" aria-pressed="false" aria-label="收藏老虎谷溶洞漂流">♥</button>
+      <figure class="mcard__fig">
+        <img src="https://ak-d.tripcdn.com/images/350n0u000000j34uk4558.jpg" alt="老虎谷溶洞暗河" width="738" height="458" loading="lazy">
+      </figure>
+      <div class="mcard__body">
+        <span class="mcard__cat cat-peak">峰林溶洞</span>
+        <h3>老虎谷 · 溶洞漂流</h3>
+        <p class="mcard__sub">坐着橡皮艇钻地下暗河，会全身湿</p>
+        <p class="mcard__time">需门票 · 约 1 小时</p>
+        <div class="mcard__detail"><div class="mcard__detail-in">
+          <div class="meta"><span class="meta__label">位置</span><span class="meta__value">清远英德英西峰林片区，九龙镇一带</span></div>
+          <div class="meta"><span class="meta__label">看点</span><span class="meta__value">溶洞里的地下暗河，河道蜿蜒，沿途有灯光与临水步道</span></div>
+          <div class="meta"><span class="meta__label">玩法</span><span class="meta__value">穿救生衣上橡皮艇，全程约一小时；结束后换衣服再走</span></div>
+          <div class="meta"><span class="meta__label">提示</span><span class="meta__value">⚠️ <b>一定带一套换洗衣物和拖鞋</b>；身高 / 健康限制以景区规定为准，孕妇和幼儿不建议</span></div>
+        </div></div>
+      </div>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="tips" id="tips">
+  <div class="sec">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">出发之前</span>
+    <h2 class="sec__title">避坑锦囊</h2>
+    <p class="sec__lede">五件出发前该知道的事——尤其是「哪些地方这个假期千万别去」。</p>
+  </div>
+  <div class="tips__grid">
+    <div class="tip reveal">
+      <h3><span>01</span>中秋还是国庆？走中秋</h3>
+      <p>中秋 9 月 25–27 日，周五到周日共 3 天，正好是你要的三天两夜；国庆 10 月 1–7 日共 7 天，全国人口大迁徙。另外中秋高速<b>不免费</b>、国庆免费——但免费那条路才是真正堵的。3 天够用，就走中秋。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>02</span>从大梅沙出发怎么走</h3>
+      <p>你住大梅沙，正好在往东的起跑线上：去惠东 / 汕尾走沈海、深汕高速，比从市区出发还省一截。汕尾可以<strong>深圳北或坪山坐高铁</strong>（约 40–50 分钟）到汕尾站再打车，全程不用碰方向盘。英德只能自驾，2.5–3 小时。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>03</span>潮汐不是小事</h3>
+      <p>黑排角这类礁石海岸<b>必须退潮才走得进去</b>，涨潮时既进不去也容易被困。出发前一晚查好当地潮汐表，把徒步安排在看潮位最低的那两小时里。海边礁石区湿滑，穿防滑鞋。</p>
+    </div>
+    <div class="tip reveal">
+      <h3><span>04</span>返程时间点</h3>
+      <p>中秋最后一天下午是返程高峰。给的建议是<b>14:00–15:00 前上高速</b>，宁可早到家吃晚饭，也别卡在傍晚。高铁票提前买，节假日当天买基本没票。</p>
+    </div>
+    <div class="tip tip--wide reveal">
+      <h3><span>05</span>哪些地方这个假期千万别去</h3>
+      <p><b>双月湾、巽寮湾、十里银滩、汕尾金町湾、大鹏较场尾与西冲、阳江海陵岛、台山那琴半岛、丹霞山、开平碉楼</b>——这些是长假人从众的重灾区，停车和排队就能吃掉半天。本条推荐的三个方向，热度都不在这些点上。</p>
+      <div class="budget">
+        <span>盐洲岛线 · 两人三天 <em>¥1600–2600</em></span>
+        <span>红海湾线 · 两人三天 <em>¥1800–2800</em></span>
+        <span>峰林线 · 两人三天 <em>¥1700–2700</em></span>
+      </div>
+      <p style="margin-top:.6rem">粗算含油费 / 过路、住宿两晚、吃饭与零星门票，<b>仅供参考</b>——住宿档次差别最大。以上金额均为估算，实际以当日为准。</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="foot__close">这个假期，<br>最好的景点是人少。</p>
+  <p class="foot__small">图片来自 Trip.com 用户实拍（国内 CDN 可直连），仅作行程示意 · 本页为个人整理的旅行推荐，非官方攻略 · 车程、票价、门票与开放时间以当日实际为准 · 参考数据来自 2026 年中秋节、国庆节放假通知 · 预约 / 订房请走官方渠道 · 收藏存在本机浏览器（localStorage），换设备不保留 · 用 GitHub Pages 托管</p>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="卡点详情">
+  <div class="modal__panel">
+    <div class="modal__head">
+      <button class="modal__close" id="modalClose" type="button" aria-label="关闭详情">✕</button>
+    </div>
+    <figure class="modal__fig">
+      <img id="modalImg" src="" alt="" width="1000" height="562">
+    </figure>
+    <div class="modal__body">
+      <span class="mcard__cat cat-island" id="modalCat"></span>
+      <h3 id="modalTitle"></h3>
+      <p class="mcard__sub" id="modalSub"></p>
+      <p class="mcard__time" id="modalTime"></p>
+      <div class="modal__detail" id="modalDetail"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* —— 阅读进度条 + 回到顶部 —— */
+  var bar=document.getElementById('progress');
+  var toTop=document.getElementById('toTop');
+  function onScroll(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?window.scrollY/max:0;
+    if(bar){bar.style.transform='scaleX('+p+')'}
+    if(toTop){toTop.classList.toggle('is-show',window.scrollY>700)}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(toTop){toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})})}
+
+  /* —— 线路切换 —— */
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('is-on');x.setAttribute('aria-selected','false')});
+      t.classList.add('is-on');t.setAttribute('aria-selected','true');
+      var id=t.getAttribute('data-panel');
+      panels.forEach(function(p){
+        var on=p.id===id;
+        p.hidden=!on;
+        if(on){
+          p.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-in')});
+        }
+      });
+    });
+  });
+
+  /* —— 收藏（localStorage）—— */
+  var KEY='quiet-favs-v1';
+  var favs=[];
+  try{favs=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(favs))}catch(e){}}
+
+  /* —— 筛选 —— */
+  var activeFilter='all';
+  function applyFilter(f){
+    activeFilter=f;
+    document.querySelectorAll('.chip').forEach(function(ch){
+      ch.classList.toggle('is-on',ch.getAttribute('data-filter')===f);
+    });
+    var shown=0;
+    document.querySelectorAll('.mcard').forEach(function(card){
+      var cat=card.getAttribute('data-cat');
+      var ok=f==='all'||(f==='fav'?favs.indexOf(card.id)>-1:cat===f);
+      card.style.display=ok?'':'none';
+      if(ok)shown++;
+    });
+    var empty=document.getElementById('moreEmpty');
+    if(empty){empty.hidden=shown>0}
+  }
+  document.querySelectorAll('.chip').forEach(function(ch){
+    ch.addEventListener('click',function(){applyFilter(ch.getAttribute('data-filter'))});
+  });
+
+  /* —— 收藏按钮 —— */
+  document.querySelectorAll('.mcard__fav').forEach(function(btn){
+    var id=btn.closest('.mcard').id;
+    if(favs.indexOf(id)>-1){btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+    btn.addEventListener('click',function(){
+      var i=favs.indexOf(id);
+      if(i>-1){favs.splice(i,1);btn.classList.remove('is-fav');btn.setAttribute('aria-pressed','false')}
+      else{favs.push(id);btn.classList.add('is-fav');btn.setAttribute('aria-pressed','true')}
+      save();
+      if(activeFilter==='fav'){applyFilter('fav')}
+    });
+  });
+
+  /* —— 详情弹窗（点卡片查看）—— */
+  var modal=document.getElementById('modal');
+  var modalImg=document.getElementById('modalImg');
+  var modalCat=document.getElementById('modalCat');
+  var modalTitle=document.getElementById('modalTitle');
+  var modalSub=document.getElementById('modalSub');
+  var modalTime=document.getElementById('modalTime');
+  var modalDetail=document.getElementById('modalDetail');
+  var modalClose=document.getElementById('modalClose');
+  var lastCard=null;
+  function openModal(card){
+    lastCard=card;
+    var img=card.querySelector('.mcard__fig img');
+    modalImg.src=img.src; modalImg.alt=img.alt;
+    modalCat.textContent=card.querySelector('.mcard__cat').textContent;
+    modalCat.className=card.querySelector('.mcard__cat').className;
+    modalTitle.textContent=card.querySelector('h3').textContent;
+    modalSub.textContent=card.querySelector('.mcard__sub').textContent;
+    modalTime.textContent=card.querySelector('.mcard__time').textContent;
+    modalDetail.innerHTML='';
+    card.querySelectorAll('.mcard__detail-in .meta').forEach(function(m){
+      modalDetail.appendChild(m.cloneNode(true));
+    });
+    modal.classList.add('is-open');
+    document.body.style.overflow='hidden';
+    if(modalClose){modalClose.focus()}
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow='';
+    if(lastCard){lastCard.focus()}
+  }
+  document.querySelectorAll('.mcard').forEach(function(card){
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.addEventListener('click',function(e){
+      if(e.target.closest('.mcard__fav')){return}
+      openModal(card);
+    });
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(card)}
+    });
+  });
+  if(modalClose){modalClose.addEventListener('click',closeModal)}
+  if(modal){modal.addEventListener('click',function(e){if(e.target===modal){closeModal()}})}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&modal&&modal.classList.contains('is-open')){closeModal()}
+  });
+
+  /* —— 随机翻牌 —— */
+  var shuffleBtn=document.getElementById('shuffle');
+  if(shuffleBtn){
+    shuffleBtn.addEventListener('click',function(){
+      var visible=[];
+      document.querySelectorAll('.mcard').forEach(function(c){if(c.style.display!=='none'){visible.push(c)}});
+      if(!visible.length){return}
+      document.querySelectorAll('.mcard.is-picked').forEach(function(c){c.classList.remove('is-picked')});
+      var pick=visible[Math.floor(Math.random()*visible.length)];
+      pick.classList.add('is-picked');
+      pick.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
