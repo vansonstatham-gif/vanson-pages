@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="国庆 10/2–10/4 清远英德三天两晚自驾路书：英西峰林 + 茶谷 + 温泉，不看溶洞。含逐日行程、六家温泉实测车程、预算计算器和打包清单。">
-<title>去英德，看两天峰林，泡一晚温泉</title>
+<meta name="description" content="国庆 10/2–10/4 清远英德三天两晚自驾：以泡温泉为主，两晚住带私汤的民宿，挑一晚开出去泡真温泉；峰林只留一个下午打卡看日落。含温泉二选一决策台、真实口碑、车程实测和预算计算器。">
+<title>去英德，泡两天温泉，顺路看一场日落</title>
 <style>
 /* Hallmark · macrostructure: Journey Journal · genre: editorial / cozy
  * theme: custom (暖阳奶油纸 · 陶土橘 + 茶山绿 + 温泉暖红 · 系统 CJK 字体 — 大陆可直连)
@@ -77,7 +77,7 @@ a:hover{color:var(--color-accent-bright)}
 .mast__links{display:none;align-items:baseline;gap:var(--space-lg);white-space:nowrap}
 .mast__links a{font-size:.92rem;text-decoration:none;color:var(--color-muted)}
 .mast__links a:hover{color:var(--color-accent)}
-@media (min-width:46rem){.mast__links{display:flex}}
+@media (min-width:52rem){.mast__links{display:flex}}
 
 /* ——— 档期条 ——— */
 .banner{background:var(--color-night);color:var(--color-paper)}
@@ -96,7 +96,7 @@ a:hover{color:var(--color-accent-bright)}
   color:var(--color-accent);margin:0 0 var(--space-sm)}
 .sec__title{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.25;margin:0;
   letter-spacing:-0.015em;text-wrap:balance}
-.sec__lede{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:52ch}
+.sec__lede{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:56ch}
 .divider{color:var(--color-rule);margin:0;padding:0 var(--space-md)}
 .divider svg{display:block;width:100%;height:18px}
 
@@ -113,7 +113,7 @@ a:hover{color:var(--color-accent-bright)}
 .hero__title .nb{white-space:nowrap}
 .hero__title em{font-style:normal;color:var(--color-accent);white-space:nowrap;
   background:linear-gradient(180deg,transparent 62%,color-mix(in oklch,var(--color-honey) 55%,transparent) 62%)}
-.hero__sub{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:42ch}
+.hero__sub{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:44ch}
 .hero__meta{display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-lg);margin-top:var(--space-lg);
   padding-top:var(--space-lg);border-top:1px solid var(--color-rule);font-size:.9rem;color:var(--color-muted)}
 .hero__meta b{color:var(--color-ink);font-weight:600}
@@ -158,68 +158,96 @@ a:hover{color:var(--color-accent-bright)}
 .tl li::before{content:"";position:absolute;left:-1.5rem;top:.52rem;width:.72rem;height:.72rem;border-radius:50%;
   background:var(--color-paper);border:2px solid var(--color-accent)}
 .tl li:last-child{padding-bottom:0}
+.tl li.is-kp::before{background:var(--color-plum);border-color:var(--color-plum);
+  box-shadow:0 0 0 4px color-mix(in oklch,var(--color-plum) 18%,transparent)}
 .tl time{font-family:var(--font-outlier);font-size:.8rem;color:var(--color-accent);letter-spacing:.04em}
-.tl b{display:block;font-weight:600;margin:.1rem 0 .15rem;font-size:1.02rem}
+.tl>li>b{display:block;font-weight:600;margin:.1rem 0 .15rem;font-size:1.02rem}
 .tl p{margin:0;color:var(--color-muted);font-size:.93rem}
 .tl code{font-family:var(--font-outlier);font-size:.86em;background:var(--color-paper-3);
   padding:.08em .38em;border-radius:4px;color:var(--color-ink)}
 
-/* ——— 玩什么 ——— */
-.spots{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
-.spot{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-lg);
-  overflow:hidden;box-shadow:var(--shadow-warm);display:flex;flex-direction:column;
-  transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
-.spot:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
-.spot__fig{margin:0;background:var(--color-paper-3)}
-.spot__fig img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.spot__fig--plain{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;
+/* ——— 卡片通用（温泉 / 住宿 / 峰林） ——— */
+.cards{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(19rem,1fr))}
+.card{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-lg);
+  padding:var(--space-lg);box-shadow:var(--shadow-warm);display:flex;flex-direction:column;
+  gap:var(--space-sm);position:relative}
+.card--plain{justify-content:center;align-items:center;text-align:center;
   background:linear-gradient(135deg,var(--color-sage-soft),var(--color-accent-soft))}
-.spot__fig--plain svg{width:3.2rem;height:3.2rem;color:var(--color-sage);opacity:.85}
-.spot__body{padding:var(--space-lg);display:flex;flex-direction:column;gap:var(--space-sm);flex:1}
-.spot__tag{align-self:flex-start;font-size:.72rem;letter-spacing:.08em;color:var(--color-sage);
-  background:var(--color-sage-soft);border-radius:var(--radius-pill);padding:.2rem .65rem}
-.spot__tag--free{color:var(--color-accent);background:var(--color-accent-soft)}
-.spot__tag--star{color:var(--color-plum);background:var(--color-plum-soft)}
-.spot__body h3{margin:0;font-family:var(--font-display);font-size:1.22rem;letter-spacing:-0.005em}
-.spot__body p{margin:0;color:var(--color-muted);font-size:.92rem}
-.spot__specs{margin:auto 0 0;padding-top:var(--space-sm);display:grid;gap:.3rem;
-  border-top:1px dashed var(--color-rule);font-size:.85rem}
-.spot__specs div{display:flex;gap:.5rem}
-.spot__specs dt{color:var(--color-neutral);min-width:4.2rem;flex:none}
-.spot__specs dd{margin:0;color:var(--color-ink)}
-
-/* ——— 排除栏 ——— */
-.avoid{margin-top:var(--space-xl);background:var(--color-plum-soft);
-  border:1px dashed color-mix(in oklch,var(--color-plum) 32%,transparent);
-  border-radius:var(--radius-lg);padding:var(--space-lg) var(--space-xl)}
-.avoid h3{margin:0 0 var(--space-sm);font-family:var(--font-display);font-size:1.12rem;color:var(--color-plum)}
-.avoid p{margin:0;color:var(--color-muted);font-size:.92rem}
-.avoid ul{margin:var(--space-sm) 0 0;padding-left:1.1rem;color:var(--color-muted);font-size:.92rem}
-.avoid li{margin-bottom:.2rem}
-.avoid li b{color:var(--color-ink);text-decoration:line-through;text-decoration-color:var(--color-plum)}
-
-/* ——— 温泉 ——— */
-.springs{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(19rem,1fr))}
-.spring{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-lg);
-  padding:var(--space-lg);box-shadow:var(--shadow-warm);display:flex;flex-direction:column;gap:var(--space-sm)}
-.spring--pick{border:2px solid var(--color-plum);box-shadow:var(--shadow-lift);position:relative}
-.spring--pick::after{content:"本趟推荐";position:absolute;top:-0.7rem;right:var(--space-lg);
+.card--plain svg{width:3rem;height:3rem;color:var(--color-sage);opacity:.85}
+.card__name{margin:0;font-family:var(--font-display);font-size:1.2rem}
+.card__loc{margin:0;font-size:.82rem;color:var(--color-neutral);letter-spacing:.04em}
+.card__desc{margin:0;color:var(--color-muted);font-size:.92rem}
+.card__drive{margin:auto 0 0;padding-top:var(--space-sm);border-top:1px dashed var(--color-rule);
+  display:flex;flex-wrap:wrap;gap:.3rem var(--space-md);font-size:.86rem}
+.card__drive div{display:flex;gap:.4rem;align-items:baseline}
+.card__drive span{color:var(--color-neutral);font-size:.78rem}
+.card__drive b{color:var(--color-ink);font-weight:600}
+.card__drive b.hot{color:var(--color-plum)}
+.card__drive b.good{color:var(--color-sage)}
+.ribbon{position:absolute;top:-0.7rem;left:var(--space-lg);
   font-family:var(--font-outlier);font-size:.68rem;letter-spacing:.12em;color:oklch(98% 0.01 20);
   background:var(--color-plum);padding:.22rem .7rem;border-radius:var(--radius-pill)}
-.spring__name{margin:0;font-family:var(--font-display);font-size:1.2rem}
-.spring__loc{margin:0;font-size:.82rem;color:var(--color-neutral);letter-spacing:.04em}
-.spring__desc{margin:0;color:var(--color-muted);font-size:.92rem}
-.spring__drive{margin:auto 0 0;padding-top:var(--space-sm);border-top:1px dashed var(--color-rule);
-  display:flex;flex-wrap:wrap;gap:.3rem var(--space-md);font-size:.86rem}
-.spring__drive div{display:flex;gap:.4rem;align-items:baseline}
-.spring__drive span{color:var(--color-neutral);font-size:.78rem}
-.spring__drive b{color:var(--color-ink);font-weight:600}
-.spring__drive b.hot{color:var(--color-plum)}
+.ribbon--sage{background:var(--color-sage);color:oklch(98% 0.01 150)}
+.card--pick{border:2px solid var(--color-plum);box-shadow:var(--shadow-lift)}
+.card--picksage{border:2px solid var(--color-sage);box-shadow:var(--shadow-lift)}
+.card__specs{margin:auto 0 0;padding-top:var(--space-sm);display:grid;gap:.3rem;
+  border-top:1px dashed var(--color-rule);font-size:.85rem}
+.card__specs div{display:flex;gap:.5rem}
+.card__specs dt{color:var(--color-neutral);min-width:4.6rem;flex:none}
+.card__specs dd{margin:0;color:var(--color-ink)}
+
+/* ——— 温泉决策台 ——— */
+.pick{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(20rem,1fr))}
+.opt{position:relative;display:flex;flex-direction:column;gap:var(--space-sm);cursor:pointer;
+  background:var(--color-paper);border:2px solid var(--color-rule);border-radius:var(--radius-lg);
+  padding:var(--space-lg);box-shadow:var(--shadow-warm);
+  transition:border-color var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out),
+             background var(--dur) var(--ease-out),transform var(--dur) var(--ease-out)}
+.opt:hover{border-color:var(--color-accent);transform:translateY(-2px)}
+.opt.is-picked{border-color:var(--color-plum);box-shadow:var(--shadow-lift);
+  background:linear-gradient(180deg,var(--color-plum-soft),var(--color-paper) 34%)}
+.opt.is-picked::after{content:"✓ 就这家";position:absolute;top:-0.7rem;right:var(--space-lg);
+  font-family:var(--font-outlier);font-size:.68rem;letter-spacing:.1em;color:oklch(98% 0.01 20);
+  background:var(--color-plum);padding:.22rem .7rem;border-radius:var(--radius-pill)}
+.opt__radio{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;
+  font-size:.8rem;letter-spacing:.06em;color:var(--color-neutral);cursor:pointer}
+.opt__radio input{appearance:none;width:1.1rem;height:1.1rem;margin:0;flex:none;cursor:pointer;
+  border:1.5px solid var(--color-neutral);border-radius:50%;background:var(--color-paper);
+  transition:border-width var(--dur) var(--ease-out),border-color var(--dur) var(--ease-out)}
+.opt__radio input:checked{border:5px solid var(--color-plum)}
+.opt.is-picked .opt__radio{color:var(--color-plum);font-weight:600}
+.opt__loc{margin:0;font-size:.8rem;color:var(--color-neutral);letter-spacing:.04em}
+.opt__name{margin:0;font-family:var(--font-display);font-size:1.28rem}
+.opt__desc{margin:0;color:var(--color-muted);font-size:.92rem}
+.opt__pros{margin:0;padding-left:1.1rem;color:var(--color-muted);font-size:.88rem;display:grid;gap:.2rem}
+.opt__pros b{color:var(--color-ink)}
+.opt__word{margin:0;font-size:.85rem;color:var(--color-muted);background:var(--color-paper-2);
+  border-left:3px solid var(--color-honey);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:.6rem .8rem;line-height:1.6}
+.opt__word b{color:var(--color-ink)}
+.opt__word .bad{color:var(--color-plum)}
+.opt__drive{margin:auto 0 0;padding-top:var(--space-sm);border-top:1px dashed var(--color-rule);
+  display:flex;flex-wrap:wrap;gap:.3rem var(--space-md);font-size:.85rem}
+.opt__drive div{display:flex;gap:.4rem;align-items:baseline}
+.opt__drive span{color:var(--color-neutral);font-size:.78rem}
+.opt__drive b{color:var(--color-ink);font-weight:600}
+.opt__drive b.hot{color:var(--color-plum)}
+.opt__fields{display:grid;gap:var(--space-sm);margin-top:var(--space-xs)}
+.opt__fields label{display:grid;gap:.3rem;font-size:.8rem;color:var(--color-neutral)}
+.opt__fields input{font:inherit;font-size:.95rem;padding:.5rem .65rem;border:1px solid var(--color-rule);
+  border-radius:var(--radius-sm);background:var(--color-paper);color:var(--color-ink);width:100%}
+.pickbar{margin-top:var(--space-xl);background:var(--color-night);color:var(--color-paper);
+  border-radius:var(--radius-lg);padding:var(--space-lg) var(--space-xl);font-size:.95rem;
+  display:flex;flex-wrap:wrap;gap:.4rem var(--space-md);align-items:baseline}
+.pickbar span{color:color-mix(in oklch,var(--color-paper) 74%,transparent)}
+.pickbar b{color:var(--color-honey);font-weight:600}
+.pickbar .k{font-family:var(--font-outlier);font-size:.8rem;
+  color:color-mix(in oklch,var(--color-paper) 55%,transparent)}
 
 /* ——— 车程表 ——— */
 .tblwrap{overflow-x:auto;border:1px solid var(--color-rule);border-radius:var(--radius-md);
   background:var(--color-paper);box-shadow:var(--shadow-warm)}
-table{border-collapse:collapse;width:100%;min-width:32rem;font-size:.9rem}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.9rem}
 caption{text-align:left;padding:var(--space-md) var(--space-lg) 0;color:var(--color-muted);font-size:.85rem}
 th,td{padding:.7rem var(--space-md);text-align:left;border-bottom:1px solid var(--color-rule);white-space:nowrap}
 thead th{font-size:.76rem;letter-spacing:.06em;color:var(--color-neutral);font-weight:600;
@@ -231,7 +259,7 @@ td.num{font-family:var(--font-outlier);font-size:.86rem}
 td.plus{color:var(--color-plum)}
 td.plus--good{color:var(--color-sage);font-weight:600}
 
-/* ——— 吃 / 住 ——— */
+/* ——— 提示条 ——— */
 .cols{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
 .note{background:var(--color-paper);border:1px solid var(--color-rule);border-left:3px solid var(--color-honey);
   border-radius:var(--radius-md);padding:var(--space-lg);box-shadow:var(--shadow-warm)}
@@ -240,21 +268,32 @@ td.plus--good{color:var(--color-sage);font-weight:600}
 .note li{margin-bottom:.45rem}
 .note li b{color:var(--color-ink)}
 .note--sage{border-left-color:var(--color-sage)}
+.note--plum{border-left-color:var(--color-plum)}
 
 /* ——— 算账 ——— */
 .calc{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-lg);
   padding:var(--space-xl);box-shadow:var(--shadow-lift);display:grid;gap:var(--space-xl);
-  grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+  grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
 .calc__fields{display:grid;gap:var(--space-md);align-content:start}
 .field{display:grid;gap:.35rem}
 .field label{font-size:.85rem;color:var(--color-muted)}
 .field select{font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid var(--color-rule);
   border-radius:var(--radius-sm);background:var(--color-paper-2);color:var(--color-ink);width:100%}
+.field--check{display:flex;gap:.6rem;align-items:flex-start;cursor:pointer;font-size:.9rem;
+  color:var(--color-ink);background:var(--color-paper-2);border:1px solid var(--color-rule);
+  border-radius:var(--radius-sm);padding:.6rem .8rem}
+.field--check input{appearance:none;width:1.05rem;height:1.05rem;margin:.18rem 0 0;flex:none;cursor:pointer;
+  border:1.5px solid var(--color-neutral);border-radius:5px;background:var(--color-paper);position:relative;
+  transition:all var(--dur) var(--ease-out)}
+.field--check input:checked{background:var(--color-sage);border-color:var(--color-sage)}
+.field--check input:checked::after{content:"";position:absolute;left:.28rem;top:.07rem;width:.28rem;height:.55rem;
+  border:solid var(--color-paper);border-width:0 2px 2px 0;transform:rotate(42deg)}
 .calc__out{background:var(--color-accent-soft);border-radius:var(--radius-md);padding:var(--space-lg);
   display:grid;gap:.55rem;align-content:start}
 .calc__out h3{margin:0 0 var(--space-xs);font-family:var(--font-display);font-size:1.1rem}
 .calc__row{display:flex;justify-content:space-between;gap:var(--space-md);font-size:.9rem;color:var(--color-muted)}
 .calc__row b{font-family:var(--font-outlier);color:var(--color-ink);font-weight:500}
+.calc__row--live b{color:var(--color-plum)}
 .calc__total{margin-top:var(--space-sm);padding-top:var(--space-sm);border-top:2px solid var(--color-accent);
   display:flex;justify-content:space-between;align-items:baseline}
 .calc__total span{font-size:.9rem;color:var(--color-muted)}
@@ -315,6 +354,7 @@ footer{border-top:1px solid var(--color-rule);background:var(--color-paper-2)}
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .day.is-on{animation:none}
+  .opt:hover{transform:none}
   *{scroll-behavior:auto !important}
 }
 html{scroll-behavior:smooth}
@@ -328,9 +368,9 @@ html{scroll-behavior:smooth}
     <a class="wordmark" href="#top">英德 · 三天两晚<small>Yingde 10.02–10.04</small></a>
     <nav class="mast__links" aria-label="页面导航">
       <a href="#plan">行程</a>
-      <a href="#play">玩什么</a>
-      <a href="#spring">泡温泉</a>
-      <a href="#eat">吃住</a>
+      <a href="#spring">温泉</a>
+      <a href="#stay">住哪</a>
+      <a href="#play">峰林</a>
       <a href="#cost">算账</a>
       <a href="#tips">避坑</a>
     </nav>
@@ -340,9 +380,9 @@ html{scroll-behavior:smooth}
 <div class="banner">
   <div class="banner__in">
     <span><b>10/2 周五 – 10/4 周日</b> · 三天两晚</span>
-    <span>两人自驾 · 大梅沙出发 <b>279 km</b></span>
-    <span>预算 <b>¥1700–2700</b></span>
-    <span><s>不看溶洞</s></span>
+    <span>两人自驾 · 大梅沙出发 <b>286 km</b></span>
+    <span>两晚<b>同一家</b> · 住带私汤的</span>
+    <span><s>峰林走一整天</s></span>
   </div>
 </div>
 
@@ -353,11 +393,11 @@ html{scroll-behavior:smooth}
     <div class="wrap hero__grid">
       <div>
         <p class="hero__stamp">自驾路书 · 清远英德</p>
-        <h1 class="hero__title">去英德，<span class="nb">看两天峰林</span>，<em>泡一晚温泉</em></h1>
-        <p class="hero__sub">广东最大的县，峰林像被谁随手摆了一地。白天在乡道上慢慢开，傍晚把车开去北江边，泡进一池 <b>56℃</b> 的汤里。</p>
+        <h1 class="hero__title">去英德，<span class="nb">泡两天温泉</span>，<em>顺路看一场日落</em></h1>
+        <p class="hero__sub">峰林只留一个下午。其余时间都用来泡——晚上泡房间里的私汤，挑一晚开出去泡一池 <b>56℃</b> 的真温泉。</p>
         <div class="hero__meta">
-          <span>里程 <b>约 560 km 往返</b></span>
-          <span>单程 <b>3.3 小时</b>（自由流）</span>
+          <span>单程 <b>286 km</b></span>
+          <span>泡汤 <b>3 次</b></span>
           <span>温泉 <b>6 家可选</b></span>
           <span>溶洞 <b>一家不去</b></span>
         </div>
@@ -365,7 +405,7 @@ html{scroll-behavior:smooth}
       <figure class="hero__fig">
         <img src="https://ak-d.tripcdn.com/images/0104d12000oj17zkb6179_W_1200_0_R5_Q80.jpg"
              alt="英西峰林走廊的喀斯特峰林与乡道" width="1200" height="900" fetchpriority="high">
-        <figcaption>英西峰林走廊：没有门票，也没有大门，乡道在峰林之间穿来穿去</figcaption>
+        <figcaption>英西峰林走廊：一个下午就够，剩下的时间留给汤池</figcaption>
       </figure>
     </div>
   </section>
@@ -384,19 +424,19 @@ html{scroll-behavior:smooth}
       <dl class="facts reveal">
         <div class="fact">
           <dt>单程里程</dt>
-          <dd>279 km<small>大梅沙 → 九龙镇</small></dd>
+          <dd>286 km<small>大梅沙 → 黄花镇</small></dd>
         </div>
         <div class="fact fact--warn">
           <dt>单程耗时</dt>
-          <dd>3.3 小时<small>自由流；国庆按 4 小时留</small></dd>
+          <dd>3.7 小时<small>自由流；国庆按 4.5 小时留</small></dd>
         </div>
         <div class="fact">
-          <dt>峰林 → 温泉</dt>
-          <dd>≈ 1 小时<small>六家全在 65–78 km</small></dd>
+          <dt>民宿 → 温泉</dt>
+          <dd>1 时 18 分<small>74–76 km，来回 2.5 小时</small></dd>
         </div>
         <div class="fact">
-          <dt>返程最近</dt>
-          <dd>234 km<small>从连江口直接回深</small></dd>
+          <dt>泡汤节奏</dt>
+          <dd>3 次<small>两晚私汤 + 一晚真温泉</small></dd>
         </div>
       </dl>
     </div>
@@ -407,8 +447,8 @@ html{scroll-behavior:smooth}
     <div class="wrap">
       <div class="sec__head reveal">
         <p class="eyebrow">逐日行程 · Day by Day</p>
-        <h2 class="sec__title" id="plan-h">三天两晚，不赶，也不空</h2>
-        <p class="sec__lede">核心思路：<b>D1 用来赶路和看第一眼峰林，D2 全给茶山和古堡，傍晚搬去江北泡温泉，D3 从温泉直接回深圳</b>——最后一天少开一小时。</p>
+        <h2 class="sec__title" id="plan-h">三天两晚，泡为主，峰林只占一个下午</h2>
+        <p class="sec__lede">核心思路：<b>两晚都住峰林里带私汤的民宿</b>（姑娘随时能回屋泡、能躺），<b>D1 傍晚开出去泡一趟真温泉</b>，<b>D2 下午出门看一场日落就回</b>。不用在外面晒一整天。</p>
       </div>
 
       <div class="tabs reveal" role="tablist" aria-label="行程日期">
@@ -419,178 +459,303 @@ html{scroll-behavior:smooth}
 
       <div class="day is-on reveal" id="day-d1" role="tabpanel" aria-labelledby="tab-d1">
         <div class="day__head">
-          <h3>在路上，和峰林的第一眼</h3>
-          <p>全程 279 km · 今天不安排重的</p>
+          <h3>开到峰林，先把自己泡软</h3>
+          <p>全程 286 km · 傍晚出门泡一趟真温泉</p>
         </div>
         <ol class="tl">
-          <li><time>07:00</time><b>从大梅沙出发</b><p>国庆首日出城最慢，按 <code>4 小时</code> 留足。走广深 / 广乐高速方向，中途进一次服务区。</p></li>
-          <li><time>11:30</time><b>抵达英德九龙镇，先吃饭</b><p>镇上找一家吃九龙豆腐，热热地垫一顿，下午才有力气晃。</p></li>
-          <li><time>14:00</time><b>入住民宿，把行李放下</b><p>峰林一带以民宿和农家乐为主，选带山景或者能看日落的院子。</p></li>
-          <li><time>16:00</time><b>沿乡道开进英西峰林走廊</b><p><code>无门票</code>，也没有正经入口。傍晚的光最软，看到好看的地方就靠边停——这是今天唯一的"景点"。</p></li>
-          <li><time>18:30</time><b>回镇上吃晚饭，早点睡</b><p>明天是主力日，别熬。</p></li>
+          <li><time>07:30</time><b>从大梅沙出发</b><p>国庆首日出城最慢，<code>286 km</code> 按 <code>4.5 小时</code> 留足。中途进一次服务区换人开。</p></li>
+          <li><time>12:30</time><b>抵达黄花镇，入住私汤民宿</b><p>英西峰林走廊的正中间。选带<b>房间独立泡池</b>的，行李放下就不用再出门了。</p></li>
+          <li class="is-kp"><time>13:00</time><b>泡第一泡：房间私汤 + 无边泳池</b><p>这一泡是专门治开车的酸的。不用再开车，泡完躺床上午睡一会儿——姑娘全程待在屋里，晒不到。</p></li>
+          <li class="is-kp"><time>16:15</time><b>出发去泡真温泉</b><p><code id="d1-drive">74 km / 1 小时 18 分</code>。这是这趟唯一的正经出远门，趁刚来还有精力去。</p></li>
+          <li class="is-kp"><time>17:35</time><b><span id="d1-spring">宝晶宫 · 茶语温泉</span></b><p>泡两小时。泡到天彻底黑下来，汤池的灯亮起来的时候最舒服。</p></li>
+          <li><time>20:00</time><b>温泉边上吃晚饭</b><p><span id="d1-dinner">就在英德市区吃，这是这趟吃得最丰的一顿。</span></p></li>
+          <li><time>21:45</time><b>开回民宿，睡</b><p>回程 <code id="d1-back">261 km / 3.1 小时</code> 是明天的事，今晚只开一小时十八分。</p></li>
         </ol>
       </div>
 
       <div class="day reveal" id="day-d2" role="tabpanel" aria-labelledby="tab-d2" hidden>
         <div class="day__head">
-          <h3>茶山 · 古堡 · 傍晚去泡汤</h3>
-          <p>约 68 km 转移 · 行李放车上</p>
+          <h3>躺一天，下午出门看个日落</h3>
+          <p>今天几乎不开车 · 峰林就在家门口</p>
         </div>
         <ol class="tl">
-          <li><time>08:00</time><b>退房，行李装车</b><p>不想带着行李可以跟民宿商量寄存到中午——自驾的话放后备箱最省事。</p></li>
-          <li><time>08:30</time><b>开往 T三峰林茶谷</b><p>峰林片区里，具体车程看民宿位置，大约 20–30 分钟。</p></li>
-          <li><time>09:00</time><b>茶谷三小时：采茶、炒茶、看茶艺</b><p>配遮阳帽和小茶篓，有人带着做。茶艺表演每天 9:30–17:00 每半小时一场。午饭就在谷里吃 <b>T三茶宴</b>。</p></li>
-          <li><time>14:30</time><b>彭家祠 · 峰林古堡</b><p>清代留下来的古民居，贴着山势一层层往上盖，被叫作"小布达拉"。黄昏前的光线最好。</p></li>
-          <li><time>16:00</time><b>观音谷 · 峰林水乡（时间紧可挪到 D1）</b><p>沿绿道骑车，水面把峰林整个倒过来。适合上午来，下午来也不亏。</p></li>
-          <li><time>17:00</time><b>出发去连江口</b><p><code>68 km / 约 53 分钟</code>。今天不用赶，天黑前到就行。</p></li>
-          <li><time>18:30</time><b>入住浈阳峡，泡温泉，江边晚饭</b><p>先泡后吃。北江的晚风配 56℃ 的汤，这趟最舒服的两小时。</p></li>
+          <li><time>09:30</time><b>睡到自然醒，泡一泡再吃早饭</b><p>房间私汤放水、无边泳池游两圈。今天没有闹钟。</p></li>
+          <li><time>12:30</time><b>去 T三峰林茶谷喝茶</b><p>茶山叠在峰林上，<code>门票 ¥49</code>，<code>08:00–17:30</code>。有遮阴，坐着喝茶看山，不晒。午饭在谷里吃茶宴。</p></li>
+          <li class="is-kp"><time>16:30</time><b>峰林打卡，等日落</b><p>彭家祠 / 观音谷 / 十里画廊，<b>都在民宿附近，开车几分钟</b>。黄昏的光打上去，砖墙是暖的——这趟唯一的"景点"。</p></li>
+          <li><time>18:30</time><b>日落收工，回镇上吃农家菜</b><p>走地鸡、九龙豆腐、腐竹。本地人指的路比榜单靠谱，问民宿老板。</p></li>
+          <li class="is-kp"><time>21:00</time><b>泡第二泡：房间私汤</b><p>私密的那一泡。泡完直接睡，明天要开 3.7 小时。</p></li>
         </ol>
       </div>
 
       <div class="day reveal" id="day-d3" role="tabpanel" aria-labelledby="tab-d3" hidden>
         <div class="day__head">
           <h3>睡到自然醒，然后回家</h3>
-          <p>返程 234 km · 只比直回深圳多 23 km</p>
+          <p>返程 287 km · 3.7 小时</p>
         </div>
         <ol class="tl">
-          <li><time>08:30</time><b>酒店早餐，再泡一次晨汤</b><p>上午的汤池基本没人，比昨晚更值。</p></li>
-          <li><time>10:00</time><b>在浈阳峡边走走</b><p>北江切出来的峡谷，江面开阔。不想动就在露台上坐着。</p></li>
-          <li><time>11:00</time><b>出发返深</b><p><code>234 km / 约 2.7 小时</code>（自由流）。<b>务必 15:00 前上路</b>，越晚越堵。</p></li>
+          <li><time>09:00</time><b>最后一泡</b><p>上午的池子最安静，比昨晚更值。</p></li>
+          <li><time>11:00</time><b>退房出发返深</b><p><code>287 km / 约 3.7 小时</code>（自由流）。<b>务必 15:00 前上路</b>，越晚越堵。</p></li>
           <li><time>13:00</time><b>服务区吃个午饭</b><p>顺便把油加了，别硬撑到深圳。</p></li>
-          <li><time>14:30</time><b>到家</b><p>10/4 回程还在假期中段，比 10/6–7 那两天好走太多。</p></li>
+          <li><time>15:00</time><b>到家</b><p>10/4 回程还在假期中段，比 10/6–7 那两天好走太多。</p></li>
         </ol>
       </div>
+    </div>
+  </section>
 
-      <div class="avoid reveal" style="margin-top:var(--space-2xl)">
-        <h3>另一种走法：不换酒店</h3>
-        <p>如果你更想两天都住同一个院子、不折腾行李，那就 <b>D1–D2 都住九龙镇</b>，D2 当天开车去温泉再开回来。</p>
+  <!-- ══════ 温泉决策台 ══════ -->
+  <section class="sec" id="spring" aria-labelledby="spring-h">
+    <div class="wrap">
+      <div class="sec__head reveal">
+        <p class="eyebrow">泡温泉 · 挑一家</p>
+        <h2 class="sec__title" id="spring-h">正宗的那一泡，你来挑</h2>
+        <p class="sec__lede">两晚的<b>私汤民宿是定死的</b>，只有 <b>D1 傍晚</b>要开出去泡一趟"真温泉"。下面两家我都挖了真实住客评价，<b>点一下选一家</b>——上面的行程和下面的算账会跟着变。看中了别的也可以自己填。</p>
+      </div>
+
+      <div class="pick reveal" id="pick" role="radiogroup" aria-label="选择要去的温泉">
+        <div class="opt is-picked" data-key="baojing">
+          <label class="opt__radio"><input type="radio" name="spring" value="baojing" checked><span>选这家</span></label>
+          <p class="opt__loc">英德市区 · 宝晶宫度假乐园</p>
+          <h3 class="opt__name">宝晶宫 · 茶语温泉</h3>
+          <p class="opt__desc">广东第一个茶主题温泉，<b>28 个生态泡池</b>分五区，山顶有无边际池。水源取自地下 1202 m，拿过省旅游协会「<b>具有医疗价值真温泉</b>」认证——六家里唯一有官方认证的。</p>
+          <ul class="opt__pros">
+            <li>票价 <b>¥68 起</b>，开到 <b>22:30</b>，夜场完全来得及</li>
+            <li>英德名茶区里有英红九号池，跟白天的茶谷是一条线</li>
+            <li>泡完就在英德市区吃饭——<b>这趟吃得最丰的一顿</b></li>
+          </ul>
+          <p class="opt__word"><b>真实评价</b>：同园区的宝晶宫天鹅湖温泉酒店在携程 <b>4.5 分 / 2,450 条</b>，「温泉舒适」被 <b>571 条</b>点评提到。92 条差评几乎全冲着<span class="bad">客房卫生</span>（马桶水渍、潮湿闷热、服务粗）——但你<b>只买票泡汤不住店</b>，那部分跟你无关。</p>
+          <div class="opt__drive">
+            <div><span>民宿出发</span><b>74 km · 1 时 18 分</b></div>
+            <div><span>回大梅沙</span><b>261 km · 3.1 时</b></div>
+            <div><span>多绕</span><b class="hot">+48 km</b></div>
+          </div>
+        </div>
+
+        <div class="opt" data-key="zhenyang">
+          <label class="opt__radio"><input type="radio" name="spring" value="zhenyang"><span>选这家</span></label>
+          <p class="opt__loc">连江口镇 · 北江边</p>
+          <h3 class="opt__name">浈阳峡 · 醴泉</h3>
+          <p class="opt__desc">打孔打到 <b>2680 m</b>，出水 <b>56℃</b>，富含氡。<b>13 个私密按摩池</b>，两个人泡正好。度假区里还有醴泉古街、火车小镇、铁道博物馆、北江游船——「逛」这一项最足。</p>
+          <ul class="opt__pros">
+            <li><b>返程只多绕 24 km</b>，六家里最顺路的一家</li>
+            <li>度假区里和周边 5 km 内<b>餐馆多</b>，古街可以边吃边逛</li>
+            <li>人少，淡季被形容成"人迹罕至"</li>
+          </ul>
+          <p class="opt__word"><b>真实评价</b>：什么值得买有篇 2026-05 的亲测，夸性价比高、环境幽静、餐馆物美价廉；但作者写<span class="bad">温泉池"清一色蓝色亚克力按摩浴缸"</span>，且淡季大部分池子没开放。另外<b>要问清房间朝向</b>——靠国道和铁路那侧有噪音。票价与营业时间我没核到实价，<b>得打电话</b>。</p>
+          <div class="opt__drive">
+            <div><span>民宿出发</span><b>76 km · 1 时 18 分</b></div>
+            <div><span>回大梅沙</span><b>235 km · 2.7 时</b></div>
+            <div><span>多绕</span><b class="good">+24 km</b></div>
+          </div>
+        </div>
+
+        <div class="opt" data-key="custom">
+          <label class="opt__radio"><input type="radio" name="spring" value="custom"><span>我自己填</span></label>
+          <p class="opt__loc">网上刷到的 / 朋友推荐的</p>
+          <h3 class="opt__name">换一家也行</h3>
+          <p class="opt__desc">英德温泉季官方一共推过 7 家：积庆里仙湖、宝墩湖湖山、奥园喀斯特汤泉水世界、九州驿站树上汤泉、白沙圣泉山谷……你要是看中了别的，填在这儿。</p>
+          <div class="opt__fields">
+            <label>温泉名字<input type="text" id="c-name" placeholder="例如：积庆里 · 仙湖温泉" autocomplete="off"></label>
+            <label>门票单价（每人 / 元）<input type="number" id="c-price" min="0" step="1" placeholder="0" inputmode="numeric"></label>
+          </div>
+          <div class="opt__drive">
+            <div><span>车程</span><b>自己查一下</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pickbar reveal" id="pickbar">
+        <span class="k">已选</span>
+        <b id="pb-name">宝晶宫 · 茶语温泉</b>
+        <span id="pb-1">民宿出发 74 km / 1 小时 18 分</span>
+        <span id="pb-2">门票 ¥68 起</span>
+        <span id="pb-3">回深圳 261 km / 3.1 小时</span>
+      </div>
+
+      <div class="tblwrap reveal" style="margin-top:var(--space-2xl)">
+        <table>
+          <caption>车程实测 · 用 OSRM 走真实公路网算的<b>自由流</b>速度，国庆实际要再加 30–60 分钟缓冲。全部以<b>黄花镇民宿</b>为起点。</caption>
+          <thead>
+            <tr>
+              <th scope="col">温泉（镇）</th>
+              <th scope="col">民宿 → 温泉</th>
+              <th scope="col">温泉 → 大梅沙</th>
+              <th scope="col">比直回深圳多绕</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>不出去泡，直接回深圳</td>
+              <td class="num">—</td>
+              <td class="num">287 km / 3.7 h</td>
+              <td class="num">—</td>
+            </tr>
+            <tr class="is-best">
+              <td>浈阳峡醴泉（连江口）</td>
+              <td class="num">76 km / 1 h 18</td>
+              <td class="num">235 km / 2.7 h</td>
+              <td class="num plus--good">+24 km</td>
+            </tr>
+            <tr>
+              <td>宝晶宫茶语（英德市区）</td>
+              <td class="num">74 km / 1 h 18</td>
+              <td class="num">261 km / 3.1 h</td>
+              <td class="num plus">+48 km</td>
+            </tr>
+            <tr>
+              <td>奥园汤泉（英红）</td>
+              <td class="num">72 km / 1 h 21</td>
+              <td class="num">271 km / 3.2 h</td>
+              <td class="num plus">+56 km</td>
+            </tr>
+            <tr>
+              <td>积庆里仙湖（横石塘）</td>
+              <td class="num">74 km / 1 h 17</td>
+              <td class="num">276 km / 3.2 h</td>
+              <td class="num plus">+62 km</td>
+            </tr>
+            <tr>
+              <td>宝墩湖湖山（望埠）</td>
+              <td class="num">86 km / 1 h 24</td>
+              <td class="num">272 km / 3.2 h</td>
+              <td class="num plus">+71 km</td>
+            </tr>
+            <tr>
+              <td>九州驿站树上汤泉（石牯塘）</td>
+              <td class="num">76 km / 1 h 37</td>
+              <td class="num">297 km / 3.7 h</td>
+              <td class="num plus">+86 km</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note note--plum reveal" style="margin-top:var(--space-xl)">
+        <h3>两家到底差在哪</h3>
         <ul>
-          <li>代价是 <b>峰林 → 温泉 → 峰林</b> 要跑两趟，多约 <b>130 km</b>，D2 会多出两小时在路上。</li>
-          <li>好处是只收拾一次行李，D3 走的时候也熟门熟路。</li>
-          <li>真要这么走，温泉挑最近的：<b>积庆里仙湖（52 分钟）</b>或<b>浈阳峡（53 分钟）</b>，别选石牯塘的九州驿站（72 分钟山路）。</li>
+          <li><b>要"正宗"就选宝晶宫</b>：28 个生态泡池、茶主题、有省旅游协会的真温泉认证，泡的是正经汤池不是按摩浴缸。代价是返程多绕 48 km。</li>
+          <li><b>要"顺路 + 逛"就选浈阳峡</b>：返程只多绕 24 km，度假区自带古街、火车小镇、游船，周边馆子多。但有人实测说它的池子是<b>亚克力按摩浴缸</b>，跟"真温泉"的想象有落差。</li>
+          <li>两家<b>单程都是 1 小时 18 分</b>——去程一样远，差别全在回程和泡的体验上。</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ══════ 玩什么 ══════ -->
+  <!-- ══════ 住哪 ══════ -->
+  <section class="sec sec--tint" id="stay" aria-labelledby="stay-h">
+    <div class="wrap">
+      <div class="sec__head reveal">
+        <p class="eyebrow">住哪 · 两晚同一家</p>
+        <h2 class="sec__title" id="stay-h">要的是房间里那个泡池</h2>
+        <p class="sec__lede">两晚都住峰林里带<b>房间独立泡池</b>的民宿——这样"泡温泉"才是主项：想泡就泡，不用出门、不用等位、不用跟人挤。下面这家是真正对得上的。</p>
+      </div>
+
+      <div class="cards">
+        <article class="card card--pick reveal">
+          <span class="ribbon">住宿首选</span>
+          <p class="card__loc">英德黄花镇棚塘小组自建66号 · 携程 107759607</p>
+          <h3 class="card__name">云栖陌野 · 秘境美宿</h3>
+          <p class="card__desc">携程亮点原话：「<b>客房私享独立汤泉泡池</b>，浸润温热山泉水中，远眺喀斯特峰林与稻田。」<b>4.9 分 / 1182 条</b>点评，广东精品民宿榜 No.6，2023 年开业。</p>
+          <dl class="card__specs">
+            <div><dt>带私汤房型</dt><dd>精致私汤大床房 / 雅致私汤大床房 / 私汤大床房</dd></div>
+            <div><dt>另有</dt><dd>独立泳池观景汤池、恒温泳池套房、泳池别墅</dd></div>
+            <div><dt>加分项</dt><dd>景观无边泳池、日落、独栋别墅、管家服务</dd></div>
+          </dl>
+        </article>
+
+        <article class="card reveal">
+          <p class="card__loc">英德黄花镇明迳社区邓屋围组自编1号 · 携程 120269454</p>
+          <h3 class="card__name">鹭渚林烟 · 英西峰林温矿泉别院</h3>
+          <p class="card__desc">2024 年开业，4.4 分 / 143 条。卖点是「有山有水有泳池<b>有泡池</b>」，名字直接写了「温矿泉」。</p>
+          <dl class="card__specs">
+            <div><dt>注意</dt><dd>"泡池"是不是<b>房间私汤</b>我没查到实锤</dd></div>
+            <div><dt>订前</dt><dd>必须打电话问：泡池在房间里吗？水源是地热还是加热？</dd></div>
+            <div><dt>位置</dt><dd>贴着洞天仙境，也在黄花镇</dd></div>
+          </dl>
+        </article>
+
+        <article class="card card--plain reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-4a3 3 0 0 1 6 0v4"/>
+          </svg>
+          <h3 class="card__name">已被排除的那家</h3>
+          <p class="card__desc"><b>仟谷云舍汤泉民宿</b>（九龙镇）——4.0 分，房型只有湖景大床房和观湖套房，<b>没有独立泡池房</b>，是公共草本汤池。「私密」这条不满足，排除。</p>
+        </article>
+      </div>
+
+      <div class="note reveal" style="margin-top:var(--space-xl)">
+        <h3>订房时一定要问的 4 句</h3>
+        <ul>
+          <li>「泡池是<b>在房间里</b>，还是公共汤池？」——这是唯一不能含糊的一条</li>
+          <li>「水是<b>地热真温泉</b>还是加热水 / 草本浴？」——叫「汤泉」的多半是加热草本泡池</li>
+          <li>「国庆 <b>10/2–10/4 两晚</b>多少钱，含不含泡池放水次数？」</li>
+          <li>「房间朝向？靠不靠路？」——怕吵的话这条比景观重要</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ 峰林一个下午 ══════ -->
   <section class="sec" id="play" aria-labelledby="play-h">
     <div class="wrap">
       <div class="sec__head reveal">
-        <p class="eyebrow">玩什么 · What to do</p>
-        <h2 class="sec__title" id="play-h">峰林、茶山、古堡，就是不进洞</h2>
-        <p class="sec__lede">英德的好东西一半在洞里，我们把那一半整个划掉，剩下的反而更适合两个人慢慢走。</p>
+        <p class="eyebrow">峰林 · 只留一个下午</p>
+        <h2 class="sec__title" id="play-h">下午四点半出门，六点半收工</h2>
+        <p class="sec__lede">不去挤一整天。挑黄昏前那两个小时出门，光最软、人最少、也不用防晒。看完日落回镇上吃饭，一天就齐了。</p>
       </div>
 
-      <div class="spots">
-        <article class="spot reveal">
-          <figure class="spot__fig">
-            <img src="https://ak-d.tripcdn.com/images/0104d12000oj17zkb6179_W_800_0_R5_Q80.jpg"
-                 alt="英西峰林走廊的峰林与乡道" width="1000" height="749" loading="lazy">
-          </figure>
-          <div class="spot__body">
-            <span class="spot__tag spot__tag--free">不要门票</span>
-            <h3>英西峰林走廊</h3>
-            <p>不是景区，是一片开放的乡野。开车或者骑自行车沿乡道随便穿，峰林就一直在两边。这趟的地基。</p>
-            <dl class="spot__specs">
-              <div><dt>怎么玩</dt><dd>自驾 / 骑行，随停随拍</dd></div>
-              <div><dt>门票</dt><dd>无</dd></div>
-              <div><dt>什么时候</dt><dd>日出后两小时、日落前两小时</dd></div>
-            </dl>
-          </div>
+      <div class="cards">
+        <article class="card reveal">
+          <p class="card__loc">不要门票 · 随停随拍</p>
+          <h3 class="card__name">英西峰林走廊</h3>
+          <p class="card__desc">不是景区，是一片开放的乡野。开车沿乡道慢慢穿，峰林一直在两边。看到好看的地方靠边停就行——这趟唯一的"景点"，也是最省力的一个。</p>
+          <dl class="card__specs">
+            <div><dt>怎么玩</dt><dd>自驾 / 骑行，车上看</dd></div>
+            <div><dt>什么时候</dt><dd>日落前两小时</dd></div>
+          </dl>
         </article>
 
-        <article class="spot reveal">
-          <figure class="spot__fig">
+        <article class="card card--pick reveal">
+          <span class="ribbon">黄昏最出片</span>
+          <p class="card__loc">黄花镇 · 贴着山势而建</p>
+          <h3 class="card__name">彭家祠 · 峰林古堡</h3>
+          <p class="card__desc">清代留下来的古民居，一层层贴着山往上盖，远看像座小布达拉宫。黄昏的光打上去，砖墙是暖的——这个下午最值得等的一幕。</p>
+          <dl class="card__specs">
+            <div><dt>类型</dt><dd>清代古建筑群</dd></div>
+            <div><dt>门票</dt><dd>免费或低价，以现场为准</dd></div>
+          </dl>
+          <figure style="margin:var(--space-sm) 0 0;border-radius:var(--radius-md);overflow:hidden">
             <img src="https://ak-d.tripcdn.com/images/0106312000f6pxqo36EF1.jpg"
                  alt="彭家祠古堡贴着山势层层而建" width="999" height="560" loading="lazy">
           </figure>
-          <div class="spot__body">
-            <span class="spot__tag spot__tag--star">黄昏最出片</span>
-            <h3>彭家祠 · 峰林古堡</h3>
-            <p>清代留下来的古民居，贴着山一层层往上盖，远看像座小布达拉宫。黄昏的光打上去，砖墙是暖的。</p>
-            <dl class="spot__specs">
-              <div><dt>类型</dt><dd>清代古建筑群</dd></div>
-              <div><dt>门票</dt><dd>免费或低价，以现场为准</dd></div>
-              <div><dt>什么时候</dt><dd>日落前 1–2 小时</dd></div>
-            </dl>
-          </div>
         </article>
 
-        <article class="spot reveal">
-          <figure class="spot__fig">
+        <article class="card reveal">
+          <p class="card__loc">峰林水乡 · 绿道</p>
+          <h3 class="card__name">观音谷</h3>
+          <p class="card__desc">水面把峰林整个倒过来，配一条绿道。不想走就坐在水边看倒影，想动就租辆车骑一段。热的话可以跳过，不心疼。</p>
+          <dl class="card__specs">
+            <div><dt>怎么玩</dt><dd>绿道骑行 / 步行</dd></div>
+            <div><dt>门票</dt><dd>绿道免费，项目另计</dd></div>
+          </dl>
+          <figure style="margin:var(--space-sm) 0 0;border-radius:var(--radius-md);overflow:hidden">
             <img src="https://ak-d.tripcdn.com/images/0104w120009e3xmzgDE9A_W_800_0_R5_Q80.jpg"
                  alt="观音谷的峰林水乡与绿道" width="1000" height="667" loading="lazy">
           </figure>
-          <div class="spot__body">
-            <span class="spot__tag spot__tag--free">适合上午</span>
-            <h3>观音谷 · 峰林水乡</h3>
-            <p>水面把峰林整个倒过来，配上一条绿道。租辆车慢慢骑，一上午就过去了。</p>
-            <dl class="spot__specs">
-              <div><dt>怎么玩</dt><dd>绿道骑行 / 步行</dd></div>
-              <div><dt>门票</dt><dd>绿道免费，项目另计</dd></div>
-              <div><dt>什么时候</dt><dd>上午，光和水面都稳</dd></div>
-            </dl>
-          </div>
         </article>
 
-        <article class="spot reveal">
-          <figure class="spot__fig spot__fig--plain" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-              <path d="M12 21c0-6 3-9 8-10-1 6-3 9-8 10Z"/><path d="M12 21c0-6-3-9-8-10 1 6 3 9 8 10Z"/><path d="M12 21V9"/>
-            </svg>
-          </figure>
-          <div class="spot__body">
-            <span class="spot__tag">D2 主角</span>
-            <h3>T三峰林茶谷</h3>
-            <p>茶山叠在峰林上，入选过《中国国家地理》的"中国大美茶山"。能采茶、炒茶、制茶，山顶有观景台和露营基地，日落是这趟最出片的一幕。</p>
-            <dl class="spot__specs">
-              <div><dt>门票</dt><dd>¥49 / 人</dd></div>
-              <div><dt>观光车</dt><dd>¥25 往返，¥15 单程</dd></div>
-              <div><dt>时间</dt><dd>08:00–17:30</dd></div>
-              <div><dt>建议</dt><dd>下午三四点到达，看完日落走</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="spot reveal">
-          <figure class="spot__fig spot__fig--plain" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-              <path d="M3 18V9l4-3 4 3v9"/><path d="M11 18V11l4-3 4 3v7"/><path d="M2 18h20"/>
-            </svg>
-          </figure>
-          <div class="spot__body">
-            <span class="spot__tag">顺路可加</span>
-            <h3>九龙峰林晓镇</h3>
-            <p>把峰林做成运动场的地方——骑行道和攀岩墙都在。想动一动就加进来，不想动就跳过。</p>
-            <dl class="spot__specs">
-              <div><dt>玩什么</dt><dd>峰林骑行 / 攀岩</dd></div>
-              <div><dt>位置</dt><dd>九龙镇一带</dd></div>
-              <div><dt>备用</dt><dd>时间紧就不去</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="spot reveal">
-          <figure class="spot__fig spot__fig--plain" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-              <path d="M4 20h16"/><path d="M6 20V10l6-4 6 4v10"/><path d="M10 20v-5h4v5"/>
-            </svg>
-          </figure>
-          <div class="spot__body">
-            <span class="spot__tag">茶旅备选</span>
-            <h3>积庆里红茶谷 · 红旗茶厂</h3>
-            <p>积庆里是"中国十大美丽茶园"之一；红旗茶厂是国家工业遗产，老厂房还立着。都是茶，选一个就够，别贪。</p>
-            <dl class="spot__specs">
-              <div><dt>积庆里</dt><dd>横石塘镇，茶园 + 仙湖</dd></div>
-              <div><dt>红旗茶厂</dt><dd>国家工业遗产与旅游示范基地</dd></div>
-              <div><dt>提示</dt><dd>跟 T三 二选一，风格不同</dd></div>
-            </dl>
-          </div>
+        <article class="card reveal">
+          <p class="card__loc">有遮阴 · 坐着喝茶</p>
+          <h3 class="card__name">T三峰林茶谷</h3>
+          <p class="card__desc">茶山叠在峰林上。白天最热的那段就在这儿待着——室内喝茶、看炒茶，不用在太阳底下走。中午那顿饭也在谷里解决。</p>
+          <dl class="card__specs">
+            <div><dt>门票</dt><dd>¥49 / 人</dd></div>
+            <div><dt>观光车</dt><dd>¥25 往返，¥15 单程</dd></div>
+            <div><dt>时间</dt><dd>08:00–17:30</dd></div>
+          </dl>
         </article>
       </div>
 
-      <div class="avoid reveal">
+      <div class="avoid reveal" style="margin-top:var(--space-xl)">
         <h3>这趟明确不去的（都是溶洞）</h3>
         <p>不是它们不好，是你说了不看洞。列在这儿是为了别在路上被路牌勾走：</p>
         <ul>
@@ -603,232 +768,81 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <!-- ══════ 温泉 ══════ -->
-  <section class="sec sec--tint" id="spring" aria-labelledby="spring-h">
+  <!-- ══════ 吃 ══════ -->
+  <section class="sec sec--tint" id="eat" aria-labelledby="eat-h">
     <div class="wrap">
       <div class="sec__head reveal">
-        <p class="eyebrow">泡温泉 · Hot springs</p>
-        <h2 class="sec__title" id="spring-h">六家温泉，去程都一样远，差别在回程</h2>
-        <p class="sec__lede">英德是广东面积最大的县，镇与镇之间不近。但算下来，<b>六家离九龙镇都在 65–78 km、1 小时上下</b>——所以选哪家不看"离峰林多远"，要看<b>它在你回家的路上有多顺</b>。</p>
-      </div>
-
-      <div class="springs">
-        <article class="spring spring--pick reveal">
-          <p class="spring__loc">连江口镇 · 北江边</p>
-          <h3 class="spring__name">浈阳峡 · 醴泉</h3>
-          <p class="spring__desc">打孔打到 2680 m，出水 56℃，富含氡。13 个私密按摩池，两个人泡正好。浈阳峡本身是北江切出来的峡谷，有江景。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>68 km / 53 min</b></div>
-            <div><span>回大梅沙</span><b class="hot">234 km / 2.7 h</b></div>
-          </div>
-        </article>
-
-        <article class="spring reveal">
-          <p class="spring__loc">英德市区 · 宝晶宫度假乐园</p>
-          <h3 class="spring__name">宝晶宫 · 茶语温泉</h3>
-          <p class="spring__desc">广东第一个茶主题温泉，38 座露天池，山顶有无边际池，水源取自地下 1202 m，拿过省旅游协会"具有医疗价值真温泉"的认证。市区吃住选择最多。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>66 km / 54 min</b></div>
-            <div><span>回大梅沙</span><b>260 km / 3.0 h</b></div>
-          </div>
-        </article>
-
-        <article class="spring reveal">
-          <p class="spring__loc">横石塘镇</p>
-          <h3 class="spring__name">积庆里 · 仙湖温泉</h3>
-          <p class="spring__desc">含氟偏硅酸泉，北边枕着石门台国家级自然保护区。茶园 + 仙湖 + 温泉挤在一处，白天玩茶晚上泡汤，不用挪窝。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>66 km / 52 min</b></div>
-            <div><span>回大梅沙</span><b>275 km / 3.2 h</b></div>
-          </div>
-        </article>
-
-        <article class="spring reveal">
-          <p class="spring__loc">英红镇 · 奥园巧克力王国</p>
-          <h3 class="spring__name">奥园 · 喀斯特汤泉水世界</h3>
-          <p class="spring__desc">30000 ㎡ 的汤泉水世界，汤泉池加造浪池，玩水成分比泡汤多。带小孩会更合适。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>65 km / 56 min</b></div>
-            <div><span>回大梅沙</span><b>270 km / 3.2 h</b></div>
-          </div>
-        </article>
-
-        <article class="spring reveal">
-          <p class="spring__loc">望埠镇 · 宝墩大道</p>
-          <h3 class="spring__name">宝墩湖 · 湖山温泉</h3>
-          <p class="spring__desc">36 个热带雨林风格的池子，挨着千亩宝墩湖。池子多、选择多，但离峰林最远，回程也多绕。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>78 km / 59 min</b></div>
-            <div><span>回大梅沙</span><b>272 km / 3.2 h</b></div>
-          </div>
-        </article>
-
-        <article class="spring reveal">
-          <p class="spring__loc">石牯塘镇 · 尧山脚下</p>
-          <h3 class="spring__name">九州驿站 · 树上汤泉</h3>
-          <p class="spring__desc">在原始森林里，泡的是"树上汤"，野趣最足。但去程 72 分钟全是山路，回程 297 km 是六家里最远的——这趟不合适。</p>
-          <div class="spring__drive">
-            <div><span>峰林出发</span><b>68 km / 72 min</b></div>
-            <div><span>回大梅沙</span><b class="hot">297 km / 3.7 h</b></div>
-          </div>
-        </article>
-      </div>
-
-      <div class="tblwrap reveal" style="margin-top:var(--space-2xl)">
-        <table>
-          <caption>车程实测 · 用 OSRM 走真实公路网算的<b>自由流</b>速度，国庆实际要再加 30–60 分钟缓冲。</caption>
-          <thead>
-            <tr>
-              <th scope="col">温泉（镇）</th>
-              <th scope="col">峰林 → 温泉</th>
-              <th scope="col">温泉 → 大梅沙</th>
-              <th scope="col">比直回深圳多绕</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>不搬酒店，住九龙镇</td>
-              <td class="num">—</td>
-              <td class="num">279 km / 3.3 h</td>
-              <td class="num">—</td>
-            </tr>
-            <tr class="is-best">
-              <td>浈阳峡醴泉（连江口）</td>
-              <td class="num">68 km / 53 min</td>
-              <td class="num">234 km / 2.7 h</td>
-              <td class="num plus--good">+23 km</td>
-            </tr>
-            <tr>
-              <td>宝晶宫茶语（英德市区）</td>
-              <td class="num">66 km / 54 min</td>
-              <td class="num">260 km / 3.0 h</td>
-              <td class="num plus">+48 km</td>
-            </tr>
-            <tr>
-              <td>奥园汤泉（英红）</td>
-              <td class="num">65 km / 56 min</td>
-              <td class="num">270 km / 3.2 h</td>
-              <td class="num plus">+56 km</td>
-            </tr>
-            <tr>
-              <td>宝墩湖湖山（望埠）</td>
-              <td class="num">78 km / 59 min</td>
-              <td class="num">272 km / 3.2 h</td>
-              <td class="num plus">+58 km</td>
-            </tr>
-            <tr>
-              <td>积庆里仙湖（横石塘）</td>
-              <td class="num">66 km / 52 min</td>
-              <td class="num">275 km / 3.2 h</td>
-              <td class="num plus">+62 km</td>
-            </tr>
-            <tr>
-              <td>九州驿站树上汤泉（石牯塘）</td>
-              <td class="num">68 km / 72 min</td>
-              <td class="num">297 km / 3.7 h</td>
-              <td class="num plus">+86 km</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="note note--sage reveal" style="margin-top:var(--space-xl)">
-        <h3>为什么是浈阳峡</h3>
-        <ul>
-          <li>它在九龙镇<b>东南</b>、北江边上，正好卡在回深圳的方向上——是全六家里唯一"顺路"的。别的都要先往东开一小时，第二天再往南折回来。</li>
-          <li>13 个私密按摩池 + 氡泉，气质偏安静，比大池子更适合两个人。</li>
-          <li>如果更看重<b>主题感和设施</b>，改选英德市区的<b>宝晶宫茶语温泉</b>：茶主题跟这趟的茶谷是一条线，返程多绕 48 km（约 40 分钟），换来市区的吃住选择。</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ 吃住 ══════ -->
-  <section class="sec" id="eat" aria-labelledby="eat-h">
-    <div class="wrap">
-      <div class="sec__head reveal">
-        <p class="eyebrow">吃什么 · 住哪 · Eat &amp; Sleep</p>
+        <p class="eyebrow">吃什么 · Eat</p>
         <h2 class="sec__title" id="eat-h">红茶、豆腐、竹笋、河鲜</h2>
-        <p class="sec__lede">英德是"中国红茶之乡"，吃的东西也带着山里的脾气。具体哪家店好，到了问民宿老板最准——本地人指的路比榜单靠谱。</p>
+        <p class="sec__lede">英德是"中国红茶之乡"，吃的东西带着山里的脾气。哪家店好，到了问民宿老板最准——本地人指的路比榜单靠谱。</p>
       </div>
 
       <div class="cols">
         <div class="note reveal">
           <h3>值得专门吃一口的</h3>
           <ul>
-            <li><b>英德红茶（英红九号）</b>——这地方的名片，茶味浓、耐泡。茶谷和茶厂都能买，比市区便宜。</li>
-            <li><b>九龙豆腐</b>——九龙镇本地的做法，嫩而带一点焦香，街边小馆就吃得到。</li>
+            <li><b>英德红茶（英红九号）</b>——这地方的名片，茶味浓、耐泡。茶谷和茶厂买比景区门口便宜。</li>
+            <li><b>九龙豆腐</b>——本地做法，嫩而带一点焦香，街边小馆就吃得到。</li>
+            <li><b>走地鸡</b>——黄花镇、九龙镇的农家乐拿手菜，人多点半只就够。</li>
             <li><b>西牛麻竹笋</b>——西牛镇是"中国麻竹笋之乡"，鲜笋和笋干都值得带。</li>
-            <li><b>北江河鲜</b>——连江口就在北江边，D2 晚上那顿点河鲜最对。</li>
+            <li><b>北江河鲜</b>——要是选了浈阳峡，那顿点河鲜最对。</li>
           </ul>
         </div>
 
         <div class="note note--sage reveal">
-          <h3>住哪儿，三种选法</h3>
+          <h3>三顿饭大概这么安排</h3>
           <ul>
-            <li><b>D1 九龙镇民宿</b>——峰林一带以民宿和农家乐为主，挑带山景或院子的。这一晚是整个行程的落脚点，别省太狠。</li>
-            <li><b>D2 连江口温泉酒店</b>——本趟推荐。把行李一次性搬完，D3 直接从这儿走。</li>
-            <li><b>备选：英德市区商务酒店</b>——如果改住宝晶宫茶语温泉，市区酒店选择多、吃饭方便。</li>
+            <li><b>D1 中午</b>——黄花镇或九龙镇上吃，落地第一顿别跑远。</li>
+            <li><b>D1 晚上</b>——<b>在温泉那一头吃</b>，泡完就近解决，别饿着开回来。选宝晶宫就在英德市区吃，选浈阳峡就在古街吃。</li>
+            <li><b>D2 中午</b>——T三茶谷里吃茶宴。</li>
+            <li><b>D2 晚上</b>——回镇上吃农家菜，走地鸡 + 豆腐。</li>
           </ul>
         </div>
-      </div>
-
-      <div class="note reveal" style="margin-top:var(--space-xl);border-left-color:var(--color-plum)">
-        <h3>要打电话核对的几件事</h3>
-        <ul>
-          <li><b>T三峰林茶谷的价格</b>：门票 ¥49 / 观光车 ¥25 往返 / ¥15 单程——这组数字来自 2025 年 4 月的一篇文章，<b>国庆前打个电话确认</b>，顺便问要不要预约。</li>
-          <li><b>茶艺表演场次</b>：查到的是每天 9:30–17:00 每半小时一场，节日可能加场或调时间。</li>
-          <li><b>温泉是否要预约 / 房价</b>：国庆是旺季，连江口和宝晶宫的房价会跳，提前订。</li>
-          <li><b>彭家祠门票</b>：免费还是低价，各处说法不一，以现场为准。</li>
-        </ul>
       </div>
     </div>
   </section>
 
   <!-- ══════ 算账 ══════ -->
-  <section class="sec sec--tint" id="cost" aria-labelledby="cost-h">
+  <section class="sec" id="cost" aria-labelledby="cost-h">
     <div class="wrap">
       <div class="sec__head reveal">
         <p class="eyebrow">算账 · Budget</p>
         <h2 class="sec__title" id="cost-h">两个人，大概花多少</h2>
-        <p class="sec__lede">拖动下面三个选项，看看不同住法下的总数。默认这一档算下来约 ¥2400，落在之前估的 ¥1700–2700 里。</p>
+        <p class="sec__lede">温泉那一项<b>跟着你上面选的那家自动变</b>。住宿、吃饭、茶谷可以自己调——默认这一档算下来约 ¥2,500。</p>
       </div>
 
       <div class="calc reveal">
         <div class="calc__fields">
           <div class="field">
-            <label for="c-stay">住宿档位（两晚）</label>
+            <label for="c-stay">住宿档位（每晚）</label>
             <select id="c-stay">
-              <option value="260">民宿标准 · 约 ¥260 / 晚</option>
-              <option value="480" selected>民宿好一点 · 约 ¥480 / 晚</option>
-              <option value="750">温泉酒店 · 约 ¥750 / 晚</option>
+              <option value="380">带泡池的普通民宿 · 约 ¥380</option>
+              <option value="640" selected>私汤民宿（云栖陌野一档）· 约 ¥640</option>
+              <option value="980">私汤别墅 / 套房 · 约 ¥980</option>
             </select>
           </div>
           <div class="field">
             <label for="c-food">吃的标准（每人每天）</label>
             <select id="c-food">
               <option value="80">简单吃 · ¥80</option>
-              <option value="120" selected>正常吃 · ¥120</option>
-              <option value="180">吃好点 · ¥180</option>
+              <option value="130" selected>正常吃 · ¥130</option>
+              <option value="200">吃好点 · ¥200</option>
             </select>
           </div>
-          <div class="field">
-            <label for="c-extra">门票与玩乐（两人合计）</label>
-            <select id="c-extra">
-              <option value="98">只有茶谷门票 · ¥98</option>
-              <option value="400" selected>茶谷 + 温泉门票 · ¥400</option>
-              <option value="700">再加骑行 / 攀岩等项目 · ¥700</option>
-            </select>
-          </div>
-          <p class="calc__hint">油费与过路费按 560 km 往返估算，国庆高速免费，只算油钱。这个是固定项，不随上面变动。</p>
+          <label class="field--check" for="c-tea">
+            <input type="checkbox" id="c-tea" checked>
+            <span>去 T三峰林茶谷（门票 ¥49 × 2 人 = ¥98）</span>
+          </label>
+          <p class="calc__hint">油费按 <b>573 km 往返</b>估算，国庆高速免费，只算油钱。这是固定项，不随上面变动。温泉票价按你选的那家 × 2 人算。</p>
         </div>
 
         <div class="calc__out">
           <h3>两个人，三天两晚</h3>
           <div class="calc__row"><span>住宿 × 2 晚</span><b id="o-stay">—</b></div>
           <div class="calc__row"><span>吃饭 × 2 人 × 3 天</span><b id="o-food">—</b></div>
-          <div class="calc__row"><span>门票与玩乐</span><b id="o-extra">—</b></div>
-          <div class="calc__row"><span>油费（约 560 km）</span><b id="o-fuel">—</b></div>
+          <div class="calc__row"><span>茶谷门票</span><b id="o-tea">—</b></div>
+          <div class="calc__row calc__row--live"><span>温泉门票 × 2（<span id="o-spring-name">宝晶宫</span>）</span><b id="o-spring">—</b></div>
+          <div class="calc__row"><span>油费（约 573 km）</span><b id="o-fuel">—</b></div>
           <div class="calc__total"><span>合计</span><b id="o-total">—</b></div>
         </div>
       </div>
@@ -836,7 +850,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- ══════ 避坑 + 清单 ══════ -->
-  <section class="sec" id="tips" aria-labelledby="tips-h">
+  <section class="sec sec--tint" id="tips" aria-labelledby="tips-h">
     <div class="wrap">
       <div class="sec__head reveal">
         <p class="eyebrow">避坑 &amp; 打包</p>
@@ -846,23 +860,23 @@ html{scroll-behavior:smooth}
       <div class="tips">
         <div class="tip reveal">
           <h3>10/2 早点走</h3>
-          <p>国庆首日出城是最慢的一段，<b>279 km 按 4 小时留</b>。07:00 从大梅沙出发比较稳，晚了就在高速上吃午饭。</p>
+          <p>国庆首日出城是最慢的一段，<b>286 km 按 4.5 小时留</b>。07:30 从大梅沙出发比较稳，晚了就在高速上吃午饭。</p>
         </div>
         <div class="tip reveal">
           <h3>10/4 别拖到下午</h3>
           <p>回程务必 <b>15:00 前上路</b>。你在假期中段回，本来就躲开了 10/6–7 的高峰，别自己把优势耗掉。</p>
         </div>
         <div class="tip reveal">
-          <h3>镇与镇之间真的不近</h3>
-          <p>英德是广东面积最大的县级行政区，看着相邻的两个镇，开起来常常一小时起。每天的转移路线提前想好，别临时决定。</p>
+          <h3>汤池的水源一定问清</h3>
+          <p>峰林里叫"汤泉""温矿泉"的民宿，多半是<b>加热草本泡池</b>，不一定是地热真温泉。真在意就挑有认证的那家（宝晶宫）。</p>
         </div>
         <div class="tip reveal">
-          <h3>温泉票和房分开买</h3>
-          <p>有些温泉的住宿和泡汤是分开计价的。订之前问清楚：房费含不含汤、含几次、私汤加多少钱。</p>
+          <h3>私汤的放水次数</h3>
+          <p>房间泡池有的<b>限量放水</b>（比如一晚一次）。订房时问清楚，别泡到一半没得续。</p>
         </div>
         <div class="tip reveal">
           <h3>山路和夜路</h3>
-          <p>茶谷和峰林里有乡道，弯多、会车窄，天黑了不好开。<b>日落前把车开回主路</b>，D2 傍晚那段留出余量。</p>
+          <p>峰林里乡道弯多、会车窄。<b>D1 泡完往回开那段天已经黑了</b>，跟好导航、别赶。D2 看完日落就撤，不贪。</p>
         </div>
         <div class="tip reveal">
           <h3>茶别在景区急着买</h3>
@@ -880,9 +894,9 @@ html{scroll-behavior:smooth}
   <!-- ══════ 收尾 ══════ -->
   <section class="closing">
     <div class="closing__in">
-      <h2>峰林不用挑日子，但秋天最好</h2>
-      <p>十月上旬的英德，白天还热，傍晚已经凉下来了——正好是从山里开出来、拐进温泉的那个温度。</p>
-      <p>这趟没有要打卡的清单。乡道上看到好看的峰就停，茶山上待到日落，晚上泡进汤里。三天两晚，够了。</p>
+      <h2>这趟的日程表上，只有一件正事</h2>
+      <p>泡。房间里泡、开出去泡、早上起来再泡。峰林只占一个下午，看完日落就回去吃饭。</p>
+      <p>十月上旬的英德，白天还热，傍晚已经凉下来了——正好是从汤里出来、裹上外套的那个温度。三天两晚，够了。</p>
       <div class="sun" aria-hidden="true">
         <svg width="72" height="44" viewBox="0 0 72 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <circle cx="36" cy="20" r="9"/>
@@ -896,8 +910,8 @@ html{scroll-behavior:smooth}
 
 <footer>
   <div class="foot">
-    <span>清远英德 · 三天两晚自驾路书 · 2026-10-02 → 10-04</span>
-    <span>车程数据：OpenStreetMap / OSRM 真实公路网（自由流）。实拍图来自 Trip.com 国内 CDN。</span>
+    <span>清远英德 · 三天两晚泡汤自驾路书 · 2026-10-02 → 10-04</span>
+    <span>车程数据：OpenStreetMap / OSRM 真实公路网（自由流）。实拍图来自 Trip.com 国内 CDN。评价来自携程与什么值得买公开点评。</span>
     <span><a href="#top">回到顶部</a></span>
   </div>
 </footer>
@@ -929,14 +943,14 @@ html{scroll-behavior:smooth}
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var reveals=document.querySelectorAll('.reveal');
   if(reduce||!('IntersectionObserver' in window)){
-    reveals.forEach(function(el){el.classList.add('is-in');});
+    [].forEach.call(reveals,function(el){el.classList.add('is-in');});
   }else{
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){
         if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}
       });
     },{rootMargin:'0px 0px -8% 0px',threshold:.06});
-    reveals.forEach(function(el){io.observe(el);});
+    [].forEach.call(reveals,function(el){io.observe(el);});
   }
 
   /* ——— 日期切换 ——— */
@@ -953,37 +967,154 @@ html{scroll-behavior:smooth}
     });
   });
 
-  /* ——— 预算计算器 ——— */
-  var FUEL=335; /* 560 km 往返，含油费；国庆高速免费 */
+  /* ══════ 温泉决策台 ══════ */
+  var SPRING={
+    baojing:{
+      name:'宝晶宫 · 茶语温泉', short:'宝晶宫', price:68,
+      out:'民宿出发 74 km / 1 小时 18 分', fee:'门票 ¥68 起',
+      back:'回深圳 261 km / 3.1 小时', drive:'74 km / 1 小时 18 分',
+      dinner:'就在英德市区吃，这是这趟吃得最丰的一顿。',
+      backline:'261 km / 3.1 小时'
+    },
+    zhenyang:{
+      name:'浈阳峡 · 醴泉', short:'浈阳峡', price:88,
+      out:'民宿出发 76 km / 1 小时 18 分', fee:'门票 ¥88（待核）',
+      back:'回深圳 235 km / 2.7 小时（只多绕 24 km）', drive:'76 km / 1 小时 18 分',
+      dinner:'就在醴泉古街上吃，边吃边逛，这趟逛得最足的一顿。',
+      backline:'235 km / 2.7 小时'
+    }
+  };
+  var SKEY='yingde-trip-spring-v2';
+  var PKEY2='yingde-trip-plan-v2';
+
+  var pickBox=document.getElementById('pick');
+  var opts=[].slice.call(document.querySelectorAll('.opt'));
+  var nameIn=document.getElementById('c-name');
+  var priceIn=document.getElementById('c-price');
   var stayEl=document.getElementById('c-stay'),
       foodEl=document.getElementById('c-food'),
-      extraEl=document.getElementById('c-extra'),
+      teaEl=document.getElementById('c-tea'),
       oStay=document.getElementById('o-stay'),
       oFood=document.getElementById('o-food'),
-      oExtra=document.getElementById('o-extra'),
+      oTea=document.getElementById('o-tea'),
+      oSpring=document.getElementById('o-spring'),
+      oSpringName=document.getElementById('o-spring-name'),
       oFuel=document.getElementById('o-fuel'),
       oTotal=document.getElementById('o-total');
-  function yuan(n){return '¥'+n.toLocaleString('zh-CN');}
+
+  function yuan(n){return '¥'+Math.round(n).toLocaleString('zh-CN');}
+  function checkedRadio(){return pickBox.querySelector('input[name="spring"]:checked');}
+
+  function chosen(){
+    var r=checkedRadio();
+    var k=r?r.value:'baojing';
+    if(k==='custom'){
+      var nm=(nameIn.value||'').trim();
+      var p=Math.max(0,Math.floor(+priceIn.value||0));
+      return {
+        key:'custom', short:nm||'你填的那家', name:nm||'（还没填名字）', price:p,
+        out:'车程自己查一下', fee:p?('门票 ¥'+p):'门票待填', back:'回深圳车程自己查一下',
+        drive:'自己查一下', dinner:'就近吃，别饿着开回来。', backline:'自己查一下', custom:true
+      };
+    }
+    return SPRING[k];
+  }
+
+  function paint(){
+    var r=checkedRadio();
+    var k=r?r.value:'baojing';
+    opts.forEach(function(o){o.classList.toggle('is-picked',o.dataset.key===k);});
+
+    var s=chosen();
+    document.getElementById('pb-name').textContent=s.name;
+    document.getElementById('pb-1').textContent=s.out;
+    document.getElementById('pb-2').textContent=s.fee;
+    document.getElementById('pb-3').textContent=s.back;
+
+    document.getElementById('d1-spring').textContent=s.name;
+    document.getElementById('d1-drive').textContent=s.drive;
+    document.getElementById('d1-dinner').textContent=s.dinner;
+    document.getElementById('d1-back').textContent=s.backline;
+    oSpringName.textContent=s.short;
+
+    calc();
+  }
+
   function calc(){
+    var s=chosen();
     var stay=+stayEl.value*2;
     var food=+foodEl.value*2*3;
-    var extra=+extraEl.value;
+    var tea=teaEl.checked?98:0;
+    var spring=s.price*2;
+    var FUEL=340; /* 286 + 287 ≈ 573 km 往返，国庆高速免费，只算油钱 */
     oStay.textContent=yuan(stay);
     oFood.textContent=yuan(food);
-    oExtra.textContent=yuan(extra);
+    oTea.textContent=tea?yuan(tea):'不去了';
+    oSpring.textContent=spring?yuan(spring):'待定';
     oFuel.textContent=yuan(FUEL);
-    oTotal.textContent=yuan(stay+food+extra+FUEL);
+    oTotal.textContent=yuan(stay+food+tea+spring+FUEL);
   }
-  [stayEl,foodEl,extraEl].forEach(function(el){el.addEventListener('change',calc);});
-  calc();
+
+  /* 点卡片任意位置 = 选中 */
+  opts.forEach(function(card){
+    card.addEventListener('click',function(e){
+      if(e.target.closest('input[type="radio"]')) return;
+      var r=card.querySelector('input[name="spring"]');
+      if(r&&!r.checked){r.checked=true;sync();}
+    });
+  });
+  [].forEach.call(pickBox.querySelectorAll('input[name="spring"]'),function(r){
+    r.addEventListener('change',sync);
+  });
+  [nameIn,priceIn].forEach(function(el){
+    el.addEventListener('input',function(){
+      var r=pickBox.querySelector('input[value="custom"]');
+      if(r)r.checked=true;
+      sync();
+    });
+  });
+  [stayEl,foodEl,teaEl].forEach(function(el){el.addEventListener('change',function(){calc();save();});});
+
+  function save(){
+    try{
+      localStorage.setItem(SKEY,JSON.stringify({
+        key:(checkedRadio()||{}).value||'baojing',
+        name:nameIn.value, price:priceIn.value
+      }));
+      localStorage.setItem(PKEY2,JSON.stringify({
+        stay:stayEl.value, food:foodEl.value, tea:teaEl.checked
+      }));
+    }catch(e){}
+  }
+  function sync(){paint();save();}
+
+  /* 恢复上次的选择 */
+  try{
+    var v=JSON.parse(localStorage.getItem(SKEY)||'null');
+    if(v){
+      if(v.name)nameIn.value=v.name;
+      if(v.price)priceIn.value=v.price;
+      var r=pickBox.querySelector('input[value="'+(v.key||'baojing')+'"]');
+      if(r)r.checked=true;
+    }
+    var p2=JSON.parse(localStorage.getItem(PKEY2)||'null');
+    if(p2){
+      if(p2.stay&&stayEl.querySelector('option[value="'+p2.stay+'"]'))stayEl.value=p2.stay;
+      if(p2.food&&foodEl.querySelector('option[value="'+p2.food+'"]'))foodEl.value=p2.food;
+      if(typeof p2.tea==='boolean')teaEl.checked=p2.tea;
+    }
+  }catch(e){}
+
+  paint();
 
   /* ——— 打包清单 ——— */
   var PACK=[
     '身份证 / 驾照 / 行驶证',
     '手机支架 + 车充',
     '泳衣 / 泳裤（泡温泉必备）',
+    '泳帽（有些池子要求戴）',
     '拖鞋 + 速干毛巾',
-    '薄外套（山里早晚凉）',
+    '薄外套（山里早晚凉，泡完出来穿）',
     '防晒霜 + 遮阳帽',
     '驱蚊液',
     '一次性雨衣 / 折叠伞',
