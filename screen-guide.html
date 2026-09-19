@@ -42,7 +42,7 @@ p{margin:0}
   --c-tv:   oklch(50% 0.115 232);   /* 电视 · 青 */
   --c-pj:   oklch(48% 0.13  300);   /* 投影 · 紫 */
   --c-ar:   oklch(56% 0.145 25);    /* AR · 橙红 */
-  --c-screen: oklch(22% 0.03 255);  /* 银幕黑 */
+  --color-c-screen: oklch(22% 0.03 255);  /* 银幕黑 · banner/hero/结语底色 */
   /* 字体 · 系统栈（大陆可直连，不引外部字体） */
   --font-display: "Songti SC","STSong","Noto Serif CJK SC","SimSun",serif;
   --font-body:    "PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
@@ -51,7 +51,7 @@ p{margin:0}
   --space-lg:1.5rem; --space-xl:2rem; --space-2xl:3rem; --space-3xl:4.5rem; --space-4xl:6rem;
   --text-xs:0.72rem; --text-sm:0.85rem; --text-base:1rem; --text-md:1.25rem;
   --text-lg:1.5625rem; --text-xl:1.9531rem; --text-2xl:2.4414rem;
-  --text-hero:clamp(2.05rem,5.4vw+0.7rem,3.7rem);
+  --text-hero:clamp(1.95rem,4.4vw+0.6rem,3.3rem);
   --ease-out:cubic-bezier(0.22,1,0.36,1);
   --dur:260ms;
   --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
@@ -87,8 +87,8 @@ p{margin:0}
   padding-block:clamp(3rem,7vw,5.5rem) clamp(3.5rem,8vw,6rem)}
 .hero__in{max-width:82rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
 .hero__kicker{color:var(--color-amber);margin-bottom:var(--space-md)}
-.hero__title{font-size:var(--text-hero);font-weight:600;max-width:22ch;
-  color:var(--color-paper)}
+.hero__title{font-size:var(--text-hero);font-weight:600;max-width:27ch;
+  color:var(--color-paper);text-wrap:balance}
 .hero__title .q{color:var(--color-amber)}
 .hero__lede{margin-top:var(--space-lg);font-size:1.03rem;max-width:52ch;
   color:color-mix(in oklch,var(--color-paper) 76%,transparent)}
@@ -106,8 +106,8 @@ p{margin:0}
 .sec__lede{margin-top:.8rem;color:var(--color-muted);max-width:60ch}
 
 /* ── 速览卡（三个场景）── */
-.pick{background:var(--color-paper-2);border-block:1px solid var(--color-rule);
-  margin-top:var(--space-3xl);padding-block:var(--space-3xl)}
+.pick{background:var(--color-paper-2);border-bottom:1px solid var(--color-rule);
+  padding-block:var(--space-3xl)}
 .pick__grid{max-width:82rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem);
   display:grid;gap:var(--space-lg)}
 @media (min-width:46rem){.pick__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -182,10 +182,11 @@ td .note{display:block;color:var(--color-neutral);font-size:.79rem;margin-top:.1
 .tag--warn{background:color-mix(in oklch,var(--color-ink) 10%,transparent);color:var(--color-muted)}
 
 /* ── AR 眼镜卡 ── */
-.argrid{display:grid;gap:var(--space-md)}
-@media (min-width:52rem){.argrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.argrid{column-gap:var(--space-md)}
+@media (min-width:52rem){.argrid{columns:2}}
 .acard{position:relative;border:1px solid var(--color-rule);border-radius:var(--radius-md);
-  padding:var(--space-lg);background:var(--color-paper);display:flex;flex-direction:column;gap:.55rem}
+  padding:var(--space-lg);background:var(--color-paper);display:flex;flex-direction:column;gap:.55rem;
+  break-inside:avoid;margin-bottom:var(--space-md)}
 .acard--new{border-color:var(--c-ar);box-shadow:inset 3px 0 0 var(--c-ar)}
 .acard--top{border-color:var(--color-amber)}
 .acard__head{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;padding-right:2rem}
@@ -303,10 +304,10 @@ td .note{display:block;color:var(--color-neutral);font-size:.79rem;margin-top:.1
     <h1 class="hero__title">电视、投影、AR 眼镜，<span class="q">其实是三种观影姿势</span></h1>
     <p class="hero__lede">它们不该放在同一张表里比"哪个好"——因为亮度的单位不一样、尺寸的代价不一样、能一起看的人数也不一样。这张横评做三件事：把 AR 眼镜的画质尺子讲清楚，把单位面积的价格账算出来，然后按「谁看」给你结论。</p>
     <div class="hero__meta">
-      <span>100 余款机型</span>
-      <span>4 个电视尺寸档</span>
+      <span>128 款机型</span>
+      <span>4 个电视尺寸档（65–100″）</span>
       <span>2 类投影</span>
-      <span>24 款 AR 眼镜</span>
+      <span>25 款 AR 眼镜</span>
       <span>价格为 2026-09 到手价</span>
     </div>
     <div class="hero__rule"></div>
@@ -525,7 +526,7 @@ td .note{display:block;color:var(--color-neutral);font-size:.79rem;margin-top:.1
 <footer class="foot">
   <p><b>数据来源</b>：飞书表格《趣狼投影&amp;电视推荐 - TJ4K.com》（9 个 sheet 全量读取，2026-09-19）。AR 眼镜部分另据雷鸟 2026-05-27 发布会（IT之家 / LEDinside）、VITURE 官网、XREAL 京东国补页补齐。</p>
   <p><b>价格说明</b>：表内为趣狼标注的"最新优惠价 / 到手价"，随活动浮动；国补价以 2026-09 为准。投影参考价为"3xxx / 5xxx"这类档位的中值，仅作排序用。</p>
-  <p><b>PPD 算法</b>：沿用表格自定公式 PPD = √(宽²+高²) ÷ FOV；新品按同法计算，标"算"字。人眼分辨极限约 50–60 PPD。PPD 不等于感知锐度，实际观感还受 MTF 与光学设计影响。</p>
+  <p><b>PPD 算法</b>：表内机型沿用趣狼标定值，表外新品（雷鸟 GT Max / VITURE Beast）按同一公式 PPD = √(宽²+高²) ÷ FOV 计算。人眼分辨极限约 50–60 PPD。PPD 不等于感知锐度，实际观感还受 MTF 与光学设计影响。</p>
   <p>为个人选购整理，非商业推荐。参数以官方页面为准。</p>
 </footer>
 
@@ -810,6 +811,13 @@ function renderTV(){
   }).filter(function(r){return r.price<=tvBudget});
   if(tvSort!=='none'){
     rows.sort(function(a,b){ var d=(a[tvSort]||0)-(b[tvSort]||0); return tvDir*d; });
+  }
+  if(!rows.length){
+    var er=document.createElement('tr');
+    var etd=document.createElement('td');
+    etd.colSpan=8; etd.className='empty';
+    etd.textContent='这个尺寸档在 '+fmtY(tvBudget)+' 以内没有机型——大屏的起步价就是这么高，把预算调上去试试。';
+    er.appendChild(etd); body.appendChild(er); return;
   }
   var maxB=Math.max.apply(null,rows.map(function(r){return r.bright}).concat([1]));
   var maxP=Math.max.apply(null,rows.map(function(r){return r.price}).concat([1]));
