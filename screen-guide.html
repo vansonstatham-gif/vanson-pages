@@ -1,0 +1,988 @@
+<!doctype html>
+<!-- Hallmark · macrostructure: Comparison Ledger · tone: editorial-spec · theme: custom (钢青冷纸 + 电光青 + 琥珀) · enrichment: 实测参数 (TJ4K 表格 + 官方发布页) · nav: masthead · footer: statement -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="电视 / 投影 / AR 眼镜统一横评：PPD 角分辨率怎么读、FOV 与清晰度为什么二选一、单位面积价格差 20 倍，以及按「谁看」分场景的选购结论。数据来自 TJ4K 趣狼横评表并补齐 2026 最新一代 AR 眼镜。">
+<title>该买哪块屏 · 电视 / 投影 / AR 眼镜横评</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-padding-top:5rem}
+body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--color-accent-bright)}
+a:focus-visible,.chip:focus-visible,.btn:focus-visible,.tab:focus-visible,.seg:focus-visible,
+.acard__fav:focus-visible,.to-top:focus-visible,thead th:focus-visible{outline:2px solid var(--color-focus);outline-offset:3px}
+::selection{background:var(--color-accent-bright);color:var(--color-paper)}
+
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.18;
+  letter-spacing:-0.015em;margin:0;overflow-wrap:anywhere}
+p{margin:0}
+.mono{font-family:var(--font-outlier);font-size:var(--text-sm);letter-spacing:0.06em;
+  text-transform:uppercase;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+:root{
+  --color-paper:      oklch(97.8% 0.004 250);
+  --color-paper-2:    oklch(94.4% 0.008 250);
+  --color-paper-3:    oklch(90.5% 0.011 250);
+  --color-rule:       oklch(84%   0.012 250);
+  --color-rule-soft:  oklch(90%   0.010 250);
+  --color-neutral:    oklch(50%   0.018 250);
+  --color-muted:      oklch(38%   0.024 252);
+  --color-ink:        oklch(20%   0.026 255);
+  --color-accent:     oklch(50%   0.115 232);   /* 电光青 */
+  --color-accent-bright: oklch(60% 0.13 226);
+  --color-amber:      oklch(66%   0.145 68);    /* 亮度 / 暖点 */
+  --color-focus:      oklch(60%   0.12 228);
+  /* 品类色 */
+  --c-tv:   oklch(50% 0.115 232);   /* 电视 · 青 */
+  --c-pj:   oklch(48% 0.13  300);   /* 投影 · 紫 */
+  --c-ar:   oklch(56% 0.145 25);    /* AR · 橙红 */
+  --c-screen: oklch(22% 0.03 255);  /* 银幕黑 */
+  /* 字体 · 系统栈（大陆可直连，不引外部字体） */
+  --font-display: "Songti SC","STSong","Noto Serif CJK SC","SimSun",serif;
+  --font-body:    "PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  --font-outlier: ui-monospace,"Cascadia Mono","Consolas",monospace;
+  --space-2xs:0.25rem; --space-xs:0.5rem; --space-sm:0.75rem; --space-md:1rem;
+  --space-lg:1.5rem; --space-xl:2rem; --space-2xl:3rem; --space-3xl:4.5rem; --space-4xl:6rem;
+  --text-xs:0.72rem; --text-sm:0.85rem; --text-base:1rem; --text-md:1.25rem;
+  --text-lg:1.5625rem; --text-xl:1.9531rem; --text-2xl:2.4414rem;
+  --text-hero:clamp(2.05rem,5.4vw+0.7rem,3.7rem);
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --dur:260ms;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+}
+
+/* ── 进度条 ── */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;
+  background:var(--color-accent);transform:scaleX(0);transform-origin:0 0}
+
+/* ── masthead ── */
+.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--color-rule)}
+.mast__in{max-width:82rem;margin-inline:auto;padding:.8rem clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:baseline;gap:var(--space-md);justify-content:space-between}
+.wordmark{font-family:var(--font-display);font-size:1.12rem;font-weight:700;color:var(--color-ink);
+  letter-spacing:-0.02em;white-space:nowrap;text-decoration:none}
+.wordmark small{font-family:var(--font-outlier);font-weight:400;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin-left:.5rem}
+.mast__links{display:none;align-items:baseline;gap:var(--space-lg);white-space:nowrap}
+.mast__links a{font-size:.92rem;text-decoration:none;color:var(--color-muted)}
+.mast__links a:hover{color:var(--color-ink)}
+@media (min-width:44rem){.mast__links{display:flex}}
+
+/* ── 数据条 ── */
+.banner{background:var(--color-c-screen);color:var(--color-paper)}
+.banner__in{max-width:82rem;margin-inline:auto;padding:.6rem clamp(1rem,4vw,2.5rem);
+  display:flex;flex-wrap:wrap;gap:.35rem var(--space-lg);align-items:baseline;font-size:.84rem}
+.banner b{font-weight:600;color:var(--color-amber)}
+.banner span{color:color-mix(in oklch,var(--color-paper) 78%,transparent)}
+
+/* ── hero ── */
+.hero{background:var(--color-c-screen);color:var(--color-paper);
+  padding-block:clamp(3rem,7vw,5.5rem) clamp(3.5rem,8vw,6rem)}
+.hero__in{max-width:82rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.hero__kicker{color:var(--color-amber);margin-bottom:var(--space-md)}
+.hero__title{font-size:var(--text-hero);font-weight:600;max-width:22ch;
+  color:var(--color-paper)}
+.hero__title .q{color:var(--color-amber)}
+.hero__lede{margin-top:var(--space-lg);font-size:1.03rem;max-width:52ch;
+  color:color-mix(in oklch,var(--color-paper) 76%,transparent)}
+.hero__meta{margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:.6rem var(--space-lg);
+  font-size:.9rem;color:color-mix(in oklch,var(--color-paper) 62%,transparent)}
+.hero__meta span{display:inline-flex;align-items:center;gap:.45rem}
+.hero__meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--color-amber)}
+.hero__rule{margin-top:var(--space-2xl);height:1px;background:color-mix(in oklch,var(--color-paper) 18%,transparent)}
+
+/* ── 章节 ── */
+.sec{max-width:82rem;margin-inline:auto;padding:var(--space-3xl) clamp(1rem,4vw,2.5rem) 0}
+.sec__head{margin-bottom:var(--space-xl)}
+.sec__tag{color:var(--color-accent);display:block;margin-bottom:.6rem}
+.sec__title{font-size:clamp(1.55rem,3.2vw+0.5rem,2.5rem)}
+.sec__lede{margin-top:.8rem;color:var(--color-muted);max-width:60ch}
+
+/* ── 速览卡（三个场景）── */
+.pick{background:var(--color-paper-2);border-block:1px solid var(--color-rule);
+  margin-top:var(--space-3xl);padding-block:var(--space-3xl)}
+.pick__grid{max-width:82rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem);
+  display:grid;gap:var(--space-lg)}
+@media (min-width:46rem){.pick__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pcard{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-md);
+  padding:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-sm);position:relative}
+.pcard--tv{border-top:3px solid var(--c-tv)}
+.pcard--ar{border-top:3px solid var(--c-ar);box-shadow:0 0 0 1px var(--c-ar)}
+.pcard--pj{border-top:3px solid var(--c-pj)}
+.pcard__flag{position:absolute;top:-0.72rem;right:var(--space-md);font-family:var(--font-outlier);
+  font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-paper);
+  background:var(--c-ar);padding:.22rem .65rem;border-radius:var(--radius-pill)}
+.pcard__cat{font-family:var(--font-outlier);font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase}
+.pcard--tv .pcard__cat{color:var(--c-tv)}
+.pcard--ar .pcard__cat{color:var(--c-ar)}
+.pcard--pj .pcard__cat{color:var(--c-pj)}
+.pcard h3{font-size:1.32rem;margin-top:.15rem}
+.pcard__who{color:var(--color-muted);font-size:.93rem;flex:1}
+.pcard__pick{margin-top:.3rem;padding-top:.8rem;border-top:1px solid var(--color-rule-soft);
+  font-size:.93rem}
+.pcard__pick b{font-weight:600}
+.pcard__price{font-family:var(--font-outlier);font-variant-numeric:tabular-nums;
+  font-size:1.05rem;color:var(--color-ink);display:block;margin-top:.25rem}
+
+/* ── 工具条 / chip ── */
+.toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:var(--space-lg)}
+.toolbar__label{font-family:var(--font-outlier);font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--color-neutral);margin-right:.2rem}
+.chip{font-family:var(--font-body);font-size:.85rem;color:var(--color-muted);
+  background:var(--color-paper-2);border:1px solid var(--color-rule);border-radius:var(--radius-pill);
+  padding:.32rem .85rem;cursor:pointer;transition:background var(--dur),color var(--dur),border-color var(--dur)}
+.chip:hover{border-color:var(--color-accent);color:var(--color-ink)}
+.chip.is-on{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-paper)}
+.btn{font-family:var(--font-body);font-size:.85rem;color:var(--color-muted);background:var(--color-paper);
+  border:1px solid var(--color-rule);border-radius:var(--radius-pill);padding:.32rem .9rem;cursor:pointer;
+  transition:border-color var(--dur),color var(--dur)}
+.btn:hover{border-color:var(--color-accent);color:var(--color-ink)}
+
+/* ── tab ── */
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:var(--space-xl);
+  border-bottom:1px solid var(--color-rule);padding-bottom:var(--space-md)}
+.tab{font-family:var(--font-body);font-size:.9rem;color:var(--color-muted);background:none;
+  border:1px solid transparent;border-radius:var(--radius-pill);padding:.32rem .95rem;cursor:pointer;
+  transition:background var(--dur),color var(--dur)}
+.tab:hover{color:var(--color-ink);background:var(--color-paper-2)}
+.tab.is-on{background:var(--color-ink);color:var(--color-paper)}
+
+/* ── 表格 ── */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid var(--color-rule);border-radius:var(--radius-md);background:var(--color-paper)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:44rem}
+thead th{position:sticky;top:0;background:var(--color-paper-3);color:var(--color-ink);
+  font-weight:600;text-align:left;padding:.62rem .8rem;white-space:nowrap;
+  border-bottom:1px solid var(--color-rule);font-size:.82rem;letter-spacing:.01em}
+thead th.is-sortable{cursor:pointer;user-select:none}
+thead th.is-sortable:hover{color:var(--color-accent)}
+thead th .arw{font-family:var(--font-outlier);font-size:.7rem;color:var(--color-neutral);margin-left:.25rem}
+tbody td{padding:.58rem .8rem;border-bottom:1px solid var(--color-rule-soft);
+  vertical-align:top;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--color-paper-2)}
+td.name{font-weight:600;white-space:nowrap}
+td.num{font-family:var(--font-outlier);font-size:.85rem}
+td.price{font-family:var(--font-outlier);font-weight:600;white-space:nowrap}
+td .note{display:block;color:var(--color-neutral);font-size:.79rem;margin-top:.15rem;font-weight:400}
+.bar{display:block;height:4px;border-radius:2px;background:var(--color-accent);
+  margin-top:.28rem;min-width:2px;opacity:.55}
+.tag{display:inline-block;font-family:var(--font-outlier);font-size:.66rem;letter-spacing:.06em;
+  padding:.1rem .42rem;border-radius:var(--radius-sm);margin-left:.35rem;vertical-align:1px}
+.tag--best{background:color-mix(in oklch,var(--color-amber) 22%,transparent);color:oklch(42% 0.13 68)}
+.tag--new{background:color-mix(in oklch,var(--c-ar) 18%,transparent);color:oklch(45% 0.15 25)}
+.tag--warn{background:color-mix(in oklch,var(--color-ink) 10%,transparent);color:var(--color-muted)}
+
+/* ── AR 眼镜卡 ── */
+.argrid{display:grid;gap:var(--space-md)}
+@media (min-width:52rem){.argrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.acard{position:relative;border:1px solid var(--color-rule);border-radius:var(--radius-md);
+  padding:var(--space-lg);background:var(--color-paper);display:flex;flex-direction:column;gap:.55rem}
+.acard--new{border-color:var(--c-ar);box-shadow:inset 3px 0 0 var(--c-ar)}
+.acard--top{border-color:var(--color-amber)}
+.acard__head{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;padding-right:2rem}
+.acard__head h3{font-size:1.1rem}
+.acard__fav{position:absolute;top:.85rem;right:.85rem;background:none;border:0;cursor:pointer;
+  font-size:1.05rem;line-height:1;color:var(--color-rule);padding:.15rem;transition:color var(--dur)}
+.acard__fav:hover{color:var(--c-ar)}
+.acard__fav.is-fav{color:var(--c-ar)}
+.acard__specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(5.5rem,1fr));
+  gap:.4rem .8rem;margin-top:.2rem}
+.spec{display:flex;flex-direction:column;gap:.05rem}
+.spec__k{font-family:var(--font-outlier);font-size:.62rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--color-neutral)}
+.spec__v{font-size:.92rem;font-variant-numeric:tabular-nums}
+.spec__v b{font-family:var(--font-outlier);font-weight:600}
+.ppd--hi{color:oklch(46% 0.13 155)}
+.ppd--mid{color:var(--color-muted)}
+.ppd--lo{color:oklch(52% 0.15 30)}
+.acard__note{color:var(--color-muted);font-size:.87rem;border-top:1px solid var(--color-rule-soft);
+  padding-top:.6rem;margin-top:.2rem}
+.acard__price{font-family:var(--font-outlier);font-size:1.02rem;font-variant-numeric:tabular-nums}
+.acard__price small{font-family:var(--font-body);font-size:.8rem;color:var(--color-neutral);
+  font-weight:400;margin-left:.35rem}
+
+/* ── 三品类不可比卡片 ── */
+.incomparable{display:grid;gap:var(--space-lg);margin-top:var(--space-lg)}
+@media (min-width:46rem){.incomparable{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.icard{background:var(--color-paper-2);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);padding:var(--space-lg)}
+.icard__n{font-family:var(--font-outlier);font-size:.68rem;letter-spacing:.11em;
+  color:var(--color-accent);text-transform:uppercase}
+.icard h3{margin-top:.35rem;font-size:1.08rem}
+.icard p{margin-top:.5rem;color:var(--color-muted);font-size:.9rem}
+
+/* ── 单位面积 ── */
+.area-calc{background:var(--color-paper-2);border:1px solid var(--color-rule);
+  border-radius:var(--radius-md);padding:var(--space-lg);margin-bottom:var(--space-lg)}
+.area-calc__row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.areagrid{display:grid;gap:.9rem;margin-top:var(--space-md)}
+.arow{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;align-items:baseline;
+  padding-bottom:.75rem;border-bottom:1px solid var(--color-rule-soft)}
+.arow:last-child{border-bottom:0;padding-bottom:0}
+.arow__name{font-weight:600;font-size:.95rem}
+.arow__name small{font-weight:400;color:var(--color-neutral);font-size:.79rem;
+  display:block;margin-top:.1rem}
+.arow__val{font-family:var(--font-outlier);font-size:1.15rem;font-weight:600;
+  text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.arow__val small{display:block;font-family:var(--font-body);font-size:.76rem;
+  color:var(--color-neutral);font-weight:400}
+.arow__bar{grid-column:1/-1;height:5px;border-radius:3px;background:var(--color-paper-3);
+  overflow:hidden;margin-top:.1rem}
+.arow__bar i{display:block;height:100%;border-radius:3px;transition:width var(--dur) var(--ease-out)}
+
+/* ── 结语 ── */
+.verdict{background:var(--color-c-screen);color:var(--color-paper);margin-top:var(--space-3xl);
+  padding-block:var(--space-3xl)}
+.verdict__in{max-width:82rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.verdict h2{color:var(--color-paper);font-size:clamp(1.5rem,3vw+0.5rem,2.3rem)}
+.verdict .mono{color:var(--color-amber)}
+.verdict__list{margin-top:var(--space-xl);display:grid;gap:var(--space-lg)}
+@media (min-width:46rem){.verdict__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vitem{border-top:1px solid color-mix(in oklch,var(--color-paper) 20%,transparent);
+  padding-top:var(--space-md)}
+.vitem h3{font-size:1.05rem;color:var(--color-amber)}
+.vitem p{margin-top:.4rem;color:color-mix(in oklch,var(--color-paper) 76%,transparent);font-size:.92rem}
+
+/* ── footer ── */
+.foot{border-top:1px solid var(--color-rule);padding:var(--space-2xl) clamp(1rem,4vw,2.5rem);
+  max-width:82rem;margin-inline:auto;color:var(--color-neutral);font-size:.85rem}
+.foot p+p{margin-top:.5rem}
+
+/* ── 回顶 ── */
+.to-top{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;width:2.6rem;height:2.6rem;
+  border-radius:50%;border:1px solid var(--color-rule);background:var(--color-paper);
+  color:var(--color-muted);cursor:pointer;font-size:1rem;display:grid;place-items:center;
+  opacity:0;pointer-events:none;transition:opacity var(--dur)}
+.to-top.is-show{opacity:1;pointer-events:auto}
+.to-top:hover{border-color:var(--color-accent);color:var(--color-accent)}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 620ms var(--ease-out),transform 620ms var(--ease-out)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.empty{color:var(--color-neutral);font-size:.9rem;padding:var(--space-lg) 0}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="wordmark" href="#top">该买哪块屏<small>屏幕横评</small></a>
+    <nav class="mast__links" aria-label="章节导航">
+      <a href="#ar">AR 眼镜</a>
+      <a href="#tv">电视</a>
+      <a href="#pj">投影</a>
+      <a href="#area">单位面积账</a>
+      <a href="#verdict">结论</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banner" id="top">
+  <div class="banner__in">
+    <span>数据源 <b>趣狼 TJ4K 横评表</b>（9 个 sheet 全量读取）</span>
+    <span>已补齐表外最新款 <b>雷鸟 GT Max / VITURE Beast / XREAL One Pro</b></span>
+    <span>人眼分辨极限约 <b>50–60 PPD</b></span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero__in">
+    <p class="mono hero__kicker">电视 · 投影 · AR 眼镜 · 统一横评</p>
+    <h1 class="hero__title">电视、投影、AR 眼镜，<span class="q">其实是三种观影姿势</span></h1>
+    <p class="hero__lede">它们不该放在同一张表里比"哪个好"——因为亮度的单位不一样、尺寸的代价不一样、能一起看的人数也不一样。这张横评做三件事：把 AR 眼镜的画质尺子讲清楚，把单位面积的价格账算出来，然后按「谁看」给你结论。</p>
+    <div class="hero__meta">
+      <span>100 余款机型</span>
+      <span>4 个电视尺寸档</span>
+      <span>2 类投影</span>
+      <span>24 款 AR 眼镜</span>
+      <span>价格为 2026-09 到手价</span>
+    </div>
+    <div class="hero__rule"></div>
+  </div>
+</section>
+
+<!-- ══ 速览 ══ -->
+<section class="pick" id="quick">
+  <div class="pick__grid">
+    <article class="pcard pcard--tv reveal">
+      <p class="pcard__cat">场景 ①</p>
+      <h3>要和女朋友一起看</h3>
+      <p class="pcard__who">客厅公有设备。要扛白天的环境光，要能同时喂两个人。这一格只有电视能坐。</p>
+      <p class="pcard__pick">首选 <b>85″ Vidda 发现X 2026</b>，预算紧就 <b>100″ 长虹 98D7F</b>
+        <span class="pcard__price">¥5.5K / ¥6.4K</span></p>
+    </article>
+
+    <article class="pcard pcard--ar reveal">
+      <span class="pcard__flag">为你挑的</span>
+      <p class="pcard__cat">场景 ②</p>
+      <h3>自己躺床上刷番</h3>
+      <p class="pcard__who">单人私有设备。屏幕是虚拟的，画面在你眼睛里，不占地方、不用幕布、不吵到别人。</p>
+      <p class="pcard__pick">要沉浸选 <b>雷鸟 GT Max</b>；要清晰选 <b>雷鸟 Air3s Pro</b>
+        <span class="pcard__price">¥2209（国补） / ¥1.5K</span></p>
+    </article>
+
+    <article class="pcard pcard--pj reveal">
+      <p class="pcard__cat">场景 ③</p>
+      <h3>最便宜的大屏</h3>
+      <p class="pcard__who">房间能遮光的话，投影在 150 寸这个尺寸上没有任何对手——单位面积成本直接腰斩。</p>
+      <p class="pcard__pick">入门 <b>单 LCD 投 120″</b>，要画质 <b>Vidda C3 三色激光</b>
+        <span class="pcard__price">¥1K+ / ¥4K+</span></p>
+    </article>
+  </div>
+</section>
+
+<!-- ══ AR 眼镜 ══ -->
+<section class="sec" id="ar">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">01 · AR 眼镜</span>
+    <h2 class="sec__title">真正的尺子是 PPD，不是分辨率</h2>
+    <p class="sec__lede">趣狼在表里第 28、51–53 行自己写了这条规则：PPI 对眼镜意义不大，要看 <b>PPD（每度多少像素）</b>，而人眼极限约 50–60 PPD。下面这张表按统一公式 <span class="mono" style="text-transform:none">PPD = √(宽²+高²) ÷ FOV</span> 重排全部机型，并把表里没有的最新三款补了进来。</p>
+  </div>
+
+  <div class="toolbar reveal" role="group" aria-label="AR 眼镜筛选">
+    <span class="toolbar__label">筛选</span>
+    <button class="chip is-on" type="button" data-ar="all">全部</button>
+    <button class="chip" type="button" data-ar="new">🆕 最新一代</button>
+    <button class="chip" type="button" data-ar="sharp">🔍 高 PPD（≥47）</button>
+    <button class="chip" type="button" data-ar="wide">🌌 大视野（≥55°）</button>
+    <button class="chip" type="button" data-ar="cheap">💰 2K 以内</button>
+    <button class="chip" type="button" data-ar="fav">♥ 只看收藏</button>
+  </div>
+
+  <p class="empty" id="arEmpty" hidden>这个筛选下没有机型，换个条件试试。</p>
+  <div class="argrid" id="argrid"></div>
+
+  <div class="incomparable reveal" style="margin-top:var(--space-2xl)">
+    <article class="icard">
+      <p class="icard__n">规律 01</p>
+      <h3>FOV 和清晰度是恒定的选择题</h3>
+      <p>2026 年大家的单眼面板都卡在 1080p / 1200p，像素总量是一样的。所以 <b>PPD ≈ 2200 ÷ FOV</b>：视野开得越大，每度摊到的像素就越少。想看清小字幕，就只能在 40–47° 的窗口里看。</p>
+    </article>
+    <article class="icard">
+      <p class="icard__n">规律 02</p>
+      <h3>新品集体选择了"牺牲锐度换沉浸"</h3>
+      <p>GT Max 的 59°、Beast 的 58°、One Pro 的 57° 是市面最大视野，代价是 PPD 只有 37–39——<b>比表里任何一款老机都低</b>。所以"字体边缘有马赛克"不是品控问题，是物理账。</p>
+    </article>
+    <article class="icard">
+      <p class="icard__n">规律 03</p>
+      <h3>但 PPD 不是全部</h3>
+      <p>感知锐度还看 <b>MTF</b>（表里第 28 行提过）。GT Max 上了自研孔雀光学引擎 3.0 Max + 双层 Micro OLED + 独立画质芯片，它的卖点是沉浸感（等效 6 米 267 寸）而不是锐度。别只看数字判它"糊"。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══ 三个不可比 ══ -->
+<section class="sec" id="diff">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">02 · 前提</span>
+    <h2 class="sec__title">三个品类有三件事根本不可比</h2>
+  </div>
+  <div class="incomparable reveal">
+    <article class="icard">
+      <p class="icard__n">亮度</p>
+      <h3>单位不是一回事</h3>
+      <p>电视算 <b>nit</b>（屏幕自身亮度，硬扛环境光）；投影算 <b>CVIA / ISO 流明</b>（光通量，<b>投得越大越暗</b>——100 寸 2000lm，投到 150 寸只剩 44%）；AR 眼镜算<b>入眼 nit</b>，但光路封闭（配 ¥99 遮光罩后）等于永远待在暗房。所以 GT Max 的 1200nit 观感不输电视，不是因为更亮，是没有环境光要打。</p>
+    </article>
+    <article class="icard">
+      <p class="icard__n">尺寸</p>
+      <h3>代价的方向不一样</h3>
+      <p>电视买定离手，尺寸就是价格；投影尺寸自由，但<b>尺寸换亮度</b>；AR 眼镜的尺寸是虚拟的，可以堆到 267 寸——但只有一个人的眼睛装得下。</p>
+    </article>
+    <article class="icard">
+      <p class="icard__n">人数</p>
+      <h3>公有还是私有</h3>
+      <p>电视和投影是<b>公共设备</b>，AR 眼镜是<b>私人设备</b>。这条决定了它是"客厅的替代品"还是"卧室的补充品"——不是二选一，是买哪个的问题。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══ 电视 ══ -->
+<section class="sec" id="tv">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">03 · 电视</span>
+    <h2 class="sec__title">电视先看尺寸，再看亮度</h2>
+    <p class="sec__lede">趣狼的表里原话："尺寸大小能进户的最大尺寸，有多大选多大；确定尺寸后在预算内选画质好的。"下面按四个尺寸档列出。<b>亮度 1000nit 是分水岭</b>——低于它是"能看"，高于它才谈得上画质。点表头可以按价格或亮度排序。</p>
+  </div>
+
+  <div class="tabs reveal" role="tablist" aria-label="电视尺寸">
+    <button class="tab is-on" type="button" role="tab" aria-selected="true" data-tv="65">65 寸</button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-tv="75">75–77 寸</button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-tv="85">85–90 寸</button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-tv="100">98–100 寸</button>
+  </div>
+
+  <div class="toolbar reveal">
+    <span class="toolbar__label">只看</span>
+    <button class="chip is-on" type="button" data-tvbudget="all">不限预算</button>
+    <button class="chip" type="button" data-tvbudget="5000">¥5K 以内</button>
+    <button class="chip" type="button" data-tvbudget="10000">¥1W 以内</button>
+    <button class="chip" type="button" data-tvbudget="20000">¥2W 以内</button>
+  </div>
+
+  <div class="tbl-wrap reveal">
+    <table id="tvtable">
+      <thead><tr>
+        <th>型号</th><th>尺寸</th>
+        <th class="is-sortable" data-sort="bright">峰值亮度<span class="arw" data-arw="bright"></span></th>
+        <th class="is-sortable" data-sort="zone">背光分区<span class="arw" data-arw="zone"></span></th>
+        <th>色域</th><th>分辨率 / 刷新率</th>
+        <th class="is-sortable" data-sort="price">到手价<span class="arw" data-arw="price"></span></th>
+        <th>每 ㎡</th>
+      </tr></thead>
+      <tbody id="tvbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ 投影 ══ -->
+<section class="sec" id="pj">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">04 · 投影</span>
+    <h2 class="sec__title">投影的钱，买的是"更大的画面"</h2>
+    <p class="sec__lede">投影分两条完全不同的路：<b>三色激光 4K</b> 是画质路线（Vidda C 系 / 坚果 N5 / 当贝 S7），<b>单 LCD 1080P</b> 是尺寸路线（大眼橙 / 哈趣）——后者是"最便宜就能获得 100 寸甚至 120 寸"的方案，没有之一。注意投影亮度是光通量，投得越大越暗。</p>
+  </div>
+
+  <div class="tabs reveal" role="tablist" aria-label="投影类型">
+    <button class="tab is-on" type="button" role="tab" aria-selected="true" data-pj="4k">4K 三色激光</button>
+    <button class="tab" type="button" role="tab" aria-selected="false" data-pj="lcd">1080P 单 LCD（入门）</button>
+  </div>
+
+  <div class="tbl-wrap reveal">
+    <table id="pjtable">
+      <thead><tr>
+        <th>型号</th><th>光源</th><th>DMD 芯片</th>
+        <th class="is-sortable" data-sort="bright">亮度（CVIA）<span class="arw" data-arw="bright"></span></th>
+        <th>投射比</th>
+        <th class="is-sortable" data-sort="price">参考价<span class="arw" data-arw="price"></span></th>
+        <th>点评</th>
+      </tr></thead>
+      <tbody id="pjbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ 单位面积 ══ -->
+<section class="sec" id="area">
+  <div class="sec__head reveal">
+    <span class="mono sec__tag">05 · 算账</span>
+    <h2 class="sec__title">换个尺子：每平方米画面的成本</h2>
+    <p class="sec__lede">这是趣狼表里那张"芯片分辨率尺寸面积"表的用法。投影的画面尺寸可以变，所以切换下面的尺寸，投影那一行会跟着重算——<b>投影的杀招在 150 寸才真正出现</b>。AR 眼镜那一行用的是等效 267 寸的虚拟面积，属纸面数学，但它指向的事实是真的。</p>
+  </div>
+
+  <div class="area-calc reveal">
+    <div class="area-calc__row">
+      <span class="toolbar__label">投影投射尺寸</span>
+      <button class="chip is-on" type="button" data-size="100">100″</button>
+      <button class="chip" type="button" data-size="120">120″</button>
+      <button class="chip" type="button" data-size="150">150″</button>
+      <button class="chip" type="button" data-size="200">200″</button>
+    </div>
+    <div class="areagrid" id="areagrid"></div>
+    <p class="mono" style="margin-top:var(--space-md);color:var(--color-neutral);text-transform:none;letter-spacing:.02em;font-size:.78rem">
+      16:9 面积，按对角线英寸换算。100″ = 2.76 ㎡，150″ = 6.20 ㎡，200″ = 11.03 ㎡。条越短越便宜。
+    </p>
+  </div>
+</section>
+
+<!-- ══ 结论 ══ -->
+<section class="verdict" id="verdict">
+  <div class="verdict__in">
+    <p class="mono">06 · 结论</p>
+    <h2>所以，你到底该买哪个</h2>
+    <div class="verdict__list">
+      <article class="vitem">
+        <h3>要两个人一起看 → 别买眼镜</h3>
+        <p>你住大梅沙、有女朋友，日常是"两个人"。AR 眼镜再多也解决不了"她看不见"。<b>85″ Vidda 发现X 2026（¥5.5K）</b>是甜点：2000nit、1280 分区、98% P3。预算再紧就 <b>100″ 长虹 98D7F（¥6.4K）</b>——尺寸优先。</p>
+      </article>
+      <article class="vitem">
+        <h3>自己躺床上刷番 → 这才是眼镜的战场</h3>
+        <p><b>¥1.5K 雷鸟 Air3s Pro</b>：PPD 49，比 ¥6.8K 的 GOOVIS 还锐，性价比之王，代价是 47° 视野、0DoF。<b>¥2209 雷鸟 GT Max</b>：59° 最大视野 + 杜比视界 + B&amp;O 调音 + 官方平躺优化，代价是 PPD 37 且杜比视界要另买 ¥999 魔盒。<b>¥2854 VITURE Beast</b>：1920×1200 高一档，9 档电致变色，全能向。</p>
+      </article>
+      <article class="vitem">
+        <h3>想要最大最便宜 → 投影，但房间要能遮光</h3>
+        <p>单位面积账在 150 寸才真正赢。要画质上 <b>Vidda C3 三色激光</b>（¥4K 级）+ 120–150″ 幕布；只想最便宜先玩起来，单 LCD 千元档就能投 120 寸。</p>
+      </article>
+      <article class="vitem">
+        <h3>三条实操提醒</h3>
+        <p>① 趣狼原话：<b>京东自营买，不行就退</b>（部分拆封不支持退）。② <b>晕 3D 一般是瞳距或近视度数没配准</b>，不是机器问题。③ AR 眼镜记得配 <b>¥99 遮光罩</b>，不然白天基本没法看。想最低成本试水，雷鸟 Air 3s 周年版国补低到 <b>¥934</b>。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p><b>数据来源</b>：飞书表格《趣狼投影&amp;电视推荐 - TJ4K.com》（9 个 sheet 全量读取，2026-09-19）。AR 眼镜部分另据雷鸟 2026-05-27 发布会（IT之家 / LEDinside）、VITURE 官网、XREAL 京东国补页补齐。</p>
+  <p><b>价格说明</b>：表内为趣狼标注的"最新优惠价 / 到手价"，随活动浮动；国补价以 2026-09 为准。投影参考价为"3xxx / 5xxx"这类档位的中值，仅作排序用。</p>
+  <p><b>PPD 算法</b>：沿用表格自定公式 PPD = √(宽²+高²) ÷ FOV；新品按同法计算，标"算"字。人眼分辨极限约 50–60 PPD。PPD 不等于感知锐度，实际观感还受 MTF 与光学设计影响。</p>
+  <p>为个人选购整理，非商业推荐。参数以官方页面为准。</p>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+'use strict';
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ═══════════ 数据 ═══════════ */
+
+/* AR 眼镜：n 名称 / ppd / fov / res 分辨率 / br 亮度 / w 重量 / eye 近视调节 / p 价格 / p2 国补 / note / isNew / flags */
+var AR=[
+ {n:"GOOVIS G3 Max",ppd:45,fov:65,res:"2560×1440×2",w:"340g（含头带 510g）",eye:"远视200–近视700",p:6800,tag:"看剧天花板",best:1,
+  note:"micro-OLED，95% DCI-P3，100000:1，120Hz。趣狼原话：「这个画质很好！视场角也不错，看剧推荐」。内置近视调节不用配镜——重度用户很关键。但它是头显（340g）不是眼镜，戴不出门。"},
+ {n:"GOOVIS G3X Pro",ppd:42,fov:53,res:"1920×1080×2",w:"193g",eye:"远视300–近视800",p:4300,note:"113%sRGB，60Hz。"},
+ {n:"GOOVIS G3X",ppd:42,fov:53,res:"1920×1080×2",w:"193g",eye:"远视300–近视800",p:3800,note:"比 Pro 少 3D 格式支持。"},
+ {n:"GOOVIS Art",ppd:55,fov:40,w:"106g",p:2400,tag:"最锐",note:"PPD 55 是全表最高之一，但视场角只有 40°——典型的「用视野换锐度」。"},
+ {n:"雷鸟 Air3s Pro",ppd:49,fov:47,br:"1200nit",w:"76g",eye:"需配镜",p:1500,tag:"性价比之王",best:1,
+  note:"0.6 micro-OLED，145%sRGB / 98% P3，200000:1，120Hz。趣狼原话：「性价比高！画质可比4000，但没变色0DOF」。FOV 只有 47° 是它唯一的短板。"},
+ {n:"雷鸟 Air3",ppd:49,fov:47,br:"650nit",p:1700,note:"PWM + DC 调光，视涯 OLED。"},
+ {n:"雷鸟 Air 2s",p:1900},
+ {n:"雷鸟 Air2",p:1400},
+ {n:"XREAL One Pro",ppd:40,fov:57,res:"1920×1080×2",br:"700nit",eye:"需配镜（M 瞳距 57–66 / L 66–75）",p:3300,p2:3860,
+  note:"120Hz。趣狼原话：「三档电致变色，6DoF 可外加摄像头」。钱花在变色和空间交互上，不是清晰度——PPD 只有 40。表内标价 ¥3.3K 已滞后，京东国补实际 ¥3860、零售 ¥4299。"},
+ {n:"XREAL Air 2 Ultra",ppd:44,fov:50,w:"82g",p:3200},
+ {n:"XREAL Air 2 Pro",ppd:49,fov:46,p:3300},
+ {n:"XREAL One",p:3300},
+ {n:"XREAL Air 2",p:1800},
+ {n:"VITURE Pro",ppd:49,fov:46,res:"1920×1080×2",br:"最高4000nit（入眼1000）",w:"77g",eye:"可调 0–近视500",p:3200,
+  note:"108%sRGB，100000:1，120Hz，电致变色。亮度标称要看清括号里的「入眼」。"},
+ {n:"VITURE One",p:2000},
+ {n:"VITURE One Lite",p:1500},
+ {n:"魅族 StarV View",ppd:51,fov:43.5,br:"700nit",w:"74g",eye:"可调 0–600",p:2300,
+  note:"PPD 51 已经摸到人眼极限的下沿，代价是 43.5° 的小窗口。"},
+ {n:"雷神 Aura 灵眸",ppd:49,fov:46,p:1100,note:"全表最便宜的高 PPD 机型，但只有 60Hz。"},
+ {n:"ROKID Max 2",ppd:46,fov:50,res:"1920×1200×2",p:3100},
+ {n:"ROKID Max",p:2500},
+ {n:"INAIR 2 Pro",p:2600},
+ {n:"雷鸟 GT Max",ppd:37,fov:59,res:"1920×1080",br:"1200nit（入眼）",w:"78g",eye:"配镜到近视1000 / 远视800",p:2599,p2:2209,
+  tag:"沉浸之王",isNew:1,best:1,
+  note:"5.5 代双层 micro-OLED，98% DCI-P3，200000:1，120Hz。全球首款杜比视界 AR 眼镜（需另购 ¥999 魔盒 2）。B&O 联合调音 + 头部追踪空间音频。官方针对平躺观影优化了镜腿夹持力——和「躺床上刷番」这个姿势是刻意对齐的。59° 是市面最大视野，代价是 PPD 仅 37。"},
+ {n:"雷鸟 GT",fov:46,w:"68g",p:1899,p2:1614,isNew:1,note:"轻量化版，46° FOV，保留双芯片架构与主要画质功能。官方未公布单眼分辨率，故不算 PPD。"},
+ {n:"VITURE Beast",ppd:39,fov:58,res:"1920×1200",br:"1250nit",w:"88g",p:3999,p2:2854,
+  tag:"全能向",isNew:1,
+  note:"1920×1200 比 GT Max / One Pro 高一档，9 档电致变色，3DoF 悬停，Switch 2 直连，AI 2D 转 3D，哈曼调音。办公文字锐利、强光下也看得清。"},
+ {n:"雷鸟 Air 3s 周年版",p:934,tag:"最低门槛",isNew:1,note:"国补低到 ¥934，想先试水 AR 观影的最低成本。官方未单列该版分辨率。"}
+];
+
+/* 电视：n / size / bright(nit) / zone / gamut / rr / price */
+var TV={
+ "65":[
+  ["康佳65E8E",65,300,0,"100% BT.709","4K60Hz",1600],
+  ["TCL 65V8H-J",65,300,0,"100% BT.709","4K60Hz",1900],
+  ["海信65E5N",65,1000,264,"93% DCI-P3","4K120Hz",2600],
+  ["小米S65",65,1200,392,"94% DCI-P3","4K144Hz",2800],
+  ["Vidda 发现X 2025款",65,2000,528,"95% DCI-P3","4K144Hz",2800],
+  ["Vidda 发现X 2026款",65,2100,560,"98% DCI-P3","4K150Hz",3100,"墨晶屏，高性价比新品"],
+  ["小米S Pro",65,3200,1792,"95% DCI-P3","4K144Hz",3800],
+  ["海信65E7N",65,3800,1800,"95% DCI-P3","4K144Hz",4000,"趣狼标注：性价比高"],
+  ["海信65E7N Pro",65,3800,1800,"96% DCI-P3","4K150Hz",4700],
+  ["海信65E8N Pro",65,4200,1664,"98% DCI-P3","4K144Hz",5000,"黑耀屏 2.2% 低反"],
+  ["雷鸟鹤7 Pro 26款",65,4500,1680,"98% DCI-P3","4K150Hz",5000],
+  ["海信65E8Q",65,5000,2048,"98% DCI-P3","4K170Hz",6000],
+  ["TCL 65Q10L Pro",65,6500,3024,"98% DCI-P3","4K144Hz",7200],
+  ["索尼65XR70",65,2000,480,"95% DCI-P3","4K120Hz",12000],
+  ["三星65S90D（OLED）",65,1100,0,"99% DCI-P3","4K144Hz",15000]
+ ],
+ "75":[
+  ["雷鸟 雀5",75,300,0,"80% DCI-P3","4K60Hz",2300],
+  ["Vidda R75",75,400,0,"97% BT.709","4K60Hz",2300],
+  ["Vidda X Mini",75,1300,320,"95% DCI-P3","4K120Hz",3200],
+  ["海信75E5N",75,1300,320,"93% DCI-P3","4K120Hz",3600],
+  ["TCL 75T6L",75,1300,312,"96% DCI-P3","4K144Hz",3800],
+  ["Vidda 发现X 2026款",75,2200,768,"98% DCI-P3","4K150Hz",4100],
+  ["海信 E7N",75,3800,2340,"95% DCI-P3","4K144Hz",4700],
+  ["雷鸟 鹤7",75,2200,1248,"95% DCI-P3","4K144Hz",4700],
+  ["TCL 75Q9K",75,2400,1248,"98% DCI-P3","4K144Hz",4800],
+  ["小米 S Pro",75,3200,2304,"95% DCI-P3","4K144Hz",5200],
+  ["Vidda 发现X Pro",75,3300,2340,"95% DCI-P3","4K144Hz",5200],
+  ["海信 E7N Pro",75,3800,2340,"95% DCI-P3","4K150Hz",6000],
+  ["雷鸟鹤7 Pro 26款",75,5000,2176,"98% DCI-P3","4K150Hz",6600],
+  ["海信75E8N Pro",75,4200,2160,"98% DCI-P3","4K144Hz",6800],
+  ["海信75E8Q",75,5500,2880,"98% DCI-P3","4K177Hz",6800],
+  ["TCL 75Q10L",75,5000,2176,"98% DCI-P3","4K144Hz",8000],
+  ["海信RGB电视E7S Pro",75,4500,3888,"100% BT2020","4K180Hz",8700,"RGB-MiniLED"],
+  ["海信RGB电视E8S",75,4000,4200,"100% BT2020","4K180Hz",10000],
+  ["LG C4 77C4PCA（OLED）",77,1000,0,"99% DCI-P3","4K144Hz",19000],
+  ["三星77S90D（OLED）",77,1500,0,"99% DCI-P3","4K144Hz",21000]
+ ],
+ "85":[
+  ["长虹85D55F-G",85,300,0,"100% BT.709","4K120Hz",3200],
+  ["Vidda R85",85,400,0,"95% DCI-P3","4K120Hz",3500],
+  ["海信85E3ND",85,600,0,"130% BT.709","4K120Hz",3800],
+  ["创维酷开85K6",85,1600,720,"98% DCI-P3","4K144Hz",4300],
+  ["海信85E5N",85,1300,352,"93% DCI-P3","4K120Hz",4700],
+  ["Vidda 发现X 2025款",85,2000,1024,"95% DCI-P3","4K120Hz",4700],
+  ["TCL 85T6L",85,1300,420,"96% DCI-P3","4K144Hz",5000],
+  ["Vidda 发现X 2026款",85,2000,1280,"98% DCI-P3","4K150Hz",5500,"墨晶屏；本档甜点"],
+  ["海信85E7N",85,3800,2940,"95% DCI-P3","4K144Hz",6300],
+  ["创维黑骑士A5F Pro",85,1800,1056,"99% DCI-P3","4K150Hz",6300,"极黑广角类纸屏"],
+  ["雷鸟 鹤7",85,2400,1536,"95% DCI-P3","4K144Hz",6500],
+  ["Vidda 发现X Pro",85,3800,2940,"95% DCI-P3","4K144Hz",6800],
+  ["海信85E7N Pro",85,3800,2940,"96% DCI-P3","4K150Hz",8000],
+  ["雷鸟鹤7 Pro 26款",85,5000,2880,"98% DCI-P3","4K150Hz",8400],
+  ["海信85E8N Pro",85,4200,2376,"98% DCI-P3","4K144Hz",9500],
+  ["海信85E8Q",85,6500,4224,"98% DCI-P3","4K170Hz",11000]
+ ],
+ "100":[
+  ["长虹 98D7F",98,1000,384,"94% DCI-P3","4K144Hz",6400,"100 寸里最便宜的入门"],
+  ["长虹100Z60",100,1000,384,"93% DCI-P3","4K120Hz",6800],
+  ["酷开100K6",100,2000,1152,"93% DCI-P3","4K144Hz",7600],
+  ["Vidda X Ultra",100,2500,2304,"95% DCI-P3","4K144Hz",7900],
+  ["Vidda 发现X 2025款",100,2400,1248,"95% DCI-P3","4K144Hz",7900],
+  ["雷鸟鹤6 Ultra 25款",98,2000,1152,"95% DCI-P3","4K144Hz",7900],
+  ["TCL 98T8H",98,1200,512,"96% DCI-P3","4K144Hz",8000],
+  ["雷鸟 鹤7",100,2800,2736,"95% DCI-P3","4K144Hz",8200],
+  ["雷鸟MAX100",100,1200,512,"95% DCI-P3","4K144Hz",8400],
+  ["创维黑骑士A6F Pro+",100,4000,4048,"99% DCI-P3","4K150Hz",9000],
+  ["海信电视100E5N",100,1600,608,"95% DCI-P3","4K144Hz",9000],
+  ["TCL 98T7K",98,1600,960,"98% DCI-P3","4K144Hz",10000],
+  ["创维黑骑士A5F Pro",100,3500,2304,"99% DCI-P3","4K150Hz",11000],
+  ["海信100E7N",100,4000,4224,"95% DCI-P3","4K144Hz",12000],
+  ["Vidda 发现X Pro",100,4000,4224,"95% DCI-P3","4K144Hz",12000],
+  ["小米 S Pro 2025款",100,3000,3864,"95% DCI-P3","4K144Hz",12000],
+  ["海信100E7N Pro",100,4000,4224,"96% DCI-P3","4K165Hz",12000,"超低反黑曜屏 PRO"],
+  ["雷鸟鹤7 Pro 26款",98,5000,3840,"98% DCI-P3","4K150Hz",13000],
+  ["Vidda大玩家 G7",100,7300,5040,"100% DCI-P3","4K180Hz",14000,"本档亮度冠军"]
+ ]
+};
+
+/* 投影：n / 光源 / 芯片 / bright(CVIA) / ratio / price / note */
+var PJ={
+ "4k":[
+  ["坚果N3",1700,"0.47DMD",3500,"1–1.3","三色激光入门，有云台"],
+  ["Vidda M2 Pro 高亮版",1400,"0.47DMD",3800,"1–1.3","带光学变焦 + 4K + 三色激光压到 3K 多，性价比超神"],
+  ["当贝D7X Pro 超亮版",1700,"0.39DMD",3800,"0.98–1.3","0.39 的 DMD 也有 VRR 和低延迟"],
+  ["Vidda C3 高亮版",2150,"0.47DMD",4500,"1–1.3","杜比视界 4K 入门机性价比超高，千兆网口"],
+  ["坚果N5",2800,"0.47DMD",4500,"0.98–1.3",""],
+  ["Vidda C3S 高亮版",2400,"0.47DMD",5500,"1–1.3","需要开氛围灯的考虑，C3 系列全系杜比视界"],
+  ["Vidda C3 Pro 高亮版",3100,"0.47DMD",6500,"0.9–1.5","不需要低音炮可以考虑，质保升到 2 年半"],
+  ["Vidda C2 Ultra",3000,"0.47DMD",7500,"0.9–1.5","色彩、亮度、投射比都很强"],
+  ["极米RS 20 Pro 高亮版",3000,"0.47DMD",7500,"1.2–1.5","主要看 1.2 投射比和镜头位移需求"],
+  ["坚果N5 Pro",3100,"0.47DMD",7500,"0.88–1.7","最便宜的超大镜头位移 + 超大变焦"],
+  ["坚果N5S Pro",3400,"472TP",6500,"0.1–1.4","入门款也带镜头位移和光学变焦"],
+  ["Vidda C5 Pro",3200,"472TP",5000,"1–1.3",""],
+  ["Vidda C5 Pro Max",3200,"472TP",7900,"0.9–1.5",""],
+  ["Vidda C5 Ultra",4400,"472TP",10500,"0.9–1.5",""],
+  ["坚果N5S Ultra",5200,"472TP",9500,"0.88–1.7","游戏投影唯一真神：4K 120Hz，抑制彩虹纹"],
+  ["Vidda C5 UltraMax",4700,"0.47SST",12500,"0.85–1.7",""],
+  ["当贝S7 Ultra Max",5800,"0.47DMD",13500,"0.98–1.6","首创水冷，国产最亮，对比度也高"],
+  ["Vidda C5 Master",5800,"0.47SST",14500,"0.85–1.7",""],
+  ["极米X50 Ultra Max",5000,"0.47SST",17500,"0.98–2.0",""],
+  ["Vidda C5 无界 Master",6800,"0.47SST",22500,"0.84–2.0","国产王者，亮度爆表，白天无压力"]
+ ],
+ "lcd":[
+  ["小明Q5 Neo",300,"单LCD","千元档","1.2","造型别致，但亮度没什么提升"],
+  ["哈趣Q1",330,"单LCD","百元档","1.22","画面艳丽但缺层次，画质无法调节"],
+  ["大眼橙C3air",400,"单LCD","百元档","1.2","新的入门级，预算低的可以考虑"],
+  ["哈趣K2高亮版",800,"单LCD","千元档","1.26","哈趣系统不错，几款就是差 100 亮度"],
+  ["大眼橙C3D",850,"单LCD","千元档","1.2","带云台带灯，卧室用挺好"],
+  ["大眼橙C3 MAX",850,"单LCD","千元档","1.2","C3D 的平替版"],
+  ["大眼橙C3 Ultra",1000,"单LCD","千元档","1.2","趣狼原话：同价位无敌！高亮高刷高性价比"],
+  ["哈趣H3 Ultra Max",1000,"单LCD","千元档","1.25","MAX 就是多了 120Hz"],
+  ["小米5 Pro",1000,"单LCD","千元档","1.25","120Hz，MT9660"],
+  ["大眼橙C5 Ultra 旗舰版",1300,"单LCD","千元档","1.2","120Hz，MT9669 3+64G"],
+  ["哈趣K3 Ultra Max 高亮",1580,"单LCD","千元档","1.25","50% 偏轴，MT9669 4+64G"],
+  ["大眼橙R3 Ultra 高亮版",1500,"单LCD","千元档","1.2","新增对焦清晰技术，R3 没有偏轴"],
+  ["大眼橙R3 Ultra 旗舰版",1700,"单LCD","千元档","1.2","超亮！色彩反超 3LCD"]
+ ]
+};
+
+/* 单位面积：代表机型 */
+var AREA=[
+ {n:"康佳 65E8E",sub:"65″ 电视 · 最便宜入门",p:1600,size:65,color:"var(--c-tv)"},
+ {n:"雷鸟 雀5",sub:"75″ 电视 · 最便宜入门",p:2300,size:75,color:"var(--c-tv)"},
+ {n:"长虹 85D55F-G",sub:"85″ 电视 · 尺寸甜点",p:3200,size:85,color:"var(--c-tv)"},
+ {n:"长虹 98D7F",sub:"98″ 电视 · 大屏门槛",p:6400,size:98,color:"var(--c-tv)"},
+ {n:"Vidda 发现X 2026",sub:"85″ 电视 · 画质甜点",p:5500,size:85,color:"var(--c-tv)"},
+ {n:"海信 100E7N Pro",sub:"100″ 电视 · 本档画质",p:12000,size:100,color:"var(--c-tv)"},
+ {n:"大眼橙 C3 Ultra",sub:"单 LCD 1080P 投影",p:1200,size:"pj",color:"var(--c-pj)"},
+ {n:"Vidda C3 高亮版",sub:"三色激光 4K 投影",p:4500,size:"pj",color:"var(--c-pj)"},
+ {n:"Vidda C5 无界 Master",sub:"三色激光 4K 投影 · 顶配",p:22500,size:"pj",color:"var(--c-pj)"},
+ {n:"雷鸟 GT Max",sub:"AR 眼镜 · 等效 267″（虚拟）",p:2209,size:"ar",color:"var(--c-ar)"}
+];
+
+/* ═══════════ 工具 ═══════════ */
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+function fmtY(v){ if(v>=10000){ var w=v/10000; return "¥"+(w>=10?Math.round(w):(Math.round(w*10)/10))+"W"; } return "¥"+Math.round(v/100)/10+"K"; }
+/* 16:9 对角线英寸 → 面积 ㎡ */
+function areaOf(inch){ var d=inch*2.54/100; var h=d/Math.sqrt(1+Math.pow(16/9,2)); var w=h*16/9; return w*h; }
+var SIZE_AREA={};[65,75,85,98,100].forEach(function(s){SIZE_AREA[s]=areaOf(s)});
+
+/* ═══════════ 收藏 ═══════════ */
+var KEY='screen-guide-favs-v1';
+var favs=[];try{favs=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+function saveFavs(){try{localStorage.setItem(KEY,JSON.stringify(favs))}catch(e){}}
+
+/* ═══════════ AR 眼镜 ═══════════ */
+var arFilter='all';
+var arGrid=document.getElementById('argrid');
+function ppdClass(v){ return v>=47?'ppd--hi':(v>=42?'ppd--mid':'ppd--lo'); }
+function renderAR(){
+  arGrid.innerHTML='';
+  var shown=0;
+  AR.forEach(function(m){
+    var ok = arFilter==='all'
+      || (arFilter==='new'   && m.isNew)
+      || (arFilter==='sharp' && m.ppd && m.ppd>=47)
+      || (arFilter==='wide'  && m.fov && m.fov>=55)
+      || (arFilter==='cheap' && m.p<=2000)
+      || (arFilter==='fav'   && favs.indexOf(m.n)>-1);
+    if(!ok) return;
+    shown++;
+    var card=el('article','acard reveal is-in'+((m.isNew)?' acard--new':'')+((m.best)?' acard--top':''));
+    card.id='ar-'+m.n.replace(/[^\w一-龥]/g,'-');
+
+    var fav=el('button','acard__fav','♥');
+    fav.type='button';
+    fav.setAttribute('aria-label','收藏 '+m.n);
+    if(favs.indexOf(m.n)>-1){fav.classList.add('is-fav');fav.setAttribute('aria-pressed','true')}
+    else{fav.setAttribute('aria-pressed','false')}
+    fav.addEventListener('click',function(){
+      var i=favs.indexOf(m.n);
+      if(i>-1){favs.splice(i,1);fav.classList.remove('is-fav');fav.setAttribute('aria-pressed','false')}
+      else{favs.push(m.n);fav.classList.add('is-fav');fav.setAttribute('aria-pressed','true')}
+      saveFavs();
+      if(arFilter==='fav') renderAR();
+    });
+    card.appendChild(fav);
+
+    var head=el('div','acard__head');
+    var h=el('h3',null,m.n); head.appendChild(h);
+    if(m.tag) { var t=el('span','tag '+(m.best?'tag--best':'tag--new'),m.tag); head.appendChild(t); }
+    if(m.isNew && !m.tag) head.appendChild(el('span','tag tag--new','表里没有'));
+    card.appendChild(head);
+
+    var specs=el('div','acard__specs');
+    function spec(k,v,cls){
+      var d=el('div','spec');
+      d.appendChild(el('span','spec__k',k));
+      var vv=el('span','spec__v'+(cls?' '+cls:'')); vv.innerHTML=v;
+      d.appendChild(vv); specs.appendChild(d);
+    }
+    if(m.ppd) spec('PPD 角分辨率','<b>'+m.ppd+'</b>',ppdClass(m.ppd));
+    else      spec('PPD 角分辨率','—');
+    spec('FOV 视场角', m.fov?('<b>'+m.fov+'°</b>'):'—');
+    if(m.res) spec('单眼分辨率', m.res);
+    if(m.br)  spec('亮度', m.br);
+    if(m.w)   spec('重量', m.w);
+    if(m.eye) spec('近视调节', m.eye);
+    card.appendChild(specs);
+
+    var price=el('p','acard__price');
+    price.innerHTML = fmtY(m.p) + (m.p2 ? '<small>国补 '+fmtY(m.p2)+'</small>' : '');
+    card.appendChild(price);
+
+    if(m.note) card.appendChild(el('p','acard__note',m.note));
+
+    arGrid.appendChild(card);
+  });
+  var empty=document.getElementById('arEmpty');
+  if(empty) empty.hidden = shown>0;
+}
+document.querySelectorAll('[data-ar]').forEach(function(ch){
+  ch.addEventListener('click',function(){
+    arFilter=ch.getAttribute('data-ar');
+    document.querySelectorAll('[data-ar]').forEach(function(x){x.classList.toggle('is-on',x===ch)});
+    renderAR();
+  });
+});
+renderAR();
+
+/* ═══════════ 电视表 ═══════════ */
+var tvSize='65', tvBudget=Infinity, tvSort='none', tvDir=1;
+function renderTV(){
+  var body=document.getElementById('tvbody');
+  body.innerHTML='';
+  var rows=TV[tvSize].map(function(r){
+    return {n:r[0],size:r[1],bright:r[2],zone:r[3],gamut:r[4],rr:r[5],price:r[6],note:r[7]||''};
+  }).filter(function(r){return r.price<=tvBudget});
+  if(tvSort!=='none'){
+    rows.sort(function(a,b){ var d=(a[tvSort]||0)-(b[tvSort]||0); return tvDir*d; });
+  }
+  var maxB=Math.max.apply(null,rows.map(function(r){return r.bright}).concat([1]));
+  var maxP=Math.max.apply(null,rows.map(function(r){return r.price}).concat([1]));
+  rows.forEach(function(r){
+    var tr=document.createElement('tr');
+    var cheap = r.price===Math.min.apply(null,rows.map(function(x){return x.price}));
+    var bang  = r.price===Math.max.apply(null,rows.map(function(x){return x.price}));
+    var tdN=el('td','name');
+    tdN.innerHTML=r.n+(bang?'<span class="tag tag--best">本档顶配</span>':'')+(cheap?'<span class="tag tag--warn">最便宜</span>':'')
+      +(r.note?'<span class="note">'+r.note+'</span>':'');
+    tr.appendChild(tdN);
+    tr.appendChild(el('td','num',r.size+'″'));
+    var tdB=el('td','num'); tdB.innerHTML=r.bright+' nit<span class="bar" style="width:'+Math.round(r.bright/maxB*100)+'%;background:var(--color-amber)"></span>';
+    if(r.bright<1000) tdB.innerHTML+='<span class="note">低于 1000nit 分水岭</span>';
+    tr.appendChild(tdB);
+    tr.appendChild(el('td','num',r.zone?r.zone:'无'));
+    tr.appendChild(el('td',null,r.gamut));
+    tr.appendChild(el('td',null,r.rr));
+    var a=SIZE_AREA[r.size]||areaOf(r.size);
+    var tdP=el('td','price'); tdP.innerHTML=fmtY(r.price)+'<span class="bar" style="width:'+Math.round(r.price/maxP*100)+'%"></span>';
+    tr.appendChild(tdP);
+    tr.appendChild(el('td','num','¥'+Math.round(r.price/a)));
+    body.appendChild(tr);
+  });
+}
+document.querySelectorAll('[data-tv]').forEach(function(t){
+  t.addEventListener('click',function(){
+    tvSize=t.getAttribute('data-tv');
+    document.querySelectorAll('[data-tv]').forEach(function(x){
+      x.classList.toggle('is-on',x===t);
+      x.setAttribute('aria-selected', x===t?'true':'false');
+    });
+    renderTV();
+  });
+});
+document.querySelectorAll('[data-tvbudget]').forEach(function(ch){
+  ch.addEventListener('click',function(){
+    var v=ch.getAttribute('data-tvbudget');
+    tvBudget = v==='all'?Infinity:parseInt(v,10);
+    document.querySelectorAll('[data-tvbudget]').forEach(function(x){x.classList.toggle('is-on',x===ch)});
+    renderTV();
+  });
+});
+document.querySelectorAll('#tvtable thead th.is-sortable').forEach(function(th){
+  th.setAttribute('tabindex','0');
+  function doSort(){
+    var k=th.getAttribute('data-sort');
+    if(tvSort===k){ tvDir=-tvDir; } else { tvSort=k; tvDir=(k==='price')?1:-1; }
+    document.querySelectorAll('#tvtable thead th.is-sortable .arw').forEach(function(a){a.textContent=''});
+    var arw=th.querySelector('.arw'); if(arw) arw.textContent = tvDir>0?'↑':'↓';
+    renderTV();
+  }
+  th.addEventListener('click',doSort);
+  th.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();doSort();} });
+});
+renderTV();
+
+/* ═══════════ 投影表 ═══════════ */
+var pjType='4k', pjSort='none', pjDir=1;
+function renderPJ(){
+  var body=document.getElementById('pjbody');
+  body.innerHTML='';
+  var data=PJ[pjType];
+  var rows=data.map(function(r,i){return {n:r[0],bright:r[1],chip:r[2],price:r[3],ratio:r[4],note:r[5],i:i}});
+  if(pjType==='4k' && pjSort!=='none'){
+    rows.sort(function(a,b){ var d=(a[pjSort]||0)-(b[pjSort]||0); return pjDir*d; });
+  }
+  var maxB=Math.max.apply(null,rows.map(function(r){return r.bright}).concat([1]));
+  var maxP=Math.max.apply(null,rows.map(function(r){return r.price}).concat([1]));
+  rows.forEach(function(r){
+    var tr=document.createElement('tr');
+    var src = pjType==='4k' ? '三色激光' : 'LED 光源';
+    tr.appendChild(el('td','name',r.n));
+    tr.appendChild(el('td',null,src));
+    tr.appendChild(el('td',null,r.chip));
+    if(pjType==='4k'){
+      var tdB=el('td','num'); tdB.innerHTML=r.bright+' CVIA<span class="bar" style="width:'+Math.round(r.bright/maxB*100)+'%;background:var(--c-pj)"></span>';
+      tr.appendChild(tdB);
+      tr.appendChild(el('td','num',r.ratio));
+      var tdP=el('td','price'); tdP.innerHTML=fmtY(r.price)+'<span class="bar" style="width:'+Math.round(r.price/maxP*100)+'%;background:var(--c-pj)"></span>';
+      tr.appendChild(tdP);
+    } else {
+      var tdB2=el('td','num'); tdB2.innerHTML=r.bright+' CVIA<span class="bar" style="width:'+Math.round(r.bright/maxB*100)+'%;background:var(--c-pj)"></span>';
+      tr.appendChild(tdB2);
+      tr.appendChild(el('td','num',r.ratio));
+      var tdP2=el('td','price'); tdP2.innerHTML=r.price;
+      tr.appendChild(tdP2);
+    }
+    var tdN=el('td'); tdN.appendChild(el('span','note',r.note||'—')); tr.appendChild(tdN);
+    body.appendChild(tr);
+  });
+}
+document.querySelectorAll('[data-pj]').forEach(function(t){
+  t.addEventListener('click',function(){
+    pjType=t.getAttribute('data-pj');
+    document.querySelectorAll('[data-pj]').forEach(function(x){
+      x.classList.toggle('is-on',x===t);
+      x.setAttribute('aria-selected', x===t?'true':'false');
+    });
+    renderPJ();
+  });
+});
+/* 表头需要随 tab 变化——4K 与 LCD 列不同，简单做法：数据渲染后统一 7 列 */
+document.querySelectorAll('#pjtable thead th.is-sortable').forEach(function(th){
+  th.setAttribute('tabindex','0');
+  function doSort(){
+    var k=th.getAttribute('data-sort');
+    if(pjSort===k){ pjDir=-pjDir; } else { pjSort=k; pjDir=(k==='price')?1:-1; }
+    document.querySelectorAll('#pjtable thead th.is-sortable .arw').forEach(function(a){a.textContent=''});
+    var arw=th.querySelector('.arw'); if(arw) arw.textContent = pjDir>0?'↑':'↓';
+    renderPJ();
+  }
+  th.addEventListener('click',doSort);
+  th.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();doSort();} });
+});
+renderPJ();
+
+/* ═══════════ 单位面积 ═══════════ */
+var pjInch=100;
+function renderArea(){
+  var grid=document.getElementById('areagrid');
+  grid.innerHTML='';
+  var pjArea=areaOf(pjInch);
+  var items=AREA.map(function(a){
+    var area = a.size==='ar' ? areaOf(267) : (a.size==='pj' ? pjArea : (SIZE_AREA[a.size]||areaOf(a.size)));
+    return {n:a.n,sub:a.sub,p:a.p,color:a.color,area:area,per:a.p/area};
+  });
+  var maxPer=Math.max.apply(null,items.map(function(x){return x.per}));
+  items.sort(function(a,b){return a.per-b.per});
+  items.forEach(function(x){
+    var row=el('div','arow');
+    var name=el('div','arow__name',x.n);
+    name.appendChild(el('small',null,x.sub+' · '+x.area.toFixed(2)+' ㎡'));
+    row.appendChild(name);
+    var val=el('div','arow__val','¥'+Math.round(x.per));
+    val.appendChild(el('small',null,'每 ㎡'));
+    row.appendChild(val);
+    var bar=el('div','arow__bar');
+    var i=el('i'); i.style.width=Math.max(2,Math.round(x.per/maxPer*100))+'%'; i.style.background=x.color;
+    bar.appendChild(i); row.appendChild(bar);
+    grid.appendChild(row);
+  });
+}
+document.querySelectorAll('[data-size]').forEach(function(ch){
+  ch.addEventListener('click',function(){
+    pjInch=parseInt(ch.getAttribute('data-size'),10);
+    document.querySelectorAll('[data-size]').forEach(function(x){x.classList.toggle('is-on',x===ch)});
+    renderArea();
+  });
+});
+renderArea();
+
+/* ═══════════ 进度条 / 回顶 ═══════════ */
+var bar=document.getElementById('progress'), toTop=document.getElementById('toTop');
+function onScroll(){
+  var max=document.documentElement.scrollHeight-window.innerHeight;
+  if(bar) bar.style.transform='scaleX('+(max>0?window.scrollY/max:0)+')';
+  if(toTop) toTop.classList.toggle('is-show',window.scrollY>700);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+if(toTop) toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
+
+/* ═══════════ reveal ═══════════ */
+if(!reduce && 'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
+} else {
+  document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('is-in')});
+}
+})();
+</script>
+</body>
+</html>
