@@ -1,0 +1,445 @@
+<!doctype html>
+<!-- Hallmark · macrostructure: Trip Retrospective · tone: warm (cozy travel) · theme: custom (暖阳奶油纸 · 陶土橘 accent · 茶山绿 · 温泉暖红) · enrichment: 自摄实拍 · nav: masthead · footer: statement -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="2026 中秋 9/25–9/27 清远三天两晚自驾实录：住清新区三坑镇水上云朵温泉酒店，两晚同一间房、每房私汤；返程实测 223.2km / 3h22 / 过路费 ¥144.5。含逐日时间线、园区实拍、花费账和下次出行的经验清单。">
+<title>清远三日 · 实录 —— 泡了两晚，游了一场泳，然后开回家</title>
+<style>
+/* Hallmark · macrostructure: Trip Retrospective · genre: editorial / cozy
+ * theme: custom (暖阳奶油纸 · 陶土橘 + 茶山绿 + 温泉暖红 · 系统 CJK 字体 — 大陆可直连) */
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-padding-top:5rem}
+body{margin:0;overflow-x:clip;background:var(--color-paper);color:var(--color-ink);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(70rem 40rem at 12% -8%, oklch(93% 0.05 68 / .55), transparent 62%),
+    radial-gradient(56rem 34rem at 96% 4%, oklch(94% 0.04 150 / .42), transparent 60%)}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--color-accent-bright)}
+:focus-visible{outline:2px solid var(--color-focus);outline-offset:3px;border-radius:var(--radius-sm)}
+
+:root{
+  --color-paper:        oklch(97.5% 0.017 76);
+  --color-paper-2:      oklch(94.7% 0.026 74);
+  --color-paper-3:      oklch(90.9% 0.034 70);
+  --color-rule:         oklch(85.6% 0.030 68);
+  --color-neutral:      oklch(57%   0.034 62);
+  --color-muted:        oklch(44%   0.038 58);
+  --color-ink:          oklch(27%   0.035 52);
+  --color-accent:       oklch(60%   0.135 42);
+  --color-accent-bright:oklch(68%   0.145 48);
+  --color-accent-soft:  oklch(93.5% 0.038 62);
+  --color-sage:         oklch(54%   0.075 150);
+  --color-sage-soft:    oklch(93.6% 0.028 150);
+  --color-honey:        oklch(76%   0.125 78);
+  --color-plum:         oklch(54%   0.100 20);
+  --color-plum-soft:    oklch(94%   0.028 20);
+  --color-night:        oklch(28%   0.038 45);
+  --color-night-2:      oklch(22.5% 0.034 45);
+  --color-focus:        oklch(62%   0.130 45);
+  --font-display: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  --font-body:    "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-outlier: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  --space-2xs:0.25rem; --space-xs:0.5rem; --space-sm:0.75rem; --space-md:1rem;
+  --space-lg:1.5rem; --space-xl:2rem; --space-2xl:3rem; --space-3xl:4.5rem; --space-4xl:6.5rem;
+  --text-xs:0.72rem; --text-sm:0.85rem; --text-base:1rem; --text-md:1.1875rem;
+  --text-lg:1.5rem; --text-xl:1.875rem; --text-2xl:2.35rem; --text-3xl:2.9rem;
+  --text-hero:clamp(2rem, 5.2vw + 0.7rem, 3.6rem);
+  --ease-out:cubic-bezier(0.22,1,0.36,1); --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+  --dur-fast:120ms; --dur:260ms; --dur-slow:520ms;
+  --radius-sm:8px; --radius-md:14px; --radius-lg:22px; --radius-pill:999px;
+  --shadow-warm:0 1px 2px oklch(40% 0.05 60 / .05), 0 8px 24px -10px oklch(40% 0.06 55 / .16);
+  --shadow-lift:0 2px 4px oklch(40% 0.05 60 / .06), 0 18px 42px -16px oklch(40% 0.07 55 / .24);
+}
+
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;
+  background:linear-gradient(90deg,var(--color-sage),var(--color-accent),var(--color-plum));
+  transform:scaleX(0);transform-origin:0 0}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--color-paper) 86%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--color-rule)}
+.mast__in{max-width:78rem;margin-inline:auto;padding:.75rem clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:baseline;gap:var(--space-md);justify-content:space-between}
+.wordmark{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--color-ink);
+  letter-spacing:-0.01em;white-space:nowrap;text-decoration:none}
+.wordmark small{font-family:var(--font-outlier);font-weight:400;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral);margin-left:.5rem}
+.mast__links{display:none;align-items:baseline;gap:var(--space-lg);white-space:nowrap}
+.mast__links a{font-size:.92rem;text-decoration:none;color:var(--color-muted)}
+.mast__links a:hover{color:var(--color-accent)}
+@media (min-width:52rem){.mast__links{display:flex}}
+
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.sec{padding-block:var(--space-4xl)}
+.sec--tint{background:var(--color-paper-2);border-block:1px solid var(--color-rule)}
+.sec__head{max-width:min(62rem,100%);margin-bottom:var(--space-2xl)}
+.eyebrow{font-family:var(--font-outlier);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--color-accent);margin:0 0 var(--space-sm)}
+.sec__title{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.25;margin:0;
+  letter-spacing:-0.015em;text-wrap:balance}
+.sec__lede{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:56ch}
+
+/* hero */
+.hero{padding:var(--space-3xl) 0 var(--space-2xl)}
+.hero__grid{display:grid;gap:var(--space-xl);align-items:center}
+@media (min-width:56rem){.hero__grid{grid-template-columns:1.05fr .95fr;gap:var(--space-2xl)}}
+.hero__stamp{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-outlier);
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-plum);
+  background:var(--color-plum-soft);border:1px solid color-mix(in oklch,var(--color-plum) 28%,transparent);
+  padding:.34rem .8rem;border-radius:var(--radius-pill)}
+.hero__title{font-family:var(--font-display);font-size:var(--text-hero);line-height:1.2;margin:var(--space-lg) 0 0;
+  letter-spacing:-0.02em;text-wrap:balance;color:var(--color-ink)}
+.hero__title em{font-style:normal;color:var(--color-accent);white-space:nowrap;
+  background:linear-gradient(180deg,transparent 62%,color-mix(in oklch,var(--color-honey) 55%,transparent) 62%)}
+.hero__sub{margin:var(--space-md) 0 0;color:var(--color-muted);font-size:var(--text-md);max-width:46ch}
+.hero__meta{display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-lg);margin-top:var(--space-lg);
+  padding-top:var(--space-lg);border-top:1px solid var(--color-rule);font-size:.9rem;color:var(--color-muted)}
+.hero__meta b{color:var(--color-ink);font-weight:600}
+.hero__fig{margin:0;position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-lift);background:var(--color-paper-3)}
+.hero__fig img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero__fig figcaption{position:absolute;inset:auto 0 0 0;padding:1.8rem 1.1rem .85rem;
+  font-size:.8rem;color:oklch(97% 0.01 80);
+  background:linear-gradient(180deg,transparent,oklch(25% 0.05 45 / .85))}
+
+/* 关键数字 */
+.facts{display:grid;gap:var(--space-md);grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr))}
+.fact{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-md);
+  padding:var(--space-md) var(--space-md) var(--space-lg);box-shadow:var(--shadow-warm)}
+.fact dt{font-size:.76rem;color:var(--color-neutral);letter-spacing:.06em;margin:0}
+.fact dd{margin:.35rem 0 0;font-family:var(--font-display);font-size:1.45rem;line-height:1.15;color:var(--color-ink)}
+.fact dd small{display:block;font-family:var(--font-body);font-size:.78rem;color:var(--color-muted);
+  margin-top:.3rem;font-weight:400}
+
+/* 逐日 */
+.tabs{display:flex;flex-wrap:wrap;gap:var(--space-xs);margin-bottom:var(--space-xl)}
+.tab{font:inherit;font-size:.92rem;cursor:pointer;border:1px solid var(--color-rule);
+  background:var(--color-paper);color:var(--color-muted);border-radius:var(--radius-pill);
+  padding:.5rem 1.05rem;transition:all var(--dur) var(--ease-out)}
+.tab:hover{border-color:var(--color-accent);color:var(--color-accent)}
+.tab[aria-selected="true"]{background:var(--color-accent);border-color:var(--color-accent);
+  color:oklch(98% 0.015 70);box-shadow:var(--shadow-warm)}
+.tab small{font-family:var(--font-outlier);font-size:.72rem;opacity:.75;margin-left:.4rem}
+.day{display:none}
+.day.is-on{display:block;animation:fadeUp var(--dur-slow) var(--ease-out) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.day__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-sm) var(--space-lg);
+  margin-bottom:var(--space-lg)}
+.day__head h3{font-family:var(--font-display);font-size:var(--text-xl);margin:0;letter-spacing:-0.01em}
+.day__head p{margin:0;color:var(--color-muted);font-size:.95rem}
+.tl{list-style:none;margin:0;padding:0 0 0 1.5rem;position:relative}
+.tl::before{content:"";position:absolute;left:.34rem;top:.55rem;bottom:.6rem;width:2px;
+  background:linear-gradient(180deg,var(--color-sage),var(--color-accent),var(--color-plum));border-radius:2px;opacity:.4}
+.tl li{position:relative;padding:0 0 var(--space-lg) 0}
+.tl li::before{content:"";position:absolute;left:-1.5rem;top:.52rem;width:.72rem;height:.72rem;border-radius:50%;
+  background:var(--color-paper);border:2px solid var(--color-accent)}
+.tl li:last-child{padding-bottom:0}
+.tl li.is-kp::before{background:var(--color-plum);border-color:var(--color-plum);
+  box-shadow:0 0 0 4px color-mix(in oklch,var(--color-plum) 18%,transparent)}
+.tl time{font-family:var(--font-outlier);font-size:.8rem;color:var(--color-accent);letter-spacing:.04em}
+.tl>li>b{display:block;font-weight:600;margin:.1rem 0 .15rem;font-size:1.02rem}
+.tl p{margin:0;color:var(--color-muted);font-size:.93rem}
+.tl code{font-family:var(--font-outlier);font-size:.86em;background:var(--color-paper-3);
+  padding:.08em .38em;border-radius:4px;color:var(--color-ink)}
+
+/* 提示条 */
+.note{background:var(--color-paper);border:1px solid var(--color-rule);border-left:3px solid var(--color-honey);
+  border-radius:var(--radius-md);padding:var(--space-lg);box-shadow:var(--shadow-warm);margin-top:var(--space-xl)}
+.note h3{margin:0 0 var(--space-sm);font-family:var(--font-display);font-size:1.15rem}
+.note ul{margin:0;padding-left:1.1rem;color:var(--color-muted);font-size:.93rem}
+.note li{margin-bottom:.45rem}
+.note li b{color:var(--color-ink)}
+.note--sage{border-left-color:var(--color-sage)}
+.note--plum{border-left-color:var(--color-plum)}
+
+/* 图集 */
+.gal{display:grid;gap:var(--space-md);grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.gal figure{margin:0;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-warm);
+  background:var(--color-paper-3);position:relative}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform var(--dur-slow) var(--ease-out)}
+.gal figure:hover img{transform:scale(1.03)}
+.gal figcaption{position:absolute;inset:auto 0 0 0;padding:1.5rem .85rem .6rem;font-size:.78rem;
+  color:oklch(97% 0.01 80);background:linear-gradient(180deg,transparent,oklch(25% 0.05 45 / .8))}
+.gal--wide{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+
+.fig-tall{margin:var(--space-xl) 0 0;border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-lift);position:relative;background:var(--color-paper-3)}
+.fig-tall img{width:100%;height:auto}
+.fig-tall figcaption{position:absolute;inset:auto 0 0 0;padding:2rem 1.1rem .9rem;font-size:.82rem;
+  color:oklch(97% 0.01 80);background:linear-gradient(180deg,transparent,oklch(25% 0.05 45 / .85))}
+
+/* 花费 */
+.cost{display:grid;gap:var(--space-md);grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.cost__item{background:var(--color-paper);border:1px solid var(--color-rule);border-radius:var(--radius-md);
+  padding:var(--space-lg);box-shadow:var(--shadow-warm)}
+.cost__item dt{font-size:.82rem;color:var(--color-neutral);margin:0}
+.cost__item dd{margin:.4rem 0 0;font-family:var(--font-display);font-size:1.6rem;color:var(--color-ink)}
+.cost__item dd small{display:block;font-family:var(--font-body);font-size:.8rem;color:var(--color-muted);
+  margin-top:.3rem}
+.cost__item--todo{background:var(--color-paper-2);border-style:dashed}
+.cost__item--todo dd{color:var(--color-neutral)}
+
+/* footer */
+.foot{background:var(--color-night);color:var(--color-paper);padding-block:var(--space-3xl)}
+.foot__in{max-width:78rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.foot p{margin:0;font-family:var(--font-display);font-size:var(--text-lg);line-height:1.5;max-width:34ch}
+.foot small{display:block;margin-top:var(--space-lg);font-family:var(--font-outlier);font-size:.74rem;
+  letter-spacing:.12em;text-transform:uppercase;color:color-mix(in oklch,var(--color-paper) 55%,transparent)}
+</style>
+</head>
+<body>
+<div class="progress" id="bar"></div>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="wordmark" href="#top">清远三日 · 实录<small>Qingyuan 2026</small></a>
+    <nav class="mast__links">
+      <a href="#days">逐日</a>
+      <a href="#park">园区</a>
+      <a href="#food">吃了什么</a>
+      <a href="#cost">花费</a>
+      <a href="#learn">经验</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="hero__stamp">2026.09.25 — 09.27 · 中秋 · 两人自驾</span>
+        <h1 class="hero__title">泡了两晚，游了一场泳，<br>然后<em>开回家</em></h1>
+        <p class="hero__sub">三天两晚，两晚住同一间房。没赶景点，把时间花在泡汤、睡觉、游泳和吃上——这趟的账，回来算清楚了。</p>
+        <div class="hero__meta">
+          <span>路线 <b>深圳 ⇄ 清远·三坑镇</b></span>
+          <span>住处 <b>水上云朵温泉酒店</b></span>
+          <span>返程实测 <b>223.2 km · 3h22</b></span>
+        </div>
+      </div>
+      <figure class="hero__fig">
+        <img src="qingyuan-review-img/park-01.jpg" alt="园区一角：水边茂密的绿植，几只黑天鹅在水面上">
+        <figcaption>园区一角。最后一天早上边走边拍的。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 关键数字 -->
+  <section class="sec sec--tint">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">The numbers</p>
+        <h2 class="sec__title">先把数字摆出来</h2>
+        <p class="sec__lede">下面这些不是估的，是订单、截图和车机记录里的原始数字。</p>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>行程</dt><dd>3 天 2 晚<small>9/25 五 — 9/27 日</small></dd></div>
+        <div class="fact"><dt>住宿实付</dt><dd>¥2,976<small>2 晚 × ¥1,488，含双早</small></dd></div>
+        <div class="fact"><dt>返程里程</dt><dd>223.2 km<small>清远 → 广州 → 东莞 → 深圳</small></dd></div>
+        <div class="fact"><dt>返程耗时</dt><dd>3 小时 22 分<small>均速 66 km/h</small></dd></div>
+        <div class="fact"><dt>返程过路费</dt><dd>¥144.5<small>中秋高速照收</small></dd></div>
+        <div class="fact"><dt>门口农家菜</dt><dd>4.9 分<small>347 条评价 · 人均 ¥47</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 逐日 -->
+  <section class="sec" id="days">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Day by day</p>
+        <h2 class="sec__title">三天，都干了什么</h2>
+        <p class="sec__lede">按天点开看。时间点都是真实发生的，不是计划表。</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-day="1">D1 · 去程 + 入住 <small>9/25 五</small></button>
+        <button class="tab" role="tab" aria-selected="false" data-day="2">D2 · 万达 + 峰林 <small>9/26 六</small></button>
+        <button class="tab" role="tab" aria-selected="false" data-day="3">D3 · 泳池 + 返程 <small>9/27 日</small></button>
+      </div>
+
+      <div class="day is-on" id="day-1">
+        <div class="day__head">
+          <h3>9 月 25 日（周五）· 在路上</h3>
+          <p>深圳 → 清远市清新区三坑镇，约 247 公里</p>
+        </div>
+        <ol class="tl">
+          <li><time>上午</time><b>深圳出发</b><p>往清远方向，全程高速，路况正常。</p></li>
+          <li><time>途中</time><b>竹院牛庄 · 桑拿鸡 + 桑拿牛肉</b><p>路上吃的第一顿，桑拿鸡和桑拿牛肉各一份。清远鸡的名声，从这一顿开始兑现。</p></li>
+          <li class="is-kp"><time>15:00</time><b>入住「清远水上云朵温泉酒店」</b><p>房型是<b>云隐景观房 · 一居双床房</b>，独栋小别墅里的房间，园区占地约 426 亩。含双人早餐。</p></li>
+          <li><time>傍晚</time><b>泡第一池私汤</b><p>房间自带泡池，<b>每间房每晚含 2 池温泉水</b>，超出部分另收——不是不限次，这点订房时务必看清楚。</p></li>
+          <li><time>晚上</time><b>附近农庄 · 牛腩牛肠煲</b><p>晚饭在园区外的农庄解决，一锅牛腩牛肠煲，热乎、下饭。</p></li>
+          <li><time>睡前</time><b>第二池</b><p>两池的额度当晚用掉第二池，泡完直接睡。</p></li>
+        </ol>
+      </div>
+
+      <div class="day" id="day-2">
+        <div class="day__head">
+          <h3>9 月 26 日（周六）· 进城吃饭，然后去看峰林</h3>
+          <p>三坑镇 → 清远万达广场 → 英西峰林方向</p>
+        </div>
+        <ol class="tl">
+          <li><time>08:00–10:30</time><b>早餐 · 云朵餐厅自助</b><p>在酒店前台右侧的云朵餐厅，<b>自助形式</b>，凭房卡进，含在房费里。</p></li>
+          <li><time>中午</time><b>清远万达广场</b><p>清城区湖西路 89 号，离飞来湖不远。主要目的就一个：吃。</p></li>
+          <li class="is-kp"><time>午饭</time><b>「花花姨碌鹅」· ¥174</b><p>点了<b>碌鹅拼盘 + 酿番茄 + 鱼丸鱼头煲</b>。碌鹅是招牌，好吃——这是整趟吃得最值的一顿之一。</p></li>
+          <li><time>下午</time><b>往英西峰林方向开</b><p>从万达往西北，目标是峰林日落。</p></li>
+          <li class="is-kp"><time>将近 17:00</time><b>到了九龙镇，景区已经关门</b><p>导航把我们带到了<b>九龙镇的洞天仙境</b>——那是个<b>溶洞</b>景区（4A，8:30–17:00），跟我们要看的峰林不是一回事，而且到的时候已经过了闭园时间。</p></li>
+        </ol>
+        <div class="note note--plum">
+          <h3>这一段，下次这么走</h3>
+          <ul>
+            <li>「英西峰林」横跨<b>九龙、黄花、岩背</b>三个镇，是 20 多公里的区域统称。<b>只搜这四个字，导航会把你丢到该区域最有名的那个点</b>——也就是九龙镇的洞天仙境。</li>
+            <li>要看「十里画廊」那种峰林，目的地应该是 <b>黄花镇新民村 · 峰林胜境</b>（8:00–17:30，最后入场 17:00，¥68，停车免费）。两地直线只差 7.6 km，但山路要开 24 分钟。</li>
+            <li>这类景区的<b>关门时间和最后入场时间，要在出发前查清楚，不能只算车程</b>——尤其「看日落」这种安排，光线最好的时段往往正好在关门之后。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="day" id="day-3">
+        <div class="day__head">
+          <h3>9 月 27 日（周日）· 游泳、退房、返程</h3>
+          <p>三坑镇 → 清远 → 广州 → 东莞 → 深圳</p>
+        </div>
+        <ol class="tl">
+          <li><time>上午</time><b>园区泳池游泳</b><p>泳池是<b>分道运营</b>的（水里有黄、紫的分道浮力条），池边有金属高脚救生台、救生圈和监控立杆——<b>是正经运营的泳池，不是儿童戏水池</b>。确认单上那句「水深 30–130cm」把它写小了。</p></li>
+          <li><time>上午</time><b>玩桨板</b><p>板上有绿色防滑垫，双头桨可以绑带固定在板上。池边还有蓝顶棚的儿童水上攀爬架。</p></li>
+          <li><time>上午</time><b>顺手把园区逛了一圈</b><p>黑天鹅带着崽、白鸭和锦鲤、灰雁群、草坡上一棵孤树、粉红台阶、生态菜园——比订单上写的「免费项目」丰富得多。</p></li>
+          <li><time>12:00</time><b>退房</b><p>退房时间就是 12:00。</p></li>
+          <li class="is-kp"><time>午饭</time><b>「家的味（三坑温泉店）」</b><p>就在酒店同村，步行一两分钟。点了<b>白切鸡 + 清蒸全鱼</b>。美团 4.9 分、347 条评价、人均 ¥47。<b>注意：团购券标着「最早明天可用」，当天到店用不了。</b></p></li>
+          <li class="is-kp"><time>14:06</time><b>出发返深</b><p>车机记录：<b>223.2 km，3 小时 22 分，均速 66 km/h，过路费 ¥144.5</b>，路线是清远 → 广州 → 东莞 → 深圳，约 <b>17:29</b> 到家。</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 园区 -->
+  <section class="sec sec--tint" id="park">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">The grounds</p>
+        <h2 class="sec__title">园区里有什么</h2>
+        <p class="sec__lede">426 亩的园区，两晚没住够。下面这些是最后一天早上边走边拍的。</p>
+      </div>
+
+      <div class="gal">
+        <figure><img src="qingyuan-review-img/park-02.jpg" alt="白鸭与锦鲤在池中"><figcaption>白鸭和锦鲤抢食</figcaption></figure>
+        <figure><img src="qingyuan-review-img/park-03.jpg" alt="带雏鸟的水禽"><figcaption>带着崽的一窝</figcaption></figure>
+        <figure><img src="qingyuan-review-img/park-04.jpg" alt="草坡上的一棵孤树"><figcaption>草坡上那棵孤树，很出片</figcaption></figure>
+        <figure><img src="qingyuan-review-img/park-05.jpg" alt="园区里的粉红色台阶"><figcaption>粉红台阶，姑娘们会喜欢</figcaption></figure>
+        <figure><img src="qingyuan-review-img/park-06.jpg" alt="成群的水禽在草地上"><figcaption>一群水禽，排着队走</figcaption></figure>
+        <figure><img src="qingyuan-review-img/park-07.jpg" alt="园区里的生态菜园"><figcaption>生态菜园，另一头就是儿童游乐区</figcaption></figure>
+      </div>
+
+      <figure class="fig-tall">
+        <img src="qingyuan-review-img/sup-01.jpg" alt="泳池里：贴水面低角度拍到的桨板与对岸的别墅、远山和积云">
+        <figcaption>最后一天上午的泳池。贴到水面上拍，对岸是独栋别墅和连着的山，天上是积云。</figcaption>
+      </figure>
+
+      <div class="note note--sage">
+        <h3>园区设施清单（亲眼确认过的）</h3>
+        <ul>
+          <li><b>泳池</b>：分道运营，金属高脚救生台 + 救生圈 + 监控立杆，另有泳池下水扶梯、儿童水上攀爬架、桨板</li>
+          <li><b>水禽</b>：黑天鹅（带崽）、白鸭 + 锦鲤、灰雁群</li>
+          <li><b>景观</b>：草坡孤树、粉红台阶、灰瓦中式凉亭、白色遮阳伞与户外沙发区、一排小叶榄仁（树干上缠着串灯）</li>
+          <li><b>其他</b>：生态菜园、儿童游乐区、可停车</li>
+          <li><b>客房</b>：独栋小别墅，每间房自带私汤泡池（每房每晚含 2 池温泉水）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 吃了什么 -->
+  <section class="sec" id="food">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">What we ate</p>
+        <h2 class="sec__title">三天吃了这些</h2>
+        <p class="sec__lede">清远鸡、乌鬃鹅、北江鱼——这一带的招牌基本都占上了。</p>
+      </div>
+      <div class="gal gal--wide">
+        <figure><img src="qingyuan-review-img/dish-niunan.jpg" alt="一锅牛腩牛肠煲"><figcaption>D1 晚饭 · 农庄牛腩牛肠煲</figcaption></figure>
+        <figure><img src="qingyuan-review-img/dish-buffet.jpg" alt="酒店餐厅的自助早餐"><figcaption>D2 早餐 · 云朵餐厅自助（含房费）</figcaption></figure>
+        <figure><img src="qingyuan-review-img/dish-lue.jpg" alt="碌鹅拼盘，肉色红亮"><figcaption>D2 午饭 · 花花姨碌鹅拼盘 ¥174</figcaption></figure>
+        <figure><img src="qingyuan-review-img/dish-ji.jpg" alt="白切鸡，鸡皮浅金黄"><figcaption>D3 午饭 · 家的味 白切鸡</figcaption></figure>
+        <figure><img src="qingyuan-review-img/dish-fish.jpg" alt="清蒸全鱼，铺着姜丝葱粒"><figcaption>D3 午饭 · 家的味 清蒸全鱼</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 花费 -->
+  <section class="sec sec--tint" id="cost">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">The bill</p>
+        <h2 class="sec__title">花掉的，和还没数的</h2>
+        <p class="sec__lede">只列有凭据的，没数的不硬凑。</p>
+      </div>
+      <dl class="cost">
+        <div class="cost__item"><dt>住宿</dt><dd>¥2,976<small>2 晚 × ¥1,488，含双人早餐</small></dd></div>
+        <div class="cost__item"><dt>花花姨碌鹅</dt><dd>¥174<small>碌鹅拼盘 + 酿番茄 + 鱼丸鱼头煲</small></dd></div>
+        <div class="cost__item"><dt>返程过路费</dt><dd>¥144.5<small>中秋高速照收，国庆才免费</small></dd></div>
+        <div class="cost__item cost__item--todo"><dt>未入账</dt><dd>—<small>家的味那顿、去程过路费、油钱</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 经验 -->
+  <section class="sec" id="learn">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Next time</p>
+        <h2 class="sec__title">这趟换来的六条经验</h2>
+        <p class="sec__lede">不是攻略抄来的，是这三天真金白银换的。</p>
+      </div>
+      <div class="note">
+        <ul>
+          <li><b>目的地要给「具体景点名 + 所在镇」</b>，绝不能只给区域统称。搜区域名，导航会把你送到那个区域最出名的那一个点，而它可能完全不是你要的。</li>
+          <li><b>看景点先看关门时间和最后入场时间</b>，再倒推出发时间。只算车程是不够的。</li>
+          <li><b>节假日返程，时间上要加缓冲</b>。这趟实测 223.2 km 开了 3 小时 22 分，比按自由流速度算出来的要慢；返程按 <code>+20~30 分钟</code> 留余量。</li>
+          <li><b>中秋高速不免费，国庆才免费</b>。返程 ¥144.5 的过路费就是证据。</li>
+          <li><b>团购券要看生效日</b>。「家的味」的券标着「最早明天可用」，当天到店用不了，得按原价结。</li>
+          <li><b>别被订单上的简写误导</b>。确认单把园区泳池写成「水深 30–130cm」，实际是分道运营、有救生台的正经泳池。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <p>两晚同一间房。<br>泡够、睡够、游够，下次把峰林补上。</p>
+    <small>清远三日 · 实录 · 2026.09.25 — 09.27</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('bar');
+  function onScroll(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.transform='scaleX('+(max>0?h.scrollTop/max:0)+')';
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true');
+      document.querySelectorAll('.day').forEach(function(d){d.classList.remove('is-on')});
+      var t=document.getElementById('day-'+b.dataset.day);
+      if(t){t.classList.add('is-on')}
+    });
+  });
+})();
+</script>
+</body>
+</html>
